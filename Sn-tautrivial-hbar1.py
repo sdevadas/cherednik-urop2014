@@ -56,8 +56,9 @@ def hilbertpolynomial(n,p): #S_n, char. p, l is a partition
             print gen
         if m == 0:
             print s
+            print factor(s)
             print generators
-            return s, generators
+            return 
 	print m, "*t^",k
         A2 = [] 
         for x in A:
