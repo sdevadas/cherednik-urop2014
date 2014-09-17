@@ -1,3 +1,7 @@
+#!/usr/bin/sage
+
+from sage.all import *
+
 def degreelist(n,k):
 	v = []
 	if n == 1:
@@ -32,7 +36,7 @@ def hilbertpolynomial(n,p): #S_n, char. p, l is a partition
     oldDict = {}
     k = 0
     m = 1
-    V.<t> = PolynomialRing(QQ)
+    V = PolynomialRing(QQ, 't')
     A = matrix([])
     s = 0
     echelonmatrixlist = [matrix([[]]),matrix([[]])]
