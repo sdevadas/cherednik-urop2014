@@ -37,6 +37,7 @@ def hilbertpolynomial(n,p): #S_n, char. p, l is a partition
     k = 0
     m = 1
     V = PolynomialRing(QQ, 't')
+    t = V.gen(0)
     A = matrix([])
     s = 0
     echelonmatrixlist = [matrix([[]]),matrix([[]])]
@@ -46,7 +47,7 @@ def hilbertpolynomial(n,p): #S_n, char. p, l is a partition
 	newDict = {}
         A = degreematrix(n,k,p,b,oldDict,newDict,echelonmatrixlist[0])
         m = rank(A)
-        s = s + m*t^k
+        s = s + m*t**k
         A = basis(kernel(A)) #this is in truncated basis
         dOld = degreelist(n,k)
         for i in A:
@@ -55,14 +56,17 @@ def hilbertpolynomial(n,p): #S_n, char. p, l is a partition
                 if i[j] != 0:
                     monom = P(1)
                     for l in range(0,n):
-                        monom = monom*(X[l]^(b[j][l]))
+                        monom = monom*(X[l]**(b[j][l]))
                     gen = gen + i[j]*monom
             print gen
+            generators.append(gen)
         if m == 0:
-            print s
-            print factor(s)
-            print generators
-            return 
+        	print 'RESULTS'
+        	print n, p 
+        	print s
+        	print factor(s)
+        	print generators
+        	return s, generators
 	print m, "*t^",k
         A2 = [] 
         for x in A:
