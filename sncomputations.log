@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  30 SEP 2014 00:43
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  30 SEP 2014 11:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -677,22 +677,47 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 512.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 559.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 533.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mid' on input line 533.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 533.
+
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 559.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 549.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mid' on input line 549.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 549.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 580.
+[8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 580.
  (./sncomputations.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 559.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 580.
 Package rerunfilecheck Info: File `sncomputations.out' has not changed.
-(rerunfilecheck)             Checksum: 9EAFCE031C61B52AE8398BC273716DB8;1359.
+(rerunfilecheck)             Checksum: 639E481BABACDB74CC7FF67878C05155;1481.
  ) 
 Here is how much of TeX's memory you used:
- 6171 strings out of 494749
- 90294 string characters out of 3170620
- 208691 words of memory out of 3000000
- 9253 multiletter control sequences out of 15000+200000
+ 6176 strings out of 494749
+ 90342 string characters out of 3170620
+ 208692 words of memory out of 3000000
+ 9255 multiletter control sequences out of 15000+200000
  10888 words of font info for 43 fonts, out of 3000000 for 9000
  166 hyphenation exceptions out of 8191
- 31i,6n,32p,257b,313s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,6n,32p,1113b,313s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mex10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/
@@ -702,13 +727,14 @@ msfonts/cm/cmmi7.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010basic/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on sncomputations.pdf (7 pages, 128684 bytes).
+pe1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010basic/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010basic/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on sncomputations.pdf (8 pages, 140506 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 195 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
