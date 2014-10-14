@@ -523,14 +523,40 @@ $\frac{c+1}{c}(x_1^3-x_0^3) +(x_1-x_0)(x_0x_1)+(x_1-x_0)\left(\sum_{i \ge 2}x_i^
 
 (The other generators are created from this one by switching $x_1$ with $x_k$ for some $k \ge 2$.)
 
-Alternate forms:
 
-$(x_1-x_0)\left(\frac{c+1}{c}x_1^2+\frac{c+1}{c}x_0x_1+\frac{c+1}{c}x_0^2+x_0x_1+\left(\sum_{i \ge 2}x_i^2-x_i(x_1+x_0)\right)+\frac{2c}{c+2}\left(\sum_{i,j \ge 2; i < j}x_ix_j\right)\right)$.
+We note that since $3 \mid n$ that $\sum_{i < j} (x_i-x_j)^2 = \sum_{i < j} x_ix_j + \sum_{i<j} x_i^2+x_j^2 = -\sum_i x_i^2 + \sum_{i<j} x_ix_j$. 
 
-$(x_1-x_0)\left(\frac{c+1}{c}x_1^2+\frac{2c+1}{c}x_0x_1+\frac{c+1}{c}x_0^2+\left(\sum_{i \ge 2}x_i^2-x_ix_1+x_ix_0\right)+\frac{2c}{c+2}\left(\sum_{i,j \ge 2; i < j}x_ix_j\right)\right)$
+We also note that $\sum_i (x_i^2-x_ix_1-x_ix_0) = x_0x_1 + \sum_{i \ge 2} (x_i^2-x_ix_1-x_ix_0) $.
 
 
-\section{Conjecture for $p=3, 3 \mid n$}
+We also note that $nx_1^2=nx_0^2=nx_0x_1=0$.
+
+
+
+\begin{align*}
+&\frac{c+1}{c}(x_1^3-x_0^3) +(x_1-x_0)(x_0x_1)+(x_1-x_0)\left(\sum_{i \ge 2}x_i^2-x_i(x_1+x_0)\right)+\frac{2c}{c+2}(x_1-x_0)\left(\sum_{i,j \ge 2; i < j}x_ix_j\right) = \\
+&=\frac{x_1-x_0}{c(c+2)}\left((c+1)(c+2)(x_0^2+x_0x_1+x_1^2)+c(c+2)(x_0x_1)+c(c+2)\left(\sum_{i \ge 2}x_i^2-x_i(x_1+x_0)\right)+2c^2\left(\sum_{i,j \ge 2; i < j}x_ix_j\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left((c^2-1)(x_0^2+x_0x_1+x_1^2)+(c^2-c)(x_0x_1)+(c^2-c)\left(\sum_{i \ge 2}x_i^2-x_i(x_1+x_0)\right)-c^2\left(\sum_{i,j \ge 2; i < j}x_ix_j\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}((c^2-1)(x_0^2+x_0x_1+x_1^2)+(c^2-c)(x_0x_1)+c^2\left(\sum_{i \ge 2}x_i^2\right)-c^2\left(\sum_{i \ge 2}x_ix_1+x_ix_0\right)\\&-c\left(\sum_{i \ge 2}x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{i,j \ge 2; i < j}x_ix_j\right))\\
+&=\frac{x_1-x_0}{c(c+2)}((c^2-1)(x_0^2+x_0x_1+x_1^2)+(c^2-c)(x_0x_1)+c^2\left(\sum_{i \ge 2}x_i^2\right)+c^2x_0x_1-c\left(\sum_{i \ge 2}x_i^2-x_ix_1-x_ix_0\right)\\&-c^2\left(\sum_{ i < j}x_ix_j\right))\\
+&=\frac{x_1-x_0}{c(c+2)}\left(c^2x_0^2+c^2x_1^2-x_0^2-x_1^2-x_0x_1-cx_0x_1+c^2\left(\sum_{i \ge 2}x_i^2\right)-c\left(\sum_{i \ge 2}x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{ i < j}x_ix_j\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-x_0^2-x_1^2-x_0x_1+c^2\left(\sum_{i}x_i^2\right)-c\left(\sum_{i }x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{ i < j}x_ix_j\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2+c^2\left(\sum_{i}x_i^2\right)-c\left(\sum_{i }-x_i^2-x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{ i < j}x_ix_j\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_{i }-x_i^2-x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_{i }-x_i^2-x_i^2-x_ix_1-x_ix_0-x_0^2-x_1^2\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2+c\left(\sum_{i }(x_i-x_1)^2+(x_i-x_0)^2\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+\end{align*}
+
+or:
+
+\begin{align*}
+&\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_{i }-x_i^2-x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_{i }x_i^2-x_ix_1-x_ix_0+x_0x_1\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+&=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+\end{align*}
+
+
+\section{Conjecture for $p=5, 5 \mid n$}
 
 Variables are $x_0,\dots,x_{n-1}$. 
 
