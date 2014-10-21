@@ -546,6 +546,7 @@ We also note that $nx_1^2=nx_0^2=nx_0x_1=0$.
 &=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2+c^2\left(\sum_{i}x_i^2\right)-c\left(\sum_{i }x_i^2-x_ix_1-x_ix_0\right)-c^2\left(\sum_{ i < j}x_ix_j\right)\right)\\
 &=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_{i }x_i^2-x_ix_1-x_ix_0+x_0x_1\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
 &=\frac{x_1-x_0}{c(c+2)}\left(-(x_0-x_1)^2-c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+&=\frac{1}{c(c+2)}\left(x_0^3-x_1^3-c\left(\sum_i (x_1-x_0)(x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ i < j}(x_1-x_0)(x_i-x_j)^2\right)\right)\\
 \end{align*}
 
 (Checked with Sage)
@@ -570,14 +571,32 @@ $\frac{1}{c(c+2)}\left((x_0-x_1)^2+c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)+c^2\l
 
 We can use these to calculate the values for the Dunkl operators. We need only check $D_0g,D_1g,D_2g$, because the rest are essentially equivalent to $D_2g$. 
 
+\subsection{$D_0g$}
+
 We start with $D_0g$. We see that $D_0g=\partial_0g-c \sum_{i \ge 1} \frac{g-s_{0i}g}{x_0-x_i}$.
 
 We consider the partial derivative.
 
 \begin{align*}
-\partial_0g &= \frac{1}{c(c+2)}\left(-c\sum_{i \ge 2}\left((x_i-x_1)(x_0-x_i+x_0-x_1)\right)-c^2\sum_{i \ge 1}\left((x_1-x_0)(2(x_0-x_i))-(x_0-x_i)^2\right)\right)\\
-&= \frac{1}{c(c+2)}\left(-c\sum_{i \ge 2}\left((x_i-x_1)(x_0-x_i+x_0-x_1)\right)+c^2\sum_{i \ge 1}\left((x_1-x_0)(x_0-x_i)+(x_0-x_i)^2\right)\right)\\
-&= \frac{1}{c(c+2)}\left(-c\sum_{i \ge 2}\left((x_i-x_1)(x_0-x_i+x_0-x_1)\right)+c^2\sum_{i}\left((x_1-x_i)(x_0-x_i)\right)\right)\\
+\partial_0g &= \partial_0\left(\frac{1}{c(c+2)}\left(x_0^3-x_1^3-c\left(\sum_i (x_1-x_0)(x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ i < j}(x_1-x_0)(x_i-x_j)^2\right)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(-c\left(\sum_{i \ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i < j}\partial_0((x_1-x_0)(x_i-x_j)^2)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(-c\left(\sum_{i \ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i \ge 1}\partial_0((x_1-x_0)(x_i-x_0)^2)\right)-c^2\left(\sum_{ 0 < i < j}\partial_0((x_1-x_0)(x_i-x_j)^2)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(-c\left(\sum_{ i\ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i \ge 1}\partial_0((x_1-x_0)(x_i-x_0)^2)\right)+c^2\left(\sum_{ 0 < i < j}(x_i-x_j)^2\right)\right)\\
+&= \frac{1}{c(c+2)}\left(-c\left(\sum_{i \ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)+c^2\left(\sum_{ i \ge 2}(x_1-x_i)(x_0-x_i)\right)+c^2\left(\sum_{ 0 < i < j}(x_i-x_j)^2\right)\right)\\
+&= \frac{c}{c(c+2)}\left(-\left(\sum_{i \ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)+c\left(\sum_{ i \ge 2}(x_1-x_i)(x_0-x_i)\right)+c\left(\sum_{ 0 < i < j}(x_i-x_j)^2\right)\right)\\
+\end{align*}
+
+We note that in $\sum_{ 0 < i < j}(x_i-x_j)^2$ that in each term at least one of the $x_i,x_j$ has index $\ge 2$. Therefore $\sum_{ 0 < i < j}(x_i-x_j)^2=\sum_{0 < i < j} -2(x_i-x_j)^2= -\sum_{0 < i,j; i \ne j} (x_i-x_j)^2=-\left(\sum_{i \ge 2} \sum_{j \ge 1} (x_i-x_j)^2\right)-\left(\sum_{i \ge 2} (x_i-x_1)^2 \right)$ because of the double-counting. Then since $n-1=-1$, we see that this is equal to $-\left(\sum_{i \ge 2} \sum_{j \ge 1} (x_i-x_j)^2-(x_i-x_1)^2\right)=\sum_{i \ge 2} \sum_{j \ge 1} (x_i-x_1)^2-(x_i-x_j)^2=\sum_{i \ge 2} \sum_{j \ge 1} (x_1-x_j)(x_1+x_j+x_i)$.
+
+Therefore we have (there is a switch of indices):
+
+\begin{align*}
+\partial_0g &=  \frac{c}{c(c+2)}\left(-\left(\sum_{i \ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)+c\left(\sum_{ i \ge 2}(x_1-x_i)(x_0-x_i)\right)+c\left(\sum_{i \ge 2} \sum_{j \ge 1} (x_1-x_j)(x_1+x_j+x_i)\right)\right)\\
+&=  \frac{c}{c(c+2)}\left(-\left(\sum_{i \ge 2} (x_1-x_i)(x_0+x_1+x_i)\right)+c\left(\sum_{ i \ge 2}(x_1-x_i)(x_0-x_i)\right)+c\left(\sum_{i \ge 2} \sum_{j \ge 2} (x_1-x_i)(x_1+x_j+x_i)\right)\right)\\
+&=  \frac{c}{c(c+2)}\left(\sum_{i \ge 2}\left(-\left((x_1-x_i)(x_0+x_1+x_i)\right)+c\left((x_1-x_i)(x_0-x_i)\right)+c\left( \sum_{j \ge 2} (x_1-x_i)(x_1+x_j+x_i)\right)\right)\right)\\
+&=  \frac{c}{c(c+2)}\left(\sum_{i \ge 2}(x_i-x_1)\left((x_0+x_1+x_i)-c\left(x_0-x_i\right)-c\left( \sum_{j \ge 2} (x_1+x_j+x_i)\right)\right)\right)\\
+&=  \frac{c}{c(c+2)}\left(\sum_{i \ge 2}(x_i-x_1)\left((x_0+x_1+x_i)-cx_0+cx_i-cx_1-cx_i-c\left( \sum_{j \ge 2} x_j\right)\right)\right)\\
+&=  \frac{c}{c(c+2)}\left(\sum_{i \ge 2}(x_i-x_1)\left((x_0+x_1+x_i)-c\left( \sum_{j} x_j\right)\right)\right)\\
 \end{align*}
 
 Let $G_1=\frac{g-s_{01}g}{x_0-x_1}=-\frac{1}{c(c+2)}\left((x_0-x_1)^2+c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)+c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)$. Let $G_2=\sum_{i\ge 2} \frac{g-s_{0i}g}{x_0-x_i}$.
@@ -586,6 +605,8 @@ Let $G_1=\frac{g-s_{01}g}{x_0-x_1}=-\frac{1}{c(c+2)}\left((x_0-x_1)^2+c\left(\su
 G_2&=\sum_{i\ge 2} \frac{g-s_{0i}g}{x_0-x_i}\\
 &=\sum_{k \ge 2} \left(\frac{1}{c(c+2)}\left((x_k-x_0)^2+c\sum_i (x_1-x_i)(x_0-x_1+x_k-x_i)+c^2\sum_{i < j} (x_i-x_j)^2\right)\right)\\
 &=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_0)^2+c\sum_i (x_1-x_i)(x_0-x_1+x_k-x_i)\right)+(n-2)c^2\sum_{i < j} (x_i-x_j)^2\right)\\
+&=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_0)^2+c\sum_i (x_1-x_i)(x_0-x_1+x_k-x_i)\right)+c^2\sum_{i < j} (x_i-x_j)^2\right)\\
+&=\frac{1}{c(c+2)}\left(c\sum_{k \ge 2} \sum_i (x_1-x_i)(x_0-x_1+x_k-x_i)+c^2\sum_{i < j} (x_i-x_j)^2+\left(\sum_{k \ge 2}(x_k-x_0)^2\right)\right)\\
 \end{align*}
 
 We note that $n-2-1=0$ since $3 \mid n$. Therefore:
@@ -596,6 +617,77 @@ G_2+G_1&=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_0)^2+c\sum_i (x_1-x_i)
 \end{align*}
 
 We consider $\sum_{k \ge 2} \sum_i  (x_1-x_i)(x_0-x_1+x_k-x_i)-\left(\sum_i (x_i-x_1)(x_i-x_0)\right)$. We note that $n-2=1$, so this is equal to $\sum_{k \ge 2} \sum_i  (x_1-x_i)(x_0-x_1+x_k-x_i)-\left(\sum_{k \ge 2}\sum_i (x_i-x_1)(x_i-x_0)\right)$; then this is equal to $\sum_{k \ge 2} \sum_i  \left((x_1-x_i)(x_0-x_1+x_k-x_i)-(x_i-x_1)(x_i-x_0)\right)$.  This simplifies to $\sum_{k \ge 2} \sum_i (x_1-x_i)(x_k-x_1)$. 
+
+Therefore we see that (again using $n-2=1$):
+
+\begin{align*}
+G_1+G_2&=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_0)^2-(x_1-x_0)^2+c\sum_i (x_1-x_i)(x_k-x_1)\right)\right)\\
+&=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_0+x_1-x_0)(x_k-x_1)-c\sum_i x_i(x_k-x_1)\right)\right)\\
+&=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}(x_k-x_1)\left(x_k+x_1+x_0-c\sum_i x_i\right)\right)\\
+\end{align*}
+
+Then we can relabel indices and see that $c(G_1+G_2)=\partial_0g$, so the Dunkl operator is $0$ as desired.
+
+\subsection{$D_1g$}
+
+
+We see that $D_1g=\partial_1g-c \sum_{i \ne 1} \frac{g-s_{1i}g}{x_1-x_i}$.
+
+We consider the partial derivative.
+
+\begin{align*}
+\partial_1g &= \partial_1\left(\frac{1}{c(c+2)}\left(x_0^3-x_1^3-c\left(\sum_i (x_1-x_0)(x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ i < j}(x_1-x_0)(x_i-x_j)^2\right)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(c\left(\sum_{i \ge 2} (x_0-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i < j}\partial_1((x_1-x_0)(x_i-x_j)^2)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(c\left(\sum_{i \ge 2} (x_0-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i \ne 1}\partial_1((x_1-x_0)(x_i-x_1)^2)\right)-c^2\left(\sum_{ 1 \ne  i < j\ne 1}\partial_1((x_1-x_0)(x_i-x_j)^2)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(c\left(\sum_{i \ge 2} (x_0-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i \ge 2}(x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ 1 \ne  i < j\ne 1}\partial_1((x_1-x_0)(x_i-x_j)^2)\right)\right)\\
+&= \frac{1}{c(c+2)}\left(c\left(\sum_{i \ge 2} (x_0-x_i)(x_0+x_1+x_i)\right)-c^2\left(\sum_{ i \ge 2}(x_i-x_1)(x_i-x_0)\right)-c^2\left(\sum_{ 1 \ne  i < j\ne 1}(x_i-x_j)^2\right)\right)\\
+&= \frac{c}{c(c+2)}\left(\left(\sum_{i \ge 2} (x_0-x_i)(x_0+x_1+x_i)\right)-c\left(\sum_{ i \ge 2}(x_i-x_1)(x_i-x_0)\right)-c\left(\sum_{ 1 \ne  i < j \ne 1}(x_i-x_j)^2\right)\right)\\
+\end{align*}
+
+We note that in $\sum_{ 1 \ne i < j\ne 1}(x_i-x_j)^2$ that in each term at least one of the $x_i,x_j$ has index $\ge 2$. Therefore $\sum_{ 1 \ne i < j\ne 1}(x_i-x_j)^2=\sum_{1 \ne i< j\ne 1} -2(x_i-x_j)^2= -\sum_{1 \ne i,j; i \ne j} (x_i-x_j)^2=-\left(\sum_{i \ge 2} \sum_{j \ne 1} (x_i-x_j)^2\right)-\left(\sum_{i \ge 2} (x_i-x_0)^2 \right)$ because of the double-counting. Then since $n-1=-1$, we see that this is equal to $-\left(\sum_{i \ge 2} \sum_{j \ne 1} (x_i-x_j)^2-(x_i-x_0)^2\right)=\sum_{i \ge 2} \sum_{j \ne 1} (x_i-x_0)^2-(x_i-x_j)^2=\sum_{i \ge 2} \sum_{j \ne 1} (x_0-x_j)(x_0+x_j+x_i)=\sum_{i \ge 2} \sum_{j \ge 2} (x_0-x_j)(x_0+x_j+x_i)$.
+
+Therefore we have (there is a switch of indices):
+
+\begin{align*}
+\partial_1g&= \frac{c}{c(c+2)}\left(\left(\sum_{i \ge 2} (x_0-x_i)(x_0+x_1+x_i)\right)-c\left(\sum_{ i \ge 2}(x_i-x_1)(x_i-x_0)\right)-c\left(\sum_{i \ge 2} \sum_{j \ge 2} (x_0-x_i)(x_0+x_j+x_i)\right)\right)\\
+&= \frac{c}{c(c+2)}\left(\sum_{i \ge 2}\left((x_0-x_i)(x_0+x_1+x_i)\right)-c\left((x_i-x_1)(x_i-x_0)\right)-c\left( \sum_{j \ge 2} (x_0-x_i)(x_0+x_j+x_i)\right)\right)\\
+&= \frac{c}{c(c+2)}\left(\sum_{i \ge 2}(x_0-x_i)\left((x_0+x_1+x_i)-c(x_1-x_i)-c\left( \sum_{j \ge 2}(x_0+x_j+x_i)\right)\right)\right)\\
+&= \frac{c}{c(c+2)}\left(\sum_{i \ge 2}(x_0-x_i)\left((x_0+x_1+x_i)-cx_1+cx_i-cx_0-cx_i-c\left( \sum_{j \ge 2}x_j\right)\right)\right)\\
+&=  \frac{c}{c(c+2)}\left(\sum_{i \ge 2}(x_0-x_i)\left((x_0+x_1+x_i)-c\left( \sum_{j} x_j\right)\right)\right)\\
+\end{align*}
+
+
+Let $G_1=\frac{g-s_{01}g}{x_1-x_0}=\frac{1}{c(c+2)}\left((x_0-x_1)^2+c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)+c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)$. Let $G_2=\sum_{i\ge 2} \frac{g-s_{1i}g}{x_1-x_i}$.
+
+\begin{align*}
+G_2&=\sum_{k\ge 2} \frac{g-s_{1k}g}{x_1-x_k}\\
+&=-\sum_{k \ge 2} \left(\frac{1}{c(c+2)}\left((x_k-x_1)^2+c\sum_i (x_0-x_i)(x_1-x_0+x_k-x_i)+c^2\sum_{i < j} (x_i-x_j)^2\right)\right)\\
+&=-\frac{1}{c(c+2)}\left(\sum_{k \ge 2} \left((x_k-x_1)^2+c\sum_i (x_0-x_i)(x_1-x_0+x_k-x_i)\right)+(n-2)c^2\sum_{i < j} (x_i-x_j)^2\right)\\
+&=-\frac{1}{c(c+2)}\left(\sum_{k \ge 2} \left((x_k-x_1)^2+c\sum_i (x_0-x_i)(x_1-x_0+x_k-x_i)\right)+c^2\sum_{i < j} (x_i-x_j)^2\right)\\
+\end{align*}
+
+We note that $n-2-1=0$ since $3 \mid n$. Therefore:
+
+\begin{align*}
+G_2+G_1&=-\frac{1}{c(c+2)}\left(\sum_{k \ge 2} \left((x_k-x_1)^2+c\sum_i (x_0-x_i)(x_1-x_0+x_k-x_i)\right)+c^2\sum_{i < j} (x_i-x_j)^2\right)\\&+\frac{1}{c(c+2)}\left((x_0-x_1)^2+c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)+c^2\left(\sum_{ i < j}(x_i-x_j)^2\right)\right)\\
+&=\frac{1}{c(c+2)}(-\left(\sum_{k \ge 2} \left((x_k-x_1)^2+c\sum_i (x_0-x_i)(x_1-x_0+x_k-x_i)\right)\right)\\&+\left((x_0-x_1)^2+c\left(\sum_i (x_i-x_1)(x_i-x_0)\right)\right))\\
+\end{align*}
+
+We consider $-\sum_{k \ge 2} \sum_i (x_0-x_i)(x_1-x_0+x_k-x_i)+\left(\sum_i (x_i-x_1)(x_i-x_0)\right)$. We note that $n-2=1$, so this is equal to $-\sum_{k \ge 2} \sum_i  (x_0-x_i)(x_1-x_0+x_k-x_i)+\left(\sum_{k \ge 2}\sum_i (x_1-x_i)(x_0-x_i)\right)$; then this is equal to $\sum_{k \ge 2} \sum_i  \left((x_0-x_i)(x_0-x_k)\right)$.
+Therefore we see that (again using $n-2=1$):
+
+\begin{align*}
+G_1+G_2&=-\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_1)^2-(x_0-x_1)^2-c\sum_i  (x_0-x_i)(x_0-x_k)\right)\right)\\
+&=-\frac{1}{c(c+2)}\left(\sum_{k \ge 2}\left((x_k-x_1+x_0-x_1)(x_k-x_0)-c\sum_i x_i(x_k-x_0)\right)\right)\\
+&=-\frac{1}{c(c+2)}\left(\sum_{k \ge 2}(x_k-x_0)\left(x_k+x_1+x_0-c\sum_i x_i\right)\right)\\
+&=\frac{1}{c(c+2)}\left(\sum_{k \ge 2}(x_0-x_k)\left(x_k+x_1+x_0-c\sum_i x_i\right)\right)\\
+\end{align*}
+
+Then we can relabel indices and see that $c(G_1+G_2)=\partial_1g$, so the Dunkl operator is $0$ as desired.
+
+
+
+\subsection{$D_2g$}
 
 We see that $D_2g=\partial_2g-c\frac{g-s_{02}g}{x_2-x_0}-c\frac{g-s_{12}g}{x_2-x_1}$ because the rest cancel. Let $G=\frac{g-s_{02}g}{x_2-x_0}+\frac{g-s_{12}g}{x_2-x_1}$. From the above we see that:
 
@@ -633,6 +725,15 @@ It is defintely possible to factor out $x_1-x_0$ from this.
 
 (The other generators are created from this one by switching $x_1$ with $x_k$ for some $k \ge 2$.)
 
+
+\subsection{$x_0^9$}
+
+This is the final generator. We note that all partial derivatives are $0$, so we disregard them. For Dunkl operators other than $D_0$, the only relevant term is $\frac{x_0^9-x_k^9}{x_k-x_0}=(x_k-x_0)^8$. We will show this is in the ideal. We note that then $D_0(x_0^9)=-c\sum_{k \ge 1} \frac{x_0^9-x_k^9}{x_0-x_k}$ will also be in the ideal. 
+
+
+We therefore need only consider the case $D_1$ since all others will be symmetric and follow.
+
+$\frac{x_0^9-x_1^9}{x_1-x_0}=-\sum_{i=0}^8 x_0^ix_1^{8-i}$.
 
 
 \section{Conjecture for general $p \mid n$}
