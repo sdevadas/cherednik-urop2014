@@ -289,6 +289,18 @@ $((2c + 2)/c)x_0^3 \\ + ((c + 1)/c)x_1^3\\
 
 conjecture: $x_0^9$.
 
+\subsection{$n-1$ case}
+
+%(2*c/(c + 2))*x_0^2*x_1 + (2*c/(c + 2))*x_0*x_1^2 + (2*c/(c + 2))*x_0^2*x_2 + (c/(c + 2))*x_0*x_1*x_2 + (2*c/(c + 2))*x_1^2*x_2 + (2*c/(c + 2))*x_0*x_2^2 + (2*c/(c + 2))*x_1*x_2^2 + (2*c/(c + 2))*x_0^2*x_3 + (c/(c + 2))*x_0*x_1*x_3 + (2*c/(c + 2))*x_1^2*x_3 + (c/(c + 2))*x_0*x_2*x_3 + (c/(c + 2))*x_1*x_2*x_3 + (2*c/(c + 2))*x_2^2*x_3 + (2*c/(c + 2))*x_0*x_3^2 + (2*c/(c + 2))*x_1*x_3^2 + (2*c/(c + 2))*x_2*x_3^2 + (2*c/(c + 2))*x_0*x_1*x_4 + (2*c/(c + 2))*x_0*x_2*x_4 + (2*c/(c + 2))*x_1*x_2*x_4 + (2*c/(c + 2))*x_0*x_3*x_4 + (2*c/(c + 2))*x_1*x_3*x_4 + (2*c/(c + 2))*x_2*x_3*x_4 + x_4^3
+
+%((c + 2)/c)*x_0^3 + x_0^2*x_1 + x_0*x_1^2 + ((2*c + 1)/c)*x_1^3 + x_0^2*x_2 + x_0*x_1*x_2 - x_1^2*x_2 + x_0*x_2^2 - x_1*x_2^2 + ((2*c + 1)/c)*x_2^3 - x_0^2*x_3 - x_0*x_1*x_3 - x_0*x_2*x_3 - x_0*x_3^2 - x_0^2*x_4 - x_0*x_1*x_4 - x_0*x_2*x_4 + x_1*x_3*x_4 + x_2*x_3*x_4 + x_3^2*x_4 - x_0*x_4^2 + x_3*x_4^2
+
+%((2*c + 1)/c)*x_0^3 - x_0^2*x_1 - x_0*x_1^2 + x_1^2*x_2 + x_1*x_2^2 + ((c + 2)/c)*x_2^3 - x_0^2*x_3 - x_0*x_1*x_3 + x_1*x_2*x_3 + x_2^2*x_3 - x_0*x_3^2 + x_2*x_3^2 - x_0^2*x_4 - x_0*x_1*x_4 + x_1*x_2*x_4 + x_2^2*x_4 - x_0*x_3*x_4 + x_2*x_3*x_4 - x_0*x_4^2 + x_2*x_4^2
+
+%((2*c + 1)/c)*x_0^3 + ((c + 2)/c)*x_1^3 - x_0^2*x_2 + x_1^2*x_2 - x_0*x_2^2 + x_1*x_2^2 - x_0^2*x_3 + x_1^2*x_3 - x_0*x_2*x_3 + x_1*x_2*x_3 - x_0*x_3^2 + x_1*x_3^2 - x_0^2*x_4 + x_1^2*x_4 - x_0*x_2*x_4 + x_1*x_2*x_4 - x_0*x_3*x_4 + x_1*x_3*x_4 - x_0*x_4^2 + x_1*x_4^2
+
+%x_0^3 + (c/(c + 2))*x_0^2*x_1 + (c/(c + 2))*x_0*x_1^2 + x_1^3 + (c/(c + 2))*x_0^2*x_2 + (c/(c + 2))*x_0*x_1*x_2 + (c/(c + 2))*x_1^2*x_2 + (c/(c + 2))*x_0*x_2^2 + (c/(c + 2))*x_1*x_2^2 + x_2^3 + (c/(c + 2))*x_0^2*x_3 + (c/(c + 2))*x_0*x_1*x_3 + (c/(c + 2))*x_1^2*x_3 + (c/(c + 2))*x_0*x_2*x_3 + (c/(c + 2))*x_1*x_2*x_3 + (c/(c + 2))*x_2^2*x_3 + (c/(c + 2))*x_0*x_3^2 + (c/(c + 2))*x_1*x_3^2 + (c/(c + 2))*x_2*x_3^2 + x_3^3
+
 
 \section{$S_6$, char $2$, $\tau$ trivial}
 
@@ -735,6 +747,22 @@ We therefore need only consider the case $D_1$ since all others will be symmetri
 
 $\frac{x_0^9-x_1^9}{x_1-x_0}=-\sum_{i=0}^8 x_0^ix_1^{8-i}$.
 
+We note that $D_0(x_0^9) = -c\sum_{k \ge 1} \frac{x_0^9-x_k^9}{x_0-x_k} = -c \sum_{i=0}^8 x_0^i(\sum_j x_j^{8-i})$. 
+
+Let $m_{i,j}=\sum_{k=0}^8 x_i^kx_j^{8-k}$ and $g_{i,j}$ be the generators described above. Ex: $g_{0,1}$ is the generator we were working with above. 
+
+We wish to write $m_{0,1}=\sum_{i=1}^5 p_ig_{0,i}$ where $p_i$ is a homogeneous degree $5$ polynomial for all $i$. 
+
+We must consider the symmetries. We note that $g_{i,j}=-g_{j,i}, g_{i,j}-g_{k,j}=g_{i,k}$ and $g_{i,j}-g_{i,k}=g_{k,j}$ for all $i,j,k$. We also note that $g_{i,i}=0$ for all $i$, and $\sum_{j=0}^5 g_{i,j} = \frac{c+1}{c}\sum_{j=0}^5 x_j^3$ for all $i$. 
+
+Let $s_{ij}$ be the transposition switching $x_i$ and $x_j$. By letting these act on $m_{0,1}$ we see that we must have for all $i,j \ge 2$ that $s_{ij}p_k=p_k$ for $k \ne i, k \ne j$ and $s_{ij}p_i=p_j,s_{ij}p_j=p_i$. 
+
+We also note that $s_{01}m_{0,1}=m_{0,1}$ and $s_{01}g_{0,1}=-g_{0,1}$, while $s_{0,1}g_{0,k}$ for $k \ge 2$ is $g_{1,k}=g_{0,k}-g_{0,1}$. 
+
+Then $m_{0,1}=-(s_{0,1}*p_1)*g_{0,1}+\sum_{i=2}^5 (s_{0,1}p_i)*(g_{0,i}-g_{0,1})$. 
+
+From this we see that $-\sum_{i=1}^5 s_{0,1}p_i=p_1$ and $s_{0,1}p_i=p_i$ for $i \ge 2$. This means that $p_1+s_{0,1}p_1+\sum_{i=2}^5 p_i = 0$. 
+
 
 \section{Conjecture for general $p \mid n$}
 
@@ -745,7 +773,15 @@ Generators are:
 $x_0^{p^2}$ in degree $p^2$, and $\sum x_i^p$ in degree $p$. There are $n-2$ remaining generators in degree $p$. It is clear that each such generator contains a term of the form $\frac{c+1}{c}(x_k^p-x_0^p)$. If we assume we are in the generator with $k=1$, then the generator also contains a term $\left(\sum_{i \ge 2} x_0^{p-1}x_i+x_1x_i^{p-1}-x_0x_i^{p-1}-x_1^{p-1}x_i\right)$
 
 
+\section{$n-1$ case, $n-2$ case}
 
+In the case where we use the $n-1$ representation, the Hilbert polynomial appears to be $\left(\frac{1-t^p}{1-t}\right)^{n-1}$.
+
+There are $n-1$ generators in degree $3$. If we choose as basis $e_i=x_i-x_0$ for $i=1,\dots,n-1$ we will find that these generators are the same as the ones in the $n$-dimensional case, which we can express in terms of the $e_i$. 
+
+In the case $3 \mid n$ where we use the $n-2$ representation, the Hilbert polynomial appears to be $\left(\frac{1-t^p}{1-t}\right)^{n-2}$.
+
+There are $n-3$ generators in degree $3$. If we choose as basis $e_i=x_i-x_0$ for $i=1,\dots,n-2$ with $e_{n-1}=-\sum_{i=1}^{n-2}e_i$, we will find that these generators are the same as the ones in the $n$-dimensional case and the $n-1$ dimensional case, which we can express in terms of the $e_i$ (the last generator is the negative of the sum of the others and therefore can be disregarded). 
 
 
 
