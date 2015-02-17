@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{color}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+\newtheorem{problem}[equation]{Problem}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{definition}[equation]{Definition}
+\newenvironment{defn}[1][]{%
+    \begin{definition}[#1]\pushQED{\qed}}{\popQED \end{definition}}
+\parindent=0in
+\parskip=0.15in
+
+\newcommand{\xx}[1]{\textcolor{blue}{#1}}
+\newcommand{\zb}{\overline{z}}
+\newcommand{\cc}[1]{\overline{#1}}
+\newcommand{\m}[1]{\left|#1\right|}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\cis}{\text{cis}\,}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\D}{\triangle}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\f}[1]{\sum_{n=-\infty}^\infty #1_ne^{inx}}
+\newcommand{\fn}[1]{\sum_{n=-\infty}^\infty #1e^{inx}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mm}[1]{\m{\m{#1}}}
+\newcommand{\ang}[1]{\left\langle #1 \right\rangle}
+
+
+\begin{document}
+
+\section{$p=3, 3 \mid n$, $n-1$ case full argument}
+
+\subsection{Generators}
+
+Let $x_1,\dots,x_{n-1}$ be a basis for the $n-1$ dimensional representation of $S_n$ derived from the standard representation with basis $e_0,\dots,e_{n-1}$ by the relation $x_i=e_i-e_0$ and the action of the symmetric group defined accordingly. Let $s_{ij}$ be the transposition of $i$ and $j$, for $0 \le i < j \le n-1$. 
+
+For $1 \le i < j \le n-1$, the relevant eigenvectors are $x_i-x_j$. For $s_{0i}$ for $1 \le i \le n-1$, the relevant eigenvector is $x_i$. 
+
+Let $f_a$ for $a=1,\dots, n-1$ be $f_a = -x_a^3+c \left(\sum_{i=1}^{n-1} x_ax_i(x_a-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_jx_a\right)$. We will show that all the $f_a$ are killed by Dunkl operators. Because of their symmetry, we need only consider $f_1$. Since $f_1$ is symmetric in the $x_i$ excluding $x_1$, the only Dunkl operators we need consider are $D_1,D_2$.
+
+We note that $f_1$ is preserved by $s_{ij}$ for all $i,j >1$. We consider $s_{1a}$ for $2 \le a$. We see that $s_{1a}f_1=-x_a^3+c \left(\sum_{i=1}^{n-1} x_ax_i(x_a-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_jx_a\right)=f_a$. Then:
+
+\begin{align*}
+f_1-f_a&=-(x_1-x_a)^3+c \left(\sum_{i=1}^{n-1} x_1x_i(x_1-x_i)-x_ax_i(x_a-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_j(x_1-x_a)\right)\\
+&=-(x_1-x_a)^3+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_a-x_i)(x_1-x_a)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_j(x_1-x_a)\right)\\
+\end{align*}
+
+Then $\frac{f_1-s_{1a}f_1}{x_1-x_a}=-(x_1-x_a)^2+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_a-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_j\right)$.
+
+We consider $s_{0a}$ for $2 \le a$. We see that $s_{01}$ sends $x_a$ to $-x_a$ and $x_i$ for $i \ne a$ to $x_a-x_1$. We see that $s_{0a}f_1=-x_1^3+c \left(\sum_{i=1}^{n-1} x_1x_i(x_1-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_jx_1\right)$. %todo
+
+The only remaining case to consider is $s_{01}$. We see that $s_{01}$ sends $x_1$ to $-x_1$ and $x_a$ for $a \ge 2$ to $x_a-x_1$. Then $s_{01}f_1$ goes to 
+
+\begin{align*}
+&-(-x_1)^3+c \left(\sum_{i=2}^{n-1} (-x_1)(x_i-x_1)(-x_1-(x_i-x_1))\right)+c^2 \left(\sum_{i=2}^{n-1} \sum_{j=2}^{n-1} (x_i-x_1)(x_j-x_1)(-x_1)\right)+\\&2c^2\left(\sum_{i=2}^{n-1}(x_i-x_1)x_1^2\right)+c^2(-x_1)^3\\
+&=x_1^3+c \left(\sum_{i=2}^{n-1} x_1x_i(x_i-x_1)\right)+c^2 \left(\sum_{i=2}^{n-1} \sum_{j=2}^{n-1}-x_ix_jx_1+x_ix_1^2+x_jx_1^2-x_1^3\right)+\\&2c^2\left(\sum_{i=2}^{n-1}(x_i-x_1)x_1^2\right)+2c^2x_1^3\\
+&=x_1^3+c \left(\sum_{i=2}^{n-1} x_1x_i(x_i-x_1)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1}-x_ix_jx_1\right)\\  
+&=-f_1\\
+\end{align*}
+
+The above used the fact that $n-2 \equiv 1 \mod 3$. Therefore $\frac{f_1-s_{01}f_1}{x_1}=2f_1/x_1=-f_1/x_1=x_1^2+c \left(\sum_{i=1}^{n-1} x_i(x_i-x_1)\right)-c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_j\right)$.
+
+We can use these to calculate the effects of the Dunkl operators. 
+
+\subsection{Dunkl operators}
+
+\subsubsection{$D_1f_1$}
+
+We first consider $D_1f_1=\partial_1f_1-c\sum_{a > 1} \frac{f_1-s_{1a}f_1}{x_1-x_a}-c\frac{f_1-s_{01}f_1}{x_1}$. Let $G_1=\sum_{a > 1} \frac{f_1-s_{1a}f_1}{x_1-x_a}, G_2=\frac{f_1-s_{01}f_1}{x_1}$. We wish to show that $\partial_1f_1=cG_1+cG_2$, since then $D_1f_1=0$. We calculate $\partial_1f_1$: 
+
+\begin{align*}
+\partial_1f_1&=\partial_1\left(-x_1^3+c \left(\sum_{i=1}^{n-1} x_1x_i(x_1-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_jx_1\right)\right)\\
+&=c \left(\sum_{i=2}^{n-1} x_1x_i+x_i(x_1-x_i)\right)+c^2 \left(\sum_{i=2}^{n-1} \sum_{j=2}^{n-1} x_ix_j\right)+2c^2 \left(\sum_{i=2}^{n-1} 2x_ix_1\right)\\
+&=c \left(\sum_{i=2}^{n-1} x_1x_i+x_ix_1-x_i^2\right)+c^2 \left(\sum_{i=2}^{n-1} \sum_{j=2}^{n-1} x_ix_j\right)+c^2 \left(\sum_{i=2}^{n-1} x_ix_1\right)\\
+&=c \left(\sum_{i=2}^{n-1} -x_1x_i-x_i^2\right)+c^2 \left(\sum_{i=2}^{n-1} \sum_{j=1}^{n-1} x_ix_j\right)\\
+\end{align*}
+
+We also see that $G_1= \sum_{a > 1} \frac{f_1-s_{1a}f_1}{x_1-x_a} = \sum_{a=2}^{n-1} -(x_1-x_a)^2+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_a-x_i)\right)+c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_j\right)$ and $G_2=x_1^2+c \left(\sum_{i=1}^{n-1} x_i(x_i-x_1)\right)-c^2 \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_j\right)$.
+
+Since $n-2 \equiv 1 \mod 3$, we see that the $c^2$ terms cancel in $G_1+G_2$. We also note that $x_i(x_i-x_1)=x_i(x_1+x_1-x_i)-x_i^2$ for all $i$, so $G_1+G_2= x_1^2-c\left(\sum_{i=1}^{n-1} x_i^2\right)+\sum_{a=1}^{n-1} -(x_1-x_a)^2+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_a-x_i)\right)$.
+
+\begin{align*}
+G_1+G_2&= x_1^2-c\left(\sum_{i=1}^{n-1} x_i^2\right)+\sum_{a=1}^{n-1} -(x_1-x_a)^2+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_a-x_i)\right)\\
+&= x_1^2-c\left(\sum_{i=1}^{n-1} x_i^2\right)+\sum_{a=1}^{n-1} -x_1^2-x_a^2+2x_ax_1+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_a-x_i)\right)\\
+&= x_1^2-c\left(\sum_{i=1}^{n-1} x_i^2\right)+\sum_{j=1}^{n-1} -x_1^2-x_j^2+2x_jx_1+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_j-x_i)\right)\\
+&= x_1^2+-(n-1)x_1^2-c\left(\sum_{i=1}^{n-1} x_i^2\right)+\sum_{j=1}^{n-1} -x_j^2-x_jx_1+c \left(\sum_{i=1}^{n-1} x_i(x_1+x_j-x_i)\right)\\
+&= 2x_1^2-c\left(\sum_{i=1}^{n-1} x_i^2\right)+\sum_{j=1}^{n-1} \left(-x_j^2-x_jx_1\right)+c \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_1+x_ix_j-x_i^2\right)\\
+&= \sum_{j=2}^{n-1} \left(-x_j^2-x_jx_1\right)-c\left(\sum_{i=1}^{n-1} x_i^2\right)+c \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1} x_ix_1+x_ix_j-x_i^2\right)\\
+&= \sum_{j=2}^{n-1} \left(-x_j^2-x_jx_1\right)-c\left(\sum_{i=1}^{n-1} x_i^2\right)+c \left(\sum_{i=1}^{n-1} \sum_{j=1}^{n-1}x_ix_j\right)-c \left(\sum_{i=1}^{n-1} x_ix_1-x_i^2\right)\\
+&= \sum_{j=2}^{n-1} \left(-x_j^2-x_jx_1\right)-c\left(\sum_{i=1}^{n-1} x_i^2\right)+c \left(\sum_{i=1}^{n-1} \sum_{j=2}^{n-1}x_ix_j\right)+c \left(\sum_{i=1}^{n-1} x_i^2\right)\\
+&= \sum_{j=2}^{n-1} \left(-x_j^2-x_jx_1\right)+c \left(\sum_{i=1}^{n-1} \sum_{j=2}^{n-1}x_ix_j\right)\\
+\end{align*}
+
+Then a simple change of indices tells us that $cG_1+cG_2=\partial_1f_1$ as desired.
+
+\subsubsection{$D_2f_1$}
+
+We see that $D_2f_1 = \partial_2f_1-c\frac{f_1-s_{12}f_1}{x_2-x_1} + \dots$. %todo
+
+
+
+
+
+\subsection{Complete intersection}
+
+Then we see that the ideal $I$ generated by $f_1,\dots,f_{n-1}$ has $I \subseteq J$ where $J$ is the kernel of the $\beta$ form, since the generators $f_1,\dots,f_{n-1}$ are killed by the Dunkl operators. 
+
+Let $I$ be the ideal generated by $f_1,\dots, f_{n-1}$. We will show that $A/I$, where $A=k[x_1,\dots,x_{n-1}]$, is a complete intersection by showing that $f_1(x) = \dots = f_{n-1}(x)=0$ implies $x=0$. 
+
+A simple algebraic manipulation lets us see that $f_a=-x_a^3+c x_a^2\left(\sum_{i=1}^{n-1} x_i \right)+(c^2+2c)x_a\left(\sum_{i=1}^{n-1} x_i\right)^2+x_a\left(\sum_{1 \le i < j  \le n-1} 2cx_ix_j\right)$. %todo
+We also note that $\sum_{i=1}^{n-1} f_i = (c^2+2)\sum_{i=1}^{n-1} x_i^3 = (c^2+2)\left(\sum_{i=1}^{n-1} x_i \right)^3$ %todo
+Therefore if $f_1(x) = \dots = f_{n-1}(x)=0$, we see that $\sum_{i=1}^{n-1} x_i = 0$. %notational fix?
+Modulo this new relation, we see that $f_a=x_a\left(-x_a^2+\sum_{1 \le i < j  \le n-1} 2cx_ix_j\right)$. Therefore if $f_a=0$ for all $a$, we see that for each $a$, either $x_a=0$ or $x_a$ is a square root of $C=\sum_{1 \le i < j  \le n-1} 2cx_ix_j$. If $C=0$ or $C$ has no square roots, then all the $x_a$ are 0 and we are done; so we assume $C$ has two square roots which are additive inverses of each other. Then each pair $x_ix_j$ either multiply to $\pm C$ or $0$, so $C=2cmC$ for some integer $m$. Then $(1+cm)C=0$; if $C \ne 0$, then $1+cm=0$; however, $m$ is an integer, so this is impossible. Therefore $C=0$, so all the $x_a$ are $0$.
+
+Therefore $f_1(x) = \dots = f_{n-1}(x)=0$ implies $x=0$, so $A/I$ is a complete intersection; it then must have Hilbet polynomial $h_{A/I}(t)=(t^2+t+1)^{n-1}$. 
+
+By Proposition 3.4 in http://arxiv.org/abs/1107.0504, we see that the Hilbert polynomial of $A/J$ is $(t^2+t+1)^{n-1}h(t^3)$ for some polynomial $h$ with nonnegative integer coefficients; since $I \subseteq J$, we see that $h_{A/I}(t) \ge h_{A/J}(t)$ coefficientwise; however by this restriction of the form of $h_{A/J}(t)$, we see that the only possible choice for $h$ is $h(t)=1$. Therefore $h_{A/I}(t)=h_{A/J}(t)$, so $I=J$ and these $n-1$ generators generate the whole ideal.
+
+
+
+
+
+
+\end{document}
