@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  17 FEB 2015 09:51
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  17 FEB 2015 11:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -425,10 +425,15 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 44.
 
+
+Overfull \hbox (20.99988pt too wide) in paragraph at lines 70--70
+[] 
+ []
+
 [1
 
 {/usr/local/texlive/2010basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (33.43233pt too wide) in paragraph at lines 74--75
+Overfull \hbox (33.43233pt too wide) in paragraph at lines 81--82
 []\OT1/cmr/m/n/10 The above used the fact that $\OML/cmm/m/it/10 n \OMS/cmsy/m/
 n/10 ^^@ \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^Q \OT1/cmr/m/n/10 1[]  3$. There-
 fore $[] = 2\OML/cmm/m/it/10 f[]=x[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML
@@ -436,60 +441,61 @@ fore $[] = 2\OML/cmm/m/it/10 f[]=x[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML
 OML/cmm/m/it/10 c [] \OMS/cmsy/m/n/10 ^^@
  []
 
+[2]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 80.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 80.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 80.
+(hyperref)                removing `subscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 80.
+(hyperref)                removing `subscript' on input line 87.
 
 
-Overfull \hbox (9.16498pt too wide) in paragraph at lines 91--92
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 87.
+
+
+Overfull \hbox (9.16498pt too wide) in paragraph at lines 98--99
 []\OT1/cmr/m/n/10 We also see that $\OML/cmm/m/it/10 G[] \OT1/cmr/m/n/10 = [][]
  [] = [][] \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[] \OMS/cmsy/
 m/n/10 ^^@ \OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 c [] \OT1
 /cmr/m/n/10 + \OML/cmm/m/it/10 c[] []$
  []
 
-[2]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 109.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 109.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 109.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 109.
-
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 116.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 116.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 116.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 116.
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
  (./proofs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
 Package rerunfilecheck Info: File `proofs.out' has not changed.
 (rerunfilecheck)             Checksum: A16DEE0365DD0309B613852980A85141;386.
  ) 
 Here is how much of TeX's memory you used:
- 6125 strings out of 494749
- 89611 string characters out of 3170620
- 188643 words of memory out of 3000000
+ 6126 strings out of 494749
+ 89617 string characters out of 3170620
+ 186643 words of memory out of 3000000
  9226 multiletter control sequences out of 15000+200000
  8104 words of font info for 32 fonts, out of 3000000 for 9000
  166 hyphenation exceptions out of 8191
@@ -508,10 +514,10 @@ s/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2010basic/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010basic/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010basic/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on proofs.pdf (4 pages, 139471 bytes).
+Output written on proofs.pdf (5 pages, 141138 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 108 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
