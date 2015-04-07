@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  19 FEB 2015 20:33
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  6 APR 2015 18:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -297,20 +297,20 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 (./proofs.aux)
 \openout1 = `proofs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 (/usr/local/texlive/2010basic/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -360,7 +360,7 @@ LaTeX Font Info:    ... okay on input line 42.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 43.
 (/usr/local/texlive/2010basic/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -373,9 +373,9 @@ Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
 )
 \c@section@level=\count116
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Info: Redefining \nameref on input line 43.
  (./proofs.out) (./proofs.out)
 \@outlinefile=\write3
 \openout3 = `proofs.out'.
@@ -396,42 +396,42 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
  (/usr/local/texlive/2010basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
 
 (/usr/local/texlive/2010basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 45.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mid' on input line 44.
+(hyperref)                removing `\mid' on input line 45.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 45.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 45.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 44.
+(hyperref)                removing `math shift' on input line 45.
 
 
-Overfull \hbox (45.23077pt too wide) in paragraph at lines 68--68
+Overfull \hbox (45.23077pt too wide) in paragraph at lines 69--69
 [] 
  []
 
 
-Overfull \hbox (43.84712pt too wide) in paragraph at lines 82--82
+Overfull \hbox (43.84712pt too wide) in paragraph at lines 83--83
 [] 
  []
 
@@ -439,7 +439,7 @@ Overfull \hbox (43.84712pt too wide) in paragraph at lines 82--82
 
 {/usr/local/texlive/2010basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
-Overfull \hbox (33.43233pt too wide) in paragraph at lines 105--106
+Overfull \hbox (33.43233pt too wide) in paragraph at lines 106--107
 []\OT1/cmr/m/n/10 The above used the fact that $\OML/cmm/m/it/10 n \OMS/cmsy/m/
 n/10 ^^@ \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^Q \OT1/cmr/m/n/10 1[]  3$. There-
 fore $[] = 2\OML/cmm/m/it/10 f[]=x[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML
@@ -449,22 +449,22 @@ OML/cmm/m/it/10 c [] \OMS/cmsy/m/n/10 ^^@
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 111.
+(hyperref)                removing `math shift' on input line 112.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 111.
+(hyperref)                removing `subscript' on input line 112.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 111.
+(hyperref)                removing `subscript' on input line 112.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 111.
+(hyperref)                removing `math shift' on input line 112.
 
 [3]
-Overfull \hbox (9.16498pt too wide) in paragraph at lines 122--123
+Overfull \hbox (9.16498pt too wide) in paragraph at lines 123--124
 []\OT1/cmr/m/n/10 We also see that $\OML/cmm/m/it/10 G[] \OT1/cmr/m/n/10 = [][]
  [] = [][] \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[] \OMS/cmsy/
 m/n/10 ^^@ \OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 c [] \OT1
@@ -474,52 +474,80 @@ m/n/10 ^^@ \OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 c [] \OT1
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 140.
+(hyperref)                removing `math shift' on input line 141.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 140.
+(hyperref)                removing `subscript' on input line 141.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 140.
+(hyperref)                removing `subscript' on input line 141.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 140.
+(hyperref)                removing `math shift' on input line 141.
 
 
-Overfull \hbox (30.23833pt too wide) in paragraph at lines 151--151
+Overfull \hbox (30.23833pt too wide) in paragraph at lines 152--152
 [] 
  []
 
 [5]
-Overfull \hbox (54.34216pt too wide) in paragraph at lines 164--164
+Overfull \hbox (54.34216pt too wide) in paragraph at lines 165--165
 [] 
  []
 
 [6]
-Overfull \hbox (18.19379pt too wide) in paragraph at lines 202--202
+Overfull \hbox (18.19379pt too wide) in paragraph at lines 203--203
 [] 
  []
 
 [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 219.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mid' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 216.
+
+[8] [9] [10] [11] [12]
+Overfull \hbox (37.87456pt too wide) in paragraph at lines 343--344
+\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 B[]$ \OT1/cmr/m/n/10 be the co-ef-fi-cien
+t of $\OML/cmm/m/it/10 z[]$ \OT1/cmr/m/n/10 in $\OML/cmm/m/it/10 f[]$\OT1/cmr/m
+/n/10 . We see that $\OML/cmm/m/it/10 f[] \OT1/cmr/m/n/10 = [] [] = [] []$.
+ []
+
+[13]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 360.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 360.
  (./proofs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 360.
 Package rerunfilecheck Info: File `proofs.out' has not changed.
-(rerunfilecheck)             Checksum: A16DEE0365DD0309B613852980A85141;386.
+(rerunfilecheck)             Checksum: 439034B25842DFFF14899050193D6EB8;642.
  ) 
 Here is how much of TeX's memory you used:
- 6129 strings out of 494749
- 89635 string characters out of 3170620
- 195643 words of memory out of 3000000
- 9226 multiletter control sequences out of 15000+200000
+ 6144 strings out of 494749
+ 89789 string characters out of 3170620
+ 195654 words of memory out of 3000000
+ 9231 multiletter control sequences out of 15000+200000
  8104 words of font info for 32 fonts, out of 3000000 for 9000
  166 hyphenation exceptions out of 8191
- 31i,10n,32p,743b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,11n,32p,743b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx12.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/
@@ -533,11 +561,12 @@ ype1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2010basic/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2010basic/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010basic/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on proofs.pdf (8 pages, 148930 bytes).
+ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2010basic/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on proofs.pdf (14 pages, 180080 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

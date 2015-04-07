@@ -26,6 +26,7 @@
 \newcommand{\zb}{\overline{z}}
 \newcommand{\cc}[1]{\overline{#1}}
 \newcommand{\m}[1]{\left|#1\right|}
+\newcommand{\Res}{\operatorname{Res}}
 \newcommand{\p}[1]{\left(#1\right)}
 \newcommand{\cis}{\text{cis}\,}
 \newcommand{\sgn}{\text{sgn}}
@@ -212,6 +213,146 @@ Therefore $f_1(x) = \dots = f_{n-1}(x)=0$ implies $x=0$, so $A/I$ is a complete 
 By Proposition 3.4 in http://arxiv.org/abs/1107.0504, we see that the Hilbert polynomial of $A/J$ is $(t^2+t+1)^{n-1}h(t^3)$ for some polynomial $h$ with nonnegative integer coefficients; since $I \subseteq J$, we see that $h_{A/I}(t) \ge h_{A/J}(t)$ coefficientwise; however by this restriction of the form of $h_{A/J}(t)$, we see that the only possible choice for $h$ is $h(t)=1$. Therefore $h_{A/I}(t)=h_{A/J}(t)$, so $I=J$ and these $n-1$ generators generate the whole ideal.
 
 
+\section{$p \mid n$, $n-1$ case full argument}
+
+We assume $p > 2$ since $p=2$ has been fully characterized. 
+
+\subsection{Generators}
+
+Let $x_0,\dots,x_{n-2}$ be a basis for the $n-1$ dimensional representation of $S_n$ derived from the standard representation with basis $e_0,\dots,e_{n-1}$ by taking the quotient by $e_0+\dots+e_{n-1}$; assume $x_i$ is the representative for $e_i$ in the quotient. We see that we can in fact say that the representation is spanned by $x_0,\dots,x_{n-1}$ with the relation $x_0+\dots+x_{n-1}=0$, or $x_{n-1}=-x_0-\dots-x_{n-2}$. Let $s_{ij}$ be the transposition of $i$ and $j$ for $0 \le i < j \le n-1$. For $0 \le i < j \le n-1$ the relevant eigenvectors are $x_i-x_j$.
+
+We let $g=\prod_{j=0}^{n-1} (1-x_jz)$, where $z$ is another variable.
+
+Let $f_a$ for $a=0,\dots,n-1$ be the formal power series in $z$ defined by $f_a=\frac{1}{1-x_az}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$ where $\binom{c}{k}=\frac{c(c-1)\dots(c-k+1)}{k!}$. We will show that the coefficient of $z^p$ in $f_a$ is killed by the Dunkl operators for all $a$. Since the Dunkl operators consist of taking derivatives in the $x_i$, dividing by polynomials in the $x_i$, linear operations, and the action of the symmetric group on the $x_i$, we see that we can just apply the Dunkl operators to the $f_a$ and check that the coefficient of $z^p$ in the resulting formal power series is $0$. 
+
+Let $y_0,\dots,y_{n-1}$ be a basis for the dual of the standard representation of $S_n$. Then the dual of the $(n-1)$-dimensional quotient we are considering is spanned by $y_i-y_0$ for $0 < i \le n-1$. Therefore if $D_i$ is the Dunkl operator corresponding to $y_i$ acting on the standard representation of $S_n$, we see that the Dunkl operators on our quotient representation are $D_i-D_0$ for $0 < i \le n-1$
+
+Because of the symmetry in the $f_a$, we need only consider the action of the Dunkl operators on $f_0$. Then again by symmetry we need only consider the action of $D_1-D_0$ on $f_0$. 
+
+We also note that we can add powers of $z$ greater than $z^p$ at any stage of taking the Dunkl operator, since those will not affect the final result. 
+
+
+
+
+
+\subsection{Dunkl operators}
+
+We note $z^2 \mid g-1$ since $x_0+\dots+x_{n-1}=0$ divides the coefficient of $z$ in $g$. Therefore when $p > 2$ we see that $z^{p+1} \mid z^{2p-2} \mid (g-1)^{p-1}$. Therefore we can add multiples of $(g-1)^{p-1}$ at any stage, since even when multipled by other power series it cannot contribute anything to the coefficient of $z^p$. 
+
+Since $x_{n-1}=-x_0-\dots-x_{n-2}$, we see that $\frac{\partial g}{\partial x_i}=-\frac{zg}{1-x_iz}+\frac{zg}{1-x_{n-1}z}$ for all $0 \le i < n-1$. Let $F=f_0(1-x_1z)=\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. Note that $F$ is symmetric. Then we see that for all $0 \le i < n-1$:
+
+\begin{align*}
+\frac{\partial F}{\partial x_i}&=\frac{\partial}{\partial x_i}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial x_i}\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
+&\text{(We see that for }k=1,\dots,p-1\text{ we have }\binom{c-1}{k}+\binom{c-1}{k-1}=\binom{c}{k},\text{ that }\binom{c-1}{0}=\binom{c}{0}\\&\text{ as a polynomial, and that we can add a multiple of }(g-1)^{p-1}).\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F\\
+\end{align*}
+
+We also see that:
+
+\begin{align*}
+\frac{\partial f_0}{\partial x_1}&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
+&=\frac{1}{1-x_0z}\frac{\partial F}{\partial x_1}\\
+&=\frac{1}{1-x_0z}\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F\\
+&=\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)f_0\\
+\end{align*}
+
+and that:
+
+\begin{align*}
+\frac{\partial f_0}{\partial x_0}&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
+&=\frac{z}{(1-x_0z)^2}F+\frac{1}{1-x_0z}\frac{\partial F}{\partial x_0}\\
+&=\frac{z}{1-x_0z}f_0+\frac{1}{1-x_0z}\left(-\frac{zc}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F\\
+&=\frac{z}{1-x_0z}f_0+\left(-\frac{zc}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)f_0\\
+&=\left(\frac{z(1-c)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)f_0\\
+\end{align*}
+
+We note that $f_0$ is invariant under $s_{ij}$ where $0 < i,j$. Therefore for transpositions we need only consider transpositions of the form $s_{0i}$ for $0 < i \le n-1$. 
+
+\begin{align*}
+\frac{1-s_{0i}}{x_0-x_i}(f_0)&=\frac{1}{x_0-x_i}\left(\frac{F}{1-x_0z}-\frac{F}{1-x_iz}\right)\\
+&=\frac{1}{x_0-x_i}\left(\frac{1}{1-x_0z}-\frac{1}{1-x_iz}\right)F\\
+&=\frac{1}{x_0-x_i}\left(\frac{(1-x_iz)-(1-x_0z)}{(1-x_0z)(1-x_iz)}\right)F\\
+&=\frac{x_0z-x_iz}{(1-x_0z)(1-x_iz)(x_0-x_i)}F\\
+&=\frac{z}{(1-x_iz)(1-x_0z)}F\\
+&=\frac{z}{1-x_iz}f_0\\
+\end{align*}
+
+
+We recall that we need only consider the action of $D_1-D_0$ on $f_0$. We consider $D_0f_0, D_1f_0$ separately first. We see that $D_0=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right), D_1=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)$ since $f_0$ is invariant under $s_{ij}$ where $0 < i,j$. 
+
+\begin{align*}
+D_0f_0&=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right)(f_0)\\
+&=\frac{\partial f_0}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}(f_0)\\
+&=\left(\frac{z(1-c)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)f_0-\sum_{j > 0} \frac{zc}{1-x_jz}f_0\\
+\end{align*}
+\begin{align*}
+D_1f_0&=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)(f_0)\\
+&=\frac{\partial f_0}{\partial x_1}+c \frac{1-s_{01}}{x_0-x_1}(f_0)\\
+&=\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)f_0+\frac{zc}{1-x_1z}f_0\\
+&=\frac{zc}{1-x_{n-1}z}f_0\\
+\end{align*}
+
+It is then easy to see that $(D_1-D_0)(f_0)=\frac{z(c-1)}{1-x_0z}f_0+\sum_{j>0} \frac{zc}{1-x_jz}f_0$. 
+
+In order to show that the $p$th coefficient in this formal power series is $0$, we must consider $\frac{\partial f_0}{\partial z}$. 
+
+We see easily that $\frac{\partial g}{\partial z} = g \sum_j \frac{-x_j}{1-x_jz}$. We now consider $\frac{\partial F}{\partial z}$:
+
+\begin{align*}
+\frac{\partial F}{\partial z}&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
+&\text{Note that above we showed that }\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g=\left(\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\&\text{ up to the addition of multiples of }z^{p+1}.\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F
+\end{align*}
+
+From this it follows that:
+
+\begin{align*}
+\frac{\partial f_0}{\partial z} &= \frac{\partial}{\partial z}\left(\frac{F}{1-x_0z}\right)\\
+&=\frac{1}{1-x_0z} \frac{\partial F}{\partial z}+\frac{x_0}{1-x_0z} F\\
+&=\frac{1}{1-x_0z}\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F+\frac{x_0}{(1-x_0z)^2} F\\
+&=\left(\sum_j \frac{-cx_j}{1-x_jz}\right)f_0+\frac{x_0}{1-x_0z} f_0\\
+\end{align*}
+
+We now again consider $(D_1-D_0)(f_0)$. Recall that $n \equiv 0 \bmod p$, so in particular we can add $n$ times any multiple of $f_1$ since that is $0$ in characteristic $p$. 
+
+\begin{align*}
+(D_1-D_0)(f_0)&=\frac{z(c-1)}{1-x_0z}f_0+\sum_{j>0} \frac{zc}{1-x_jz}f_0\\
+&=-\frac{z}{1-x_0z}f_0+\sum_{j} \frac{zc}{1-x_jz}f_0\\
+&=-\frac{z}{1-x_0z}f_0++\left(\sum_{j} \frac{zc}{1-x_jz}f_0\right)-nzcf_0\\
+&=-zf_0+zf_0-\frac{z}{1-x_0z}f_0+\left(\sum_{j} -zcf_0+\frac{zc}{1-x_jz}f_0\right)\\
+&=-zf_0+\frac{z-x_0z^2}{1-x_0z}f_0-\frac{z}{1-x_0z}f_0+\left(\sum_{j} \frac{-zc+x_jcz^2}{1-x_jz}f_0+\frac{zc}{1-x_jz}f_0\right)\\
+&=-zf_0+\frac{-x_0z^2}{1-x_0z}f_0+\left(\sum_{j} \frac{x_jcz^2}{1-x_jz}f_0\right)\\
+&=-zf_0-z^2\left(\frac{x_0}{1-x_0z}f_0+\left(\sum_{j}- \frac{x_jc}{1-x_jz}f_0\right)\right)\\
+&=-zf_0-z^2\frac{\partial f_0}{\partial z}
+\end{align*}
+
+Let $b$ be the coefficient of $z^{p-1}$ in $f_0$. We see that the coefficient of $z^p$ in $-zf_0$ is $-b$. Then the coefficient of $z^{p-2}$ in $\frac{\partial f_0}{\partial z}$ is $(p-1)b=-b$, so the coefficient of $z^p$ in $-z^2\frac{\partial f_0}{\partial z}$ is $b$. Therefore the coefficient of $z^p$ in $-zf_0-z^2\frac{\partial f_0}{\partial z}$ is $-b+b=0$, so the coefficient of $z^p$ in $(D_1-D_0)(f_0)$ is $0$. Then if $B$ is the coefficient of $z^p$ in $f_0$, it is clear that $(D_1-D_0)(B)=0$ as desired. By the symmetry of the $f_a$, this is the only Dunkl operator we need consider; it is clear that the coefficients of $z^p$ in all the $f_a$ are killed by the Dunkl operators.
+
+\subsection{Complete intersection}
+
+Let $B_a$ be the coefficient of $z^p$ in $f_a$. We see that $f_a=\frac{1}{1-x_az}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $B_a$ is a homogeneous polynomial in the $x_i$ of degree $p$, since the coefficient of $z^k$ for any $k$ is a homogeneous polynomial in the $x_i$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands). 
+
+We also note that:
+
+\begin{align*}
+\sum_{a=0}^{n-1} f_a&=\left(\sum_a \frac{1}{1-x_az}\right)F\\
+&=\left(\sum_a \frac{1}{1-x_az}\right)F-nF\\
+&=\left(\sum_a\frac{x_az-1}{1-x_az}+ \frac{1}{1-x_az}\right)F\\
+&=\left(\frac{-x_az}{1-x_az}\right)F\\
+&=z\frac{\partial F}{\partial z}
+\end{align*}
+
+Then the coefficient of $z^p$ in this sum is the coefficient of $z^{p-1}$ in $\frac{\partial F}{\partial z}$, which is $p$ times the coefficient of $z^p$ in $F$, which must be $0$ since we are in characteristic $p$. The coefficient of $z^p$ in this sum is also $\sum_a B_a$, so we have $\sum_a B_a=0$. 
 
 
 
