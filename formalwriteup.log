@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  27 APR 2015 17:54
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  27 APR 2015 18:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -414,57 +414,49 @@ File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 {/usr/local/texlive/2010basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 101.
+(hyperref)                removing `math shift' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Sigma' on input line 101.
+(hyperref)                removing `\Sigma' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 101.
+(hyperref)                removing `subscript' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 101.
+(hyperref)                removing `math shift' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 101.
+(hyperref)                removing `math shift' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mid' on input line 101.
+(hyperref)                removing `\mid' on input line 95.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 101.
-
-
-Overfull \hbox (27.46715pt too wide) in paragraph at lines 117--118
-[]\OT1/cmr/m/n/10 Using the al-lowed ma-nip-u-la-tions and the fact that $\OML/
-cmm/m/it/10 x[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 x[] \OT1
-/cmr/m/n/10 + [] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[]$\OT1/cmr/m/n/10 , we
- see that $[] = [] \OML/cmm/m/it/10 F[]$
- []
+(hyperref)                removing `math shift' on input line 95.
 
 [2] [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 249.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 249.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
  (./formalwriteup.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 249.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
 Package rerunfilecheck Info: File `formalwriteup.out' has not changed.
 (rerunfilecheck)             Checksum: 2F755CAD6B57EB22C237093A292245D1;180.
  ) 
 Here is how much of TeX's memory you used:
- 6161 strings out of 494749
- 90035 string characters out of 3170620
- 188860 words of memory out of 3000000
- 9244 multiletter control sequences out of 15000+200000
+ 6164 strings out of 494749
+ 90067 string characters out of 3170620
+ 185947 words of memory out of 3000000
+ 9247 multiletter control sequences out of 15000+200000
  9908 words of font info for 39 fonts, out of 3000000 for 9000
  166 hyphenation exceptions out of 8191
- 31i,10n,32p,970b,374s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,10n,32p,1091b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx12.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/
@@ -480,20 +472,19 @@ onts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2010basic/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010basic/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2010basic/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010basic/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2010basic
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2010ba
-sic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
-10basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive
-/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texl
-ive/2010basic/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/loc
-al/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></u
-sr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/symb
-ols/msbm7.pfb>
-Output written on formalwriteup.pdf (5 pages, 259842 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2010basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2010b
+asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/20
+10basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive
+/2010basic/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/
+texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/
+local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
+fb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msbm7.pfb>
+Output written on formalwriteup.pdf (5 pages, 249712 bytes).
 PDF statistics:
  153 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
+ 122 compressed objects within 2 object streams
  18 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
