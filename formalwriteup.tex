@@ -44,16 +44,20 @@
 \newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{{\tt arXiv:#1}}}
 \newcommand{\Sym}{\operatorname{Sym}}
 
+\title{Representations of rational Cherednik algebras of $\Sigma_n$ in positive characteristic}
+
+\author{Sheela Devadas}
+
+\date{\today}
+
 \begin{document}
 
 
-%\section{Outline of write-up}
+\maketitle
 
-%Define all notation - $\Sigma_n, x \in \mathfrak{h}^*, y \in \mathfrak{h}, D_y, \tau, M_c(\tau), J, A=k[x_1,\dots,x_n]$, etc. 
-
-%Define $\mathfrak{h}$ as the span of $y_i-y_j$ for $i \ne j$; define $\mathfrak{h}^*$ as the span of $x_0,\dots,x_{n-1}$ under the relation $x_0+\dots+x_{n-1}=0$. 
-
-%Define Hilbert series. Set stage - $p \mid n$. We are using $(n-1)$-dimensional representation. Note $p>2$ but $p=2$ characterized already (though for $n$-dimensional representation). 
+\begin{abstract}
+We study lowest-weight irreducible representations of rational Cherednik algebras associated to the symmetric group $\Sigma_n$ in characteristic $p$ when $p$ divides $n$, $\tau$ is trivial, $\hbar=1$, and $c$ is generic. We describe the generators of kernel of the contravariant bilinear form on the Verma module in terms of a formal power series that is related to the residues that generate the kernel in the characteristic $0$ case; we give a formula for the Hilbert series of the irreducible representation.
+\end{abstract}
 
 \section{Introduction and Definitions}
 
@@ -94,7 +98,7 @@ We assume $p>2$ since the case $p=2$ is fully characterized in \cite{L}.
 
 \section{Representations of rational Cherednik algebras of $\Sigma_n$ in positive characteristic $p \mid n$}
 
-In this paper we consider the case where the characteristic $p$ of $k$ divides $n$. This is related to the case in characteristic $0$ where $c$ takes the specific value $p/n$, as described in \cite{CE}. In that case the generators of the ideal $J$ were the residues of some function in $z$. To get a similar result in positive characteristic, we must consider formal power series in $z$ with coefficients from $A$. 
+In this paper we consider the case where the characteristic $p$ of $k$ divides $n$. This is related to the case in characteristic $0$ where $c$ takes the specific value $p/n$, as described in \cite{CE}. In that case the generators of the ideal $J$ were the residues at infinity of $\frac{1}{z-x_a} \prod_{i=0}^{n-1} (z-x_i)^c$ for each $a$. To get a similar result in positive characteristic, we must consider formal power series in $z$ with coefficients from $A$. The formal power series would be $\frac{1}{z^{p+1}}\frac{1}{1-x_az}\prod_{j=0}^{n-1} (1-x_jz)^c$, with the corresponding generator as the coefficient of $1/z$. We simplify and truncate the formal power series so we can define it in positive characteristic.
 
 We let $g=\prod_{j=0}^{n-1} (1-x_jz)$. Let $F_a$ for $a=0,\dots,n-1$ be the formal power series in $z$ defined by $F_a=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k\right)$ where $\binom{c}{k}=\frac{c(c-1)\dots(c-k+1)}{k!}$. 
 
@@ -179,7 +183,7 @@ We write $x$ for the vector $\langle x_0,\dots, x_{n-2} \rangle$, where the $x_i
 
 To show that $A/I$ is a complete intersection, we will show that if $f_a(x)=0$ for $a=0,\dots,n-2$, then $x=0$, which is an equivalent condition. 
 
-We showed that for all $a$, $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$. Then for any rational function $u(c )$, we see that $f_a(u(c )x)=u(c )^pf_a(x)$. In particular, if $f_a(x)=0$, then for any rational function $u(c )$ we have $f_a(u(c )x)=0$ as well. Therefore if $f_a(x) = 0$ for all $a=0,\dots,n-2$, then by choosing a particular polynomial $v(c )$ such that $v(c )x_i$ is a polynomial for all $i=0,\dots,n-2$ (a least common denominator), we see that since $f_a(v(c )x)=0$ that we can just assume the $x_i$ are polynomials in $c$. We assume that not all of the $x_a$ are $0$. Then we can find the smallest nonnegative integer $e$ such that there exists an $b$ with the coefficient of $c^e$ in $x_b$ nonzero. Then since $f_a(\frac{1}{c^e}x)=0$ and $x_a/c^e$ is still a polynomial for any $a$, we see that we can assume that the constant term of $x_b$ for some $b$ is nonzero. 
+By Proposition~\ref{prop:linind}, $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$ for all $a$. Then for any rational function $u(c )$, we see that $f_a(u(c )x)=u(c )^pf_a(x)$. In particular, if $f_a(x)=0$, then for any rational function $u(c )$ we have $f_a(u(c )x)=0$ as well. Therefore if $f_a(x) = 0$ for all $a=0,\dots,n-2$, then by choosing a particular polynomial $v(c )$ such that $v(c )x_i$ is a polynomial in $c$ for all $i=0,\dots,n-2$ (a least common denominator), we see that since $f_a(v(c )x)=0$ that we can just assume the $x_i$ are polynomials in $c$. We assume that not all of the $x_a$ are $0$. Then we can find the smallest nonnegative integer $e$ such that there exists an $b$ with the coefficient of $c^e$ in $x_b$ nonzero. Then since $f_a(\frac{1}{c^e}x)=0$ and $x_i/c^e$ is still a polynomial for any $i$, we see that we can assume that the constant term of $x_b$ for some $b$ is nonzero by dividing through by $c^e$. 
 
 For any $a$, we can then consider $f_a(x)$ to be a polynomial in $c$. Since this is zero, we can in particular consider the constant term, which must be $0$. The constant term of the coefficient of $z^p$ is the constant term of $x_a^p$; this must be the constant term of $x_a$ raised to the $p$ power. If this is zero, then the constant term of $x_a$ must be $0$. 
 
@@ -188,7 +192,7 @@ Then if $f_a(x) =0$ for $a=0,\dots,n-2$, we see that the constant terms in all t
 Therefore $f_0(x) = \dots = f_{n-2}(x)=0$ implies $x=0$, so $A/I$ is a complete intersection.
 \end{proof}
 
-\begin{theorem} The $f_a$ generate the ideal $J$; $A/J$ has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. 
+\begin{theorem}\label{thm:main} The $f_a$ generate the ideal $J$; $A/J$ has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. 
 \end{theorem}
 
 \begin{proof} By Propositions~\ref{prop:linind}, \ref{prop:ci}, $A/I$ is a complete intersection with $n-1$ generators of degree $p$. It then must have Hilbert series $h_{A/I}(t)=\left(\frac{1-t^p}{1-t}\right)^{n-1}$. By Proposition~\ref{prop:ann}, the generators of $I$ are annihilated by the Dunkl operators, so $I \subseteq J$.
