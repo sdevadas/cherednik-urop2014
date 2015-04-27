@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{color}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+\newtheorem{problem}[equation]{Problem}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{definition}[equation]{Definition}
+\newenvironment{defn}[1][]{%
+    \begin{definition}[#1]\pushQED{\qed}}{\popQED \end{definition}}
+\parindent=0in
+\parskip=0.15in
+
+\newcommand{\xx}[1]{\textcolor{blue}{#1}}
+\newcommand{\zb}{\overline{z}}
+\newcommand{\cc}[1]{\overline{#1}}
+\newcommand{\m}[1]{\left|#1\right|}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\cis}{\text{cis}\,}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\D}{\triangle}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\f}[1]{\sum_{n=-\infty}^\infty #1_ne^{inx}}
+\newcommand{\fn}[1]{\sum_{n=-\infty}^\infty #1e^{inx}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mm}[1]{\m{\m{#1}}}
+\newcommand{\ang}[1]{\left\langle #1 \right\rangle}
+
+
+\begin{document}
+
+
+%\section{Outline of write-up}
+
+%Define all notation - $\Sigma_n, x \in \mathfrak{h}^*, y \in \mathfrak{h}, D_y, \tau, M_c(\tau), J, A=k[x_1,\dots,x_n]$, etc. 
+
+%Define $\mathfrak{h}$ as the span of $y_i-y_j$ for $i \ne j$; define $\mathfrak{h}^*$ as the span of $x_0,\dots,x_{n-1}$ under the relation $x_0+\dots+x_{n-1}=0$. 
+
+%Define Hilbert series. Set stage - $p \mid n$. We are using $(n-1)$-dimensional representation. Note $p>2$ but $p=2$ characterized already (though for $n$-dimensional representation). 
+
+We let $g=\prod_{j=0}^{n-1} (1-x_jz)$. Let $F_a$ for $a=0,\dots,n-1$ be the formal power series in $z$ defined by $F_a=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k\right)$ where $\binom{c}{k}=\frac{c(c-1)\dots(c-k+1)}{k!}$. We note that the coefficients of this power series lie in $A$; we will get the generators of the ideal $J$ from these coefficients. 
+
+\begin{proposition} Let $f_a$ be the coefficient of $z^p$ in the power series $F_a$. Then $f_a$ for $a=0,\dots,n-1$ are annihilated by the Dunkl operators. 
+\end{proposition}
+
+\begin{proof}
+Taking the Dunkl operator of an element of $A$ consists of taking derivatives in the $x_i$, dividing by polynomials in the $x_i$, and letting the symmetric group act on the $x_i$, in addition to linear operations. We see that this means we can apply the Dunkl operators to $F_a$ and check that the coefficient of $z^p$ in the result is $0$ to show that the Dunkl operators annihilate the $f_a$.
+
+We note that each $F_a$ is symmetric in the $x_i$ not including $x_a$, and that for any transposition $s_{ab} \in \Sigma_n$, $s_{ab}F_a=F_b$. Therefore we need only consider the action of the Dunkl operators on $F_0$. We also note that $\mathfrak{h}$ is spanned by $y_i-y_0$ for $0 < i \le n-1$; if the Dunkl operator corresponding to $y_j$ is $D_j$, then using the fact that $F_0$ is symmetric in the $x_i$ with $i \ne 0$, we need only show that $(D_1-D_0)(F_0)$ has $z^p$ coefficient $0$ to show that all of the $f_a$ are annihilated by the Dunkl operators. 
+
+We also note that adding powers $z^k$ with $k > p$ will not change the value of the $z^p$ coefficient in $(D_1-D_0)(F_0)$. In particular, we note that since $x_0+\dots+x_{n-1}=0$ divides the coefficient of $z$ in $g$, we have $z^2 \mid g-1$. Then since $p>2$, we note that $z^{p+1} \mid z^{2p-2} \mid (g-1)^{p-1}$. Therefore we can add multiples of $(g-1)^{p-1}$ when taking the Dunkl operator's action on $F_0$, since even when multipled by another power series it cannot contribute anything to the coefficient of $z^p$. We also note that we can add $n$ times any multiple of $F_0$ since $n \equiv 0 \bmod p$. 
+
+Using the allowed manipulations and the fact that $x_{n-1}=-x_0+\dots-x_{n-2}$, we see that $\frac{\partial F_0}{\partial x_1}=\left(\frac{zc}{1-x_{n-1}z}-\frac{zc}{1-x_1z}\right)F_0$ and $\frac{\partial F_0}{\partial x_0}=\left(\frac{zc}{1-x_{n-1}z}+\frac{z(1-c)}{1-x_1z}\right)F_0$ up to the $z^p$ coefficient, which is all that we need.
+
+We note that when $0 < i,j$ we have $\frac{1-s_{ij}}{x_i-x_j}\left(F_0\right)=0$. We also see that for $0 < i \le n-1$ we have $\frac{1-s_{ij}}{x_i-x_j}\left(F_0\right)=\frac{z}{1-x_iz}F_0$. 
+
+We also consider $\frac{\partial F_0}{\partial z}$; up to the addition of some multiple of $(g-1)^{p-1}$, this is equal to $\frac{x_0}{1-x_0z}F_0-\sum_{j \ge 0} \frac{-x_jc}{1-x_jz}F_0$. 
+
+Then we see that:
+
+\begin{align*}
+(D_1-D_0)(F_0)&=\frac{\partial F_0}{\partial x_1}-\frac{\partial F_0}{\partial x_0}-c\frac{1-s_{01}}{x_1-x_0}(F_0)+c\sum_{j>0}\frac{1-s_{0j}}{x_0-x_j}(F_0)\\
+&=\left(\frac{zc}{1-x_{n-1}z}-\frac{zc}{1-x_1z}\right)F_0-\left(\frac{zc}{1-x_{n-1}z}+\frac{z(1-c)}{1-x_1z}\right)F_0+\frac{zc}{1-x_1z}F_0+\sum_{j>0}\frac{zc}{1-x_jz}F_0\\
+&=\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0}\frac{zc}{1-x_jz}F_0\\
+&=-\frac{z}{1-x_0z}f_0+\sum_{j} \frac{zc}{1-x_jz}f_0\\
+&=-\frac{z}{1-x_0z}f_0+\left(\sum_{j} \frac{zc}{1-x_jz}f_0\right)-nzcf_0\\
+&=-zf_0+\frac{z-x_0z^2}{1-x_0z}f_0-\frac{z}{1-x_0z}f_0+\left(\sum_{j} \frac{-zc+x_jcz^2}{1-x_jz}f_0+\frac{zc}{1-x_jz}f_0\right)\\
+&=-zf_0+\frac{-x_0z^2}{1-x_0z}f_0+\left(\sum_{j} \frac{x_jcz^2}{1-x_jz}f_0\right)\\
+&=-zf_0-z^2\frac{\partial f_0}{\partial z}
+\end{align*}
+
+Then if $b$ is the coefficient of $z^{p-1}$ in $f_0$, we see that the coefficient of $z^p$ in $-zf_0$ is $-b$, and the coefficient of $z^p$ in $-z^2\frac{\partial f_0}{\partial z}$ is $-(p-1)b=b$. Therefore the coefficient of $z^p$ in $(D_1-D_0)(F_0)$ is $-b+b=0$; this means that $(D_1-D_0)(f_0)=0$. 
+
+Then as we discussed above, the symmetry of the $f_a$ means that all the $f_a$ are annihilated by the Dunkl operators, as desired.
+
+\end{proof}
+
+\begin{proposition} The $f_a$ for $a=0,\dots,n-2$ are linearly independent, with $f_{n-1}=-\sum_{a=0}^{n-2} f_a$. 
+\end{proposition} 
+
+\begin{proof} 
+We recall that $F_a=\frac{1}{1-x_az}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$, since the coefficient of $z^k$ for any $k$ in $F_a$ is a homogeneous polynomial in the $x_i$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands in $F_a$). 
+
+We also note that:
+
+\begin{align*}
+\sum_{a=0}^{n-1} F_a&=\left(\sum_a \frac{1}{1-x_az}\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_a \frac{1}{1-x_az}\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)-n\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_a\frac{x_az-1}{1-x_az}+ \frac{1}{1-x_az}\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\frac{-x_az}{1-x_az}\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\frac{z}{c}\frac{\partial g}{\partial z}\left(\sum_{k=0}^{p-1} c\binom{c}{k} (g-1)^k\right)\\
+&=z\frac{\partial }{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)
+\end{align*}
+
+This equality only holds up to the $z^p$ coefficient, since we implicitly add a multiple of $(g-1)^{p-1}$ in the last step.
+
+Then the coefficient of $z^p$ in this sum is the coefficient of $z^{p-1}$ in $\frac{\partial }{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$, which is $p$ times the coefficient of $z^p$ in $\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k$, which must be $0$ since we are in characteristic $p$. The coefficient of $z^p$ in this sum is also $\sum_{a=0}^{n-1} f_a$, so we have $\sum_{a=0}^{n-1} f_a=0$, and $f_{n-1}=-\sum_{a=0}^{n-2} f_a$.
+
+We note that we can write the $f_a$ as polynomials in $c$ with coefficients from the polynomial ring $\mathbb{F}_p[x_i]$; we can therefore consider the `constant term' of $f_a$ as a polynomial in $c$. Recall that $f_a$ is the coefficient of $z^p$ in $F_a=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. Then as polynomials it is clear that $c \mid \binom{c}{k}$ for all $k > 0$; therefore when trying to find the constant term of the coefficient of $z^p$, we can ignore the terms with $k > 0$ in the second multiplicand. The term for $k=0$ is just $1$; it is then clear that the constant term (the coefficient of $c^0$) of $f_a$ is $x_a^p$.
+
+If $\sum_{a=0}^{n-2} \lambda_af_a=0$ for some $\lambda_a$ rational functions in $c$, we can multiply through by a least common denominator and assume the $\lambda_a$ are polynomials in $c$. Then the constant term of this sum is $\sum_{a=0}^{n-2} C(\lambda_a)x_a^p$ where $C(\lambda_a)$ represents the constant term of $\lambda_a$. Since the $x_a^p$ for $a=0,\dots,n-2$ are clearly linearly independent, we see that $C(\lambda_a)$ must be $0$ for $a=0,\dots,n-2$. Then we can factor out $c$ from all of the $\lambda_a$, since if $\sum_{a=0}^{n-2} \lambda_af_a=0$, we have $\sum_{a=0}^{n-2}\frac{1}{c}\lambda_af_a=0$ as well; we have that $\frac{1}{c}\lambda_a$ is a polynomial since the constant terms in all the $\lambda_a$ are $0$. Then we see that by the same logic, the constant terms of $\lambda_a/c$ for all $a$ are 0, so the coefficient of $c$ in all of the $\lambda_a$ is $0$. This means that $c^2 \mid \lambda_a$ for all $a$, so we can perform the same calculation again to get that the coefficient of $c^2$ is $0$ and so forth. If $e=\max_a\deg \lambda_a$, we need only apply this logic $e$ times to show that the coefficients of $e=1,c,\dots,c^e$ in all of the $\lambda_a$ are $0$, meaning all of the $\lambda_a$ are $0$. 
+
+Then since $\sum_{a=0}^{n-2} \lambda_af_a=0$ means all the $\lambda_a$ are $0$, we see that $f_a$ for $a=0,\dots,n-2$ are linearly independent as desired. 
+
+\end{proof}
+
+let $I$ the ideal generated by $f_a$
+
+\begin{proposition} $A/I$ is a complete intersection. 
+\end{proposition}
+
+\begin{theorem} The $f_a$ generate the ideal $J$; $A/J$ has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. 
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
