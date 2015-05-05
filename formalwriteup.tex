@@ -40,11 +40,11 @@
 \newcommand{\ang}[1]{\left\langle #1 \right\rangle}
 \newcommand{\h}{\mathfrak{h}}
 \newcommand{\GL}{{\rm GL}}
-\newcommand{\HH}{{\rm H}}
+\newcommand{\HH}{\mathcal{H}}
 \newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{{\tt arXiv:#1}}}
 \newcommand{\Sym}{\operatorname{Sym}}
 
-\title{Representations of rational Cherednik algebras of $\Sigma_n$ in positive characteristic}
+\title{Polynomial representations of rational Cherednik algebras of type $A$ in positive characteristic $p \mid n$}
 
 \author{Sheela Devadas}
 
@@ -56,52 +56,64 @@
 \maketitle
 
 \begin{abstract}
-We study lowest-weight irreducible representations of rational Cherednik algebras associated to the symmetric group $\Sigma_n$ in characteristic $p$ when $p$ divides $n$, $\tau$ is trivial, $\hbar=1$, and $c$ is generic. We describe the generators of kernel of the contravariant bilinear form on the Verma module in terms of a formal power series that is related to the residues that generate the kernel in the characteristic $0$ case; we give a formula for the Hilbert series of the irreducible representation.
-\end{abstract}
+We study the polynomial representation of the ratioal Cherednik algebra of type $A_{n-1}$ with generic parameter in characteristic $p$ for $p \mid n$. We give explicit formulas for generators for the maximal ideal, show that they cut out a complete intersection, and thus compute the Hilbert series of the irreducible quotient. Our methods are motivated by generalizing from characteristic $0$ to characteristic $p$. \end{abstract}
 
 \section{Introduction}
 
-In this paper we study lowest-weight representations of rational Cherednik algebras associated to the symmetric group $\Sigma_n$ in characteristic $p$ dividing $n$.
+In this paper we study lowest-weight representations of rational Cherednik algebras associated to the symmetric group $\Sigma_n$ in characteristic $p$ dividing $n$. This problem is an interesting test case for moving results from characteristic $0$ to positive characteristic. Cherednik algebras, originally double affine Hecke algebras, were introduced by Cherednik in 1993; for an introduction to these algebras we refer to \cite{EM}. The representation theory of these algebras has been studied more extensively in characteristic $0$ than in positive characteristic, including the case of Cherednik algebras of type $A_{n-1}$ (associated to the symmetric group $\Sigma_n$). In general new techniques are required to study positive characteristc as opposed to characteristic 0. In this paper we directly connect the characteristc 0 case to the positive characteristic case; instead of taking complex residues, we consider the coefficients of formal power series in positive characteristic. While we only consider the case of the symmetric group $\Sigma_n$ in this paper, this technique could also be used for the general case of complex reflection groups. %this bit needs revisions
 
+%mention previous results [BEG],[CE],[GLOR]? ask
+%deformation of DAHAs introduced by Etingof-Ginzburg in 2001
 
+\subsection{Definitions}
 
-This problem is an interesting test case for moving results from characteristic $0$ to positive characteristic. Cherednik algebras, originally double affine Hecke algebras, were introduced by Cherednik in 1993; for an introduction to these algebras we refer to \cite{EM}. The representation theory of these algebras has been studied more extensively in characteristic $0$ than in positive characteristic, including the case of Cherednik algebras of type A (associated to the symmetric group $\Sigma_n$). In general new techniques are required to study positive characteristc as opposed to characteristic 0. In this paper we directly connect the characteristc 0 case to the positive characteristic case; instead of taking complex residues, we consider the coefficients of formal power series in positive characteristic. While we only consider the case of the symmetric group $\Sigma_n$ in this paper, this technique could also be used for the general case of complex reflection groups.
+Given the symmetric group $\Sigma_n$, we let $\mathcal{S}$ be the set of reflections in $\Sigma_n$. Let $\h$ be the irreducible $(n-1)$-dimensional representation of $\Sigma_n$, realized as the submodule of $k^n$ where the sum of the coordinates is $0$. For each $s \in \mathcal{S}$ we assign a vector $\alpha_s \in \h^*$ spanning the image of $1-s$, and choose $\alpha_s^\vee \in \h$ so that $(1-s)x=\langle \alpha_s^\vee,x\rangle \alpha_s$ for all $x \in \h^*$, where $\langle \cdot,\cdot\rangle$ indicates the pairing between $\h$ and $\h^*$. 
 
-
-Given the symmetric group $\Sigma_n$ and a representation $\h$ of $\Sigma_n$ over a field $K$, we let $\mathcal{S}$ be the set of transpositions in $\Sigma_n$. For each $s \in \mathcal{S}$ we assign a vector $\alpha_s \in \h^*$ spanning the image of $1-s$, and choose $\alpha_s^\vee \in \h$ so that $(1-s)x=\langle \alpha_s^\vee,x\rangle \alpha_s$ for all $x \in \h^*$, where $\langle \cdot,\cdot\rangle$ indicates the pairing between $\h$ and $\h^*$. 
-
-Let $T(\h \oplus \h^*)$ be the tensor algebra of $\h \oplus \h^*$. We choose $\hbar,c \in K$. Then we define the {\it rational Cherednik algebra of type A $\HH_{\hbar,c}(\h)$} as the quotient of $K[\Sigma_n] \ltimes T(\h \oplus \h^*)$ by the following relations for all $x,x' \in \h^*, y,y' \in \h$:
+Let $T(\h \oplus \h^*)$ be the tensor algebra of $\h \oplus \h^*$. We choose $\hbar,c \in k$. Then we define the {\it rational Cherednik algebra of type A $\HH_{\hbar,c}(\h)$} as the quotient of $k[\Sigma_n] \ltimes T(\h \oplus \h^*)$ by the relations
 \begin{align*}
-[x,x']=0, \quad [y,y' = 0], \quad [y,x] = \hbar\langle y,x\rangle - \sum_{s \in \mathcal{S}} c\langle y,\alpha_s\rangle\langle \alpha_s^\vee,x\rangle s.
+[x,x']=0, \quad [y,y' = 0], \quad [y,x] = \hbar\langle y,x\rangle - \sum_{s \in \mathcal{S}} c\langle y,\alpha_s\rangle\langle \alpha_s^\vee,x\rangle s
 \end{align*}
-We can give $\HH_{\hbar,c}(\h)$ a $\mathbb{Z}$-grading by setting $\deg x=1$ for $x \in \h^*$, $\deg y = -1$ for $y \in \h$, and $\deg g=0$ for $g \in K[G]$. We get the PBW-type decomposition $\HH_{\hbar,c}(\h)=\Sym(\h) \otimes_K K[\Sigma_n] \otimes_K \Sym(\h^*)$ (\cite{EM}, section 3.2). 
+ for all $x,x' \in \h^*, y,y' \in \h$. We can give $\HH_{\hbar,c}(\h)$ a $\mathbb{Z}$-grading by setting $\deg x=1$ for $x \in \h^*$, $\deg y = -1$ for $y \in \h$, and $\deg g=0$ for $g \in k[G]$. We get the PBW-type decomposition $\HH_{\hbar,c}(\h)=\Sym(\h) \otimes_k k[\Sigma_n] \otimes_k \Sym(\h^*)$ (\cite{EM}, section 3.2). 
 
-In general, for any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)\simeq \HH_{\alpha\hbar,\alpha c}(\h)$. Then we can assume $\hbar=0$ or $\hbar = 1$. 
+In general, for any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)\simeq \HH_{\alpha\hbar,\alpha c}(\h)$, so we restrict to $\hbar=0$ or $\hbar = 1$. 
 
-Let $\tau$ be a representation of $G$. The {\it Verma module} $M_{\hbar,c}(\h,\tau)$ is defined as $\HH_{\hbar,c}(\h) \otimes_{K[\Sigma_n] \ltimes \Sym(\h)} \tau$. Using the PBW decomposition of the Cherednik algebra, we see that $M_{\hbar,c}(\h,\tau)=\Sym(\h^*) \otimes_K \tau$ as a $K$-vector space; we can give this a $\mathbb{Z}$-grading in an obvious way. We are concerned with the case $\tau$ trivial, or the {\it polynomial representation} $\Sym(\h^*)$, which is a polynomial ring. We refer to the polynomial representation as $A$.
+\subsection{Representations of rational Cherednik algebras}
 
-As described in section 2.5 of \cite{BC1}, $A=\Sym(\h^*)$ has a unique maximal graded proper submodule $J$ which can be realized as the kernel of the contravariant form $\beta_c: \Sym(\h^*) \times \Sym(\h) \to k$; $\beta_c$ can be characterized by the property that for all $x \in \h^*, y \in \h, f \in \Sym(\h^*), g \in  \Sym(\h)$:
+We are concerned with the {\it polynomial representation} $\Sym(\h^*)$ of $\HH_{\hbar,c}$, which is a polynomial ring. We refer to the polynomial representation as $A$; we can give this a $\mathbb{Z}$-grading in an obvious way. 
+
+As described in Section 2.5 of \cite{BC1}, $A=\Sym(\h^*)$ has a unique maximal graded proper submodule $J$ which can be realized as the kernel of the contravariant form $\beta_c: \Sym(\h^*) \times \Sym(\h) \to k$; $\beta_c$ can be characterized by the property that for all $x \in \h^*, y \in \h, f \in \Sym(\h^*), g \in  \Sym(\h)$:
 \begin{align*}
 \beta_c(xf,g)=\beta_c(f,xg), \quad \beta_c(f,yg) = \beta_c(yf,g), \quad \beta_c(1,1) = 1.
 \end{align*}
 The quotient $A/J$ is a finite-dimensional irreducible $\mathbb{Z}$-graded representation of $\HH_{\hbar,c}(\h)$. The {\it Hilbert series} $h_{A/J}(t)$ of $A/J$ is $\sum_{j=0}^\infty (\dim_k L_j)t^k$ where $L_j$ is the $j$-graded factor of $A/J$. 
 
+\subsection{Main results}
 
-
- We call $c$ {\it generic} if we do not specify its value. We will be concerned with the case $\hbar=1$, $c$ generic, and the characteristic $p$ of $K$ dividing $n$. We also have $\dim \h = n-1$, so $\h$ is an irreducible representation of the symmetric group. We state our result for this case below:
+ We call $c$ {\it generic} if we do not specify its value. We will be concerned with the case $\hbar=1$, $c$ generic, and the characteristic $p$ of $k$ dividing $n$. We realize $\h$ as the subspace of $k^n$ with the sum of the coordinates $0$, which is an irreducible representation of $\Sigma_n$ of dimension $n-1$. We state our result for this case below:
  
  \newtheorem*{thm:main}{Theorem \ref{thm:main}}
-\begin{thm:main} The irreducible representation $A/J$  of $\HH_{\hbar,c}(\h)$ is a complete intersection; it has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. $J$ is generated by the coefficients of $z^p$ in the formal power series \\
-$F_a=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(-1+\prod_{j=0}^{n-1} (1-x_jz))^k\right)$ for $a=0,\dots,n-2$. 
+\begin{thm:main} The irreducible representation $A/J$  of $\HH_{\hbar,c}(\h)$ is a complete intersection with  Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. The maximal ideal $J$ is generated by the coefficients of $z^p$ in the formal power series \\
+$$F_a=\frac{1}{1-x_az} \prod_{j=0}^{n-1}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1+\prod_{j=0}^{n-1} (1-x_jz))^k\right)$$ for $a=0,\dots,n-2$. 
 \end{thm:main}
 
-In this paper we consider the case where the characteristic of $K$ divides $n$. This is related to the case in characteristic $0$ where $c$ takes the specific value $p/n$, as described in \cite{CE}. In that case the generators of the ideal $J$ were the residues at infinity of $\frac{1}{z-x_a} \prod_{i=0}^{n-1} (z-x_i)^c$ for each $a$. To get a similar result in positive characteristic, we must consider formal power series in $z$ with coefficients from $A$. The formal power series would be $\frac{1}{z^{p+1}}\frac{1}{1-x_az}\prod_{j=0}^{n-1} (1-x_jz)^c$, with the corresponding generator as the coefficient of $1/z$. We simplify and truncate the formal power series so we can define it in positive characteristic.
+We assume $p>2$ since the case $p=2$ is fully characterized in \cite{L}.
+
+\subsection{Connection to characteristic $0$ results}
+
+In this paper we consider the case where the characteristic of $K$ divides $n$. This is related to the case in characteristic $0$ where $c$ takes the specific value $p/n$, as described in \cite{CE}. In that case the generators of the ideal $J$ were the residues at infinity of $\frac{1}{z-x_a} \prod_{i=0}^{n-1} (z-x_i)^c$ for each $a$. %write as proposition
+To get a similar result in positive characteristic, we must consider formal power series in $z$ with coefficients from $A$. The formal power series would be $\frac{1}{z^{p+1}}\frac{1}{1-x_az}\prod_{j=0}^{n-1} (1-x_jz)^c$, with the corresponding generator as the coefficient of $1/z$. We simplify and truncate the formal power series so we can define it in positive characteristic.
+
+\subsection{Relation to previous work}
+
+%fill in?
 
 \paragraph{Acknowledgements} This project was done with the support of the Undergraduate Research Opportunities Program (UROP) at MIT. The author thanks Pavel Etingof and Yi Sun for supervising this project. The computer algebra system SAGE was used for obtaining data.
 
- \subsection{Definitions}
+ \section{The rational Cherednik algebra}
+ 
+ \subsection{Dunkl operators}
 
-To understand the action of $\HH_{\hbar,c}(\h)$ on $A$, we can use the PBW decompositions. The action of $\Sym(\h^*)$ on $A$ is by left multiplication; $K[\Sigma_n]$ acts by the diagonal action, and $\Sym(\h)$ acts via {\it Dunkl operators}. For $y \in \h$, the Dunkl operator $D_y$ acts on $A$ by:
+To understand the action of $\HH_{\hbar,c}(\h)$ on $A$, we can use the PBW decompositions. The action of $\Sym(\h^*)$ on $A$ is by left multiplication; $k[\Sigma_n]$ acts by the diagonal action, and $\Sym(\h)$ acts via {\it Dunkl operators}. For $y \in \h$, the Dunkl operator $D_y$ acts on $A$ by:
 \begin{align*}
 D_y(f) = \hbar \partial_y f  - \sum_{s \in \mathcal{S}} c \frac{ ( y, \alpha_s )}{\alpha_s} (1-s). f.
 \end{align*}
@@ -110,9 +122,9 @@ We choose bases for $\h,\h^*$ in the following way: let $V$ be the vector space 
 
 For a transposition $s_{ij} \in \Sigma_n$ with $i<j$, we let the corresponding vector $\alpha_{s_{ij}} \in \h^*$ be $x_i-x_j$.
 
-The characteristic of the field $K$ is $p>0$. We assume $p>2$ since the case $p=2$ is fully characterized in \cite{L}.
 
-\section{Representations of rational Cherednik algebras of $\Sigma_n$ in positive characteristic $p \mid n$}
+
+\section{Proof of the main result}
 
 
 
@@ -124,54 +136,148 @@ Because of the definition of the contravariant form $\beta_c$, showing that an e
 \end{proposition}
 
 \begin{proof}
-Taking the Dunkl operator of an element of $A$ consists of taking derivatives in the $x_i$, dividing by polynomials in the $x_i$, and letting the symmetric group act on the $x_i$, in addition to linear operations. We see that this means we can apply the Dunkl operators to $F_a$ and check that the coefficient of $z^p$ in the result is $0$ to show that the Dunkl operators annihilate the $f_a$.
+%Taking the Dunkl operator of an element of $A$ consists of taking derivatives in the $x_i$, dividing by polynomials in the $x_i$, and letting the symmetric group act on the $x_i$, in addition to linear operations. We see that this means we can apply the Dunkl operators to $F_a$ and check that the coefficient of $z^p$ in the result is $0$ to show that the Dunkl operators annihilate the $f_a$.
+%
+%We note that each $F_a$ is symmetric in the $x_i$ not including $x_a$, and that for any transposition $s_{ab} \in \Sigma_n$, $s_{ab}F_a=F_b$. Therefore we need only consider the action of the Dunkl operators on $F_0$. We also note that $\mathfrak{h}$ is spanned by $y_i-y_0$ for $0 < i \le n-1$; then using the fact that $F_0$ is symmetric in the $x_i$ with $i \ne 0$, we need only show that $(D_1-D_0)(F_0)$ has $z^p$ coefficient $0$ to show that all of the $f_a$ are annihilated by the Dunkl operators. 
+%
+%We also note that adding powers $z^k$ with $k > p$ will not change the value of the $z^p$ coefficient in $(D_1-D_0)(F_0)$. In particular, we note that since $x_0+\dots+x_{n-1}=0$ divides the coefficient of $z$ in $g$, we have $z^2 \mid g-1$. Then since $p>2$, we note that $z^{p+1} \mid z^{2p-2} \mid (g-1)^{p-1}$. Therefore we can add multiples of $(g-1)^{p-1}$ when taking the Dunkl operator's action on $F_0$, since even when multipled by another power series it cannot contribute anything to the coefficient of $z^p$. We also note that we can add $n$ times any multiple of $F_0$ since $n \equiv 0 \bmod p$. 
 
-We note that each $F_a$ is symmetric in the $x_i$ not including $x_a$, and that for any transposition $s_{ab} \in \Sigma_n$, $s_{ab}F_a=F_b$. Therefore we need only consider the action of the Dunkl operators on $F_0$. We also note that $\mathfrak{h}$ is spanned by $y_i-y_0$ for $0 < i \le n-1$; then using the fact that $F_0$ is symmetric in the $x_i$ with $i \ne 0$, we need only show that $(D_1-D_0)(F_0)$ has $z^p$ coefficient $0$ to show that all of the $f_a$ are annihilated by the Dunkl operators. 
-
-We also note that adding powers $z^k$ with $k > p$ will not change the value of the $z^p$ coefficient in $(D_1-D_0)(F_0)$. In particular, we note that since $x_0+\dots+x_{n-1}=0$ divides the coefficient of $z$ in $g$, we have $z^2 \mid g-1$. Then since $p>2$, we note that $z^{p+1} \mid z^{2p-2} \mid (g-1)^{p-1}$. Therefore we can add multiples of $(g-1)^{p-1}$ when taking the Dunkl operator's action on $F_0$, since even when multipled by another power series it cannot contribute anything to the coefficient of $z^p$. We also note that we can add $n$ times any multiple of $F_0$ since $n \equiv 0 \bmod p$. 
-
-Using the allowed manipulations and the fact that $x_{n-1}=-x_0+\dots-x_{n-2}$, we see that up to the $z^p$ coefficient,
-
-\begin{align*}
-\frac{\partial F_0}{\partial x_1}=\left(\frac{zc}{1-x_{n-1}z}-\frac{zc}{1-x_1z}\right)F_0, \quad \frac{\partial F_0}{\partial x_0}=\left(\frac{zc}{1-x_{n-1}z}+\frac{z(1-c)}{1-x_1z}\right)F_0.
-\end{align*}
-
-We note that when $0 < i,j$ we have $\frac{1-s_{ij}}{x_i-x_j}\left(F_0\right)=0$. We also see that for $0 < i \le n-1$ we have $\frac{1-s_{ij}}{x_i-x_j}\left(F_0\right)=\frac{z}{1-x_iz}F_0$. 
-
-We also consider $\frac{\partial F_0}{\partial z}$; up to the addition of some multiple of $(g-1)^{p-1}$, this is equal to $\frac{x_0}{1-x_0z}F_0-\sum_{j \ge 0} \frac{-x_jc}{1-x_jz}F_0$. 
-
-Then we see that:
+Since $x_{n-1}=-x_0-\dots-x_{n-2}$, we see that $\frac{\partial g}{\partial x_i}=-\frac{zg}{1-x_iz}+\frac{zg}{1-x_{n-1}z}$ for all $0 \le i < n-1$. Let $F =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. Note that $F$ is symmetric and $F_a=\frac{F}{1-x_az}$ for all $a$. Then we see that for all $0 \le i < n-1$:
 
 \begin{align*}
-(D_1-D_0)(F_0)&=\frac{\partial F_0}{\partial x_1}-\frac{\partial F_0}{\partial x_0}-c\frac{1-s_{01}}{x_1-x_0}(F_0)+c\sum_{j>0}\frac{1-s_{0j}}{x_0-x_j}(F_0)\\
-&=\left(\frac{zc}{1-x_{n-1}z}-\frac{zc}{1-x_1z}\right)F_0-\left(\frac{zc}{1-x_{n-1}z}+\frac{z(1-c)}{1-x_1z}\right)F_0+\frac{zc}{1-x_1z}F_0+\sum_{j>0}\frac{zc}{1-x_jz}F_0\\
-&=\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0}\frac{zc}{1-x_jz}F_0\\
-&=-\frac{z}{1-x_0z}f_0+\sum_{j} \frac{zc}{1-x_jz}f_0\\
-&=-\frac{z}{1-x_0z}f_0+\left(\sum_{j} \frac{zc}{1-x_jz}f_0\right)-nzcf_0\\
-&=-zf_0+\frac{z-x_0z^2}{1-x_0z}f_0-\frac{z}{1-x_0z}f_0+\left(\sum_{j} \frac{-zc+x_jcz^2}{1-x_jz}f_0+\frac{zc}{1-x_jz}f_0\right)\\
-&=-zf_0+\frac{-x_0z^2}{1-x_0z}f_0+\left(\sum_{j} \frac{x_jcz^2}{1-x_jz}f_0\right)\\
-&=-zf_0-z^2\frac{\partial f_0}{\partial z}.
+\frac{\partial F}{\partial x_i}&=\frac{\partial}{\partial x_i}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial x_i}\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}+F\right)\\
+\end{align*}
+%\begin{align*}
+%&=V_i\frac{\partial}{\partial x_i}\left(\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\right)\\
+%&=V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\frac{\partial}{\partial x_i}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)+V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\frac{\partial}{\partial x_i}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{i}^kz^k\right)\\
+%&=V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=0}^{p-1} -k\binom{c}{k}(-1)^kx_{n-1}^{k-1}z^k\right)+V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left( \sum_{k=0}^{p-1} k\binom{c}{k}(-1)^kx_{i}^{k-1}z^k\right)\\
+%&=V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=1}^{p-1} k\binom{c}{k}(-1)^{k-1}x_{n-1}^{k-1}z^k\right)-V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left( \sum_{k=1}^{p-1} k\binom{c}{k}(-1)^{k-1}x_{i}^{k-1}z^k\right)\\
+%&=V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=0}^{p-2} (k+1)\binom{c}{k+1}(-1)^{k}x_{n-1}^{k}z^{k+1}\right)-\\&\;\;\;\;\;V_i\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left( \sum_{k=0}^{p-2} (k+1)\binom{c}{k+1}(-1)^{k}x_{i}^{k}z^{k+1}\right)\\
+%&=\frac{V_i}{1-x_{n-1}z}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=0}^{p-2} c\binom{c-1}{k}(-1)^{k}x_{n-1}^{k}z^{k+1}\right)(1-x_{n-1}z)-\\&\;\;\;\;\;\frac{V_i}{1-x_iz}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left( \sum_{k=0}^{p-2} c\binom{c-1}{k}(-1)^{k}x_{i}^{k}z^{k+1}\right)(1-x_iz)\\
+%&=\frac{V_i}{1-x_{n-1}z}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=0}^{p-2} c\binom{c-1}{k}(-1)^{k}x_{n-1}^{k}z^{k+1}+ \sum_{k=0}^{p-2}c\binom{c-1}{k}(-1)^{k+1}x_{n-1}^{k+1}z^{k+2}\right)-\\&\;\;\;\;\;\frac{V_i}{1-x_iz}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left( \sum_{k=0}^{p-2} c\binom{c-1}{k}(-1)^{k}x_{i}^{k}z^{k+1}+ \sum_{k=0}^{p-2}c\binom{c-1}{k}(-1)^{k+1}x_{i}^{k+1}z^{k+2}\right)\\
+%&=\frac{V_iz}{1-x_{n-1}z}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left( \sum_{k=0}^{p-2} c\binom{c-1}{k}(-1)^{k}x_{n-1}^{k}z^{k}+ \sum_{k=1}^{p-1}c\binom{c-1}{k-1}(-1)^{k}x_{n-1}^{k}z^{k}\right)-\\&\;\;\;\;\;\frac{V_iz}{1-x_iz}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left( \sum_{k=0}^{p-2} c\binom{c-1}{k}(-1)^{k}x_{i}^{k}z^{k}+ \sum_{k=1}^{p-1}c\binom{c-1}{k-1}(-1)^{k}x_{i}^{k}z^{k}\right)\\
+%&=\frac{V_iz}{1-x_{n-1}z}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left(-c\binom{c-1}{p-1}(-1)^{p-1}x_{n-1}^{p-1}z^{p-1}+ \sum_{k=0}^{p-1} c\binom{c}{k}(-1)^{k}x_{n-1}^{k}z^{k}\right)-\\&\;\;\;\;\;\frac{V_iz}{1-x_iz}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left(-c\binom{c-1}{p-1}(-1)^{p-1}x_i^{p-1}z^{p-1}+ \sum_{k=0}^{p-1} c\binom{c}{k}(-1)^{k}x_{i}^{k}z^{k}\right)\\
+%&=F\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)+\\&\frac{V_iz^p}{1-x_{n-1}z}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left(-c\binom{c-1}{p-1}(-1)^{p-1}x_{n-1}^{p-1}\right)-\\&\frac{V_iz^p}{1-x_iz}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left(-c\binom{c-1}{p-1}(-1)^{p-1}x_i^{p-1}\right)
+%\end{align*}
+%
+%Let $U=\frac{V_iz^p}{1-x_{n-1}z}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_i^kz^k\right)\left(-c\binom{c-1}{p-1}(-1)^{p-1}x_{n-1}^{p-1}\right)-\frac{V_iz^p}{1-x_iz}\left( \sum_{k=0}^{p-1} \binom{c}{k}(-1)^kx_{n-1}^kz^k\right)\left(-c\binom{c-1}{p-1}(-1)^{p-1}x_i^{p-1}\right)$; clearly $z^p \mid U$ so all coefficients before that are $0$. The $z^p$ term is $\binom{c}{0}(-1)^0 $
+
+Let $G_i=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}\right)$. Then $\frac{\partial F}{\partial x_i}=G_i+\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F$.
+
+We also see that:
+
+\begin{align*}
+\frac{\partial F_0}{\partial x_1}&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
+&=\frac{1}{1-x_0z}\frac{\partial F}{\partial x_1}\\
+&=\frac{1}{1-x_0z}\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F+\frac{G_1}{1-x_0z}\\
+&=\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F_0+\frac{G_1}{1-x_0z}\\
 \end{align*}
 
-Then if $b$ is the coefficient of $z^{p-1}$ in $f_0$, we see that the coefficient of $z^p$ in $-zf_0$ is $-b$, and the coefficient of $z^p$ in $-z^2\frac{\partial f_0}{\partial z}$ is $-(p-1)b=b$. Therefore the coefficient of $z^p$ in $(D_1-D_0)(F_0)$ is $-b+b=0$; this means that $(D_1-D_0)(f_0)=0$. 
+and that:
 
-Then as we discussed above, the symmetry of the $f_a$ means that all the $f_a$ are annihilated by the Dunkl operators, as desired.
+\begin{align*}
+\frac{\partial F_0}{\partial x_0}&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
+&=\frac{z}{(1-x_0z)^2}F+\frac{1}{1-x_0z}\frac{\partial F}{\partial x_0}\\
+&=\frac{z}{1-x_0z}F_0+\frac{1}{1-x_0z}\left(-\frac{zc}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F+\frac{G_0}{1-x_0z}\\
+&=\frac{z}{1-x_0z}F_0+\left(-\frac{zc}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F_0+\frac{G_0}{1-x_0z}\\
+&=\left(\frac{z(1-c)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F_0+\frac{G_0}{1-x_0z}\\
+\end{align*}
 
+We note that $F_0$ is invariant under $s_{ij}$ where $0 < i,j$. Therefore for transpositions we need only consider transpositions of the form $s_{0i}$ for $0 < i \le n-1$. 
+
+\begin{align*}
+\frac{1-s_{0i}}{x_0-x_i}(F_0)&=\frac{1}{x_0-x_i}\left(\frac{F}{1-x_0z}-\frac{F}{1-x_iz}\right)\\
+&=\frac{1}{x_0-x_i}\left(\frac{1}{1-x_0z}-\frac{1}{1-x_iz}\right)F\\
+&=\frac{1}{x_0-x_i}\left(\frac{(1-x_iz)-(1-x_0z)}{(1-x_0z)(1-x_iz)}\right)F\\
+&=\frac{x_0z-x_iz}{(1-x_0z)(1-x_iz)(x_0-x_i)}F\\
+&=\frac{z}{(1-x_iz)(1-x_0z)}F\\
+&=\frac{z}{1-x_iz}F_0\\
+\end{align*}
+
+
+We recall that we need only consider the action of $D_1-D_0$ on $F_0$. We consider $D_0F_0, D_1F_0$ separately first. We see that $D_0=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right), D_1=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)$ since $F_0$ is invariant under $s_{ij}$ where $0 < i,j$. 
+
+\begin{align*}
+D_0F_0&=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right)(F_0)\\
+&=\frac{\partial F_0}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}(F_0)\\
+&=\frac{G_0}{1-x_0z}+\left(\frac{z(1-c)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F_0-\sum_{j > 0} \frac{zc}{1-x_jz}F_0\\
+\end{align*}
+\begin{align*}
+D_1F_0&=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)(F_0)\\
+&=\frac{\partial F_0}{\partial x_1}+c \frac{1-s_{01}}{x_0-x_1}(F_0)\\
+&=\frac{G_1}{1-x_0z}+\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F_0+\frac{zc}{1-x_1z}F_0\\
+&=\frac{G_1}{1-x_0z}+\frac{zc}{1-x_{n-1}z}F_0\\
+\end{align*}
+
+It is then easy to see that $(D_1-D_0)(F_0)=\frac{G_1-G_0}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0$. 
+
+In order to show that the $p$th coefficient in this formal power series is $0$, we must consider $\frac{\partial F_0}{\partial z}$. 
+
+We see easily that $\frac{\partial g}{\partial z} = g \sum_j \frac{-x_j}{1-x_jz}$. We now consider $\frac{\partial F}{\partial z}$:
+
+\begin{align*}
+\frac{\partial F}{\partial z}&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F+\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right)
+\end{align*}
+
+Let $V=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right)$. Then $\frac{\partial F}{\partial z}=V+\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F$.
+
+From this it follows that:
+
+\begin{align*}
+\frac{\partial F_0}{\partial z} &= \frac{\partial}{\partial z}\left(\frac{F}{1-x_0z}\right)\\
+&=\frac{1}{1-x_0z} \frac{\partial F}{\partial z}+\frac{x_0}{1-x_0z} F\\
+&=\frac{V}{1-x_0z}+\frac{1}{1-x_0z}\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F+\frac{x_0}{(1-x_0z)^2} F\\
+&=\frac{V}{1-x_0z}+\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F_0+\frac{x_0}{1-x_0z} F_0\\
+\end{align*}
+
+We now again consider $(D_1-D_0)(F_0)$. Recall that $n \equiv 0 \bmod p$, so in particular we can add $n$ times any multiple of $F_0$ since that is $0$ in characteristic $p$. 
+
+\begin{align*}
+(D_1-D_0)(F_0)&=\frac{G_1-G_0}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0\\
+&=\frac{G_1-G_0}{1-x_0z}-\frac{z}{1-x_0z}F_0+\sum_{j} \frac{zc}{1-x_jz}F_0\\
+&=\frac{G_1-G_0}{1-x_0z}-\frac{z}{1-x_0z}F_0+\left(\sum_{j} \frac{zc}{1-x_jz}F_0\right)-nzcF_0\\
+&=\frac{G_1-G_0}{1-x_0z}-zF_0+zF_0-\frac{z}{1-x_0z}F_0+\left(\sum_{j} -zcF_0+\frac{zc}{1-x_jz}F_0\right)\\
+&=\frac{G_1-G_0}{1-x_0z}-zF_0+\frac{z-x_0z^2}{1-x_0z}F_0-\frac{z}{1-x_0z}F_0+\left(\sum_{j} \frac{-zc+x_jcz^2}{1-x_jz}F_0+\frac{zc}{1-x_jz}F_0\right)\\
+&=\frac{G_1-G_0}{1-x_0z}-zF_0+\frac{-x_0z^2}{1-x_0z}F_0+\left(\sum_{j} \frac{x_jcz^2}{1-x_jz}F_0\right)\\
+&=\frac{G_1-G_0}{1-x_0z}-zF_0-z^2\left(\frac{x_0}{1-x_0z}F_0+\left(\sum_{j}- \frac{x_jc}{1-x_jz}F_0\right)\right)\\
+&=\frac{G_1-G_0}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}+z^2\frac{V}{1-x_0z}\\
+&=\frac{G_1-G_0+z^2V}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}\\
+\end{align*}
+
+We consider $V,G_1,G_0$; since $z^{p+1} \mid z^{2p-2} \mid (g-1)^{p-1}$ and $(g-1)^{p-1}$ divides $V,G_1,G_0$, we see that for $\ell=0,1,\dots,p$, the coefficient of $z^\ell$ in $G_1-G_0+z^2V$ is $0$. Then in particular the coefficient of $z^p$ in $\frac{G_1-G_0+z^2V}{1-x_0z}$ is $0$, so the coefficient of $z^p$ in $(D_1-D_0)(F_0)$ is equal to the coefficient of $z^p$ in $-zF_0-z^2\frac{\partial F_0}{\partial z}$. 
+
+Let $b$ be the coefficient of $z^{p-1}$ in $F_0$. We see that the coefficient of $z^p$ in $-zF_0$ is $-b$. Then the coefficient of $z^{p-2}$ in $\frac{\partial F_0}{\partial z}$ is $(p-1)b=-b$, so the coefficient of $z^p$ in $-z^2\frac{\partial F_0}{\partial z}$ is $b$. Therefore the coefficient of $z^p$ in $-zF_0-z^2\frac{\partial F_0}{\partial z}$ is $-b+b=0$, so the coefficient of $z^p$ in $(D_1-D_0)(F_0)$ is $0$. Then if $f_0$ is the coefficient of $z^p$ in $F_0$, it is clear that $(D_1-D_0)(f_0)=0$ as desired. By the symmetry of the $F_a$, this is the only Dunkl operator we need consider; it is clear that all the $f_a$ are killed by the Dunkl operators.
 \end{proof}
 
 \begin{proposition}\label{prop:linind} The $f_a$ for $a=0,\dots,n-2$ are linearly independent homogeneous polynomials of degree $p$.
 \end{proposition} 
 
 \begin{proof} 
-We recall that $F_a=\frac{1}{1-x_az}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$, since the coefficient of $z^k$ for any $k$ in $F_a$ is a homogeneous polynomial in the $x_i$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands in $F_a$). 
-
-Since $c$ is generic, we can write the $f_a$ as polynomials in $c$ with coefficients from the polynomial ring $A$; we can therefore consider the `constant term' of $f_a$ as a polynomial in $c$. Recall that $f_a$ is the coefficient of $z^p$ in $F_a=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. Then as polynomials it is clear that $c \mid \binom{c}{k}$ for all $k > 0$; therefore when trying to find the constant term of the coefficient of $z^p$, we can ignore the terms with $k > 0$ in the second multiplicand. The term for $k=0$ is just $1$; it is then clear that the constant term (the coefficient of $c^0$) of $f_a$ is $x_a^p$.
-
-If $\sum_{a=0}^{n-2} \lambda_af_a=0$ for some $\lambda_a$ rational functions in $c$, we can multiply through by a least common denominator and assume the $\lambda_a$ are polynomials in $c$. We assume that not all of the $\lambda_a$ are $0$. Then we can let $e$ be the smallest nonnegative integer such that there exists an index $b$ with the coefficient of $c^e$ in $\lambda_b$ nonzero. We can divide all of the $\lambda_a$ by $c^e$, so that $\lambda_b$ for some $b$ must have nonzero constant term.
-
-The constant term of the sum is $\sum_{a=0}^{n-2}\mu_ax_a^p$ where $\mu_a$ is the constant term of $\lambda_a$. Since the $x_a^p$ for $a=0,\dots,n-2$ are clearly linearly independent, we see that $\mu_a$ must be $0$ for $a=0,\dots,n-2$ . Then in particular the constant term $\mu_b$ of $\lambda_b$ is $0$, a contradiction. This means that our assumption that not all of the $\lambda_a$ were $0$ is false, so $\lambda_a=0$ for all $a$. 
-
-Then since $\sum_{a=0}^{n-2} \lambda_af_a=0$ means all the $\lambda_a$ are $0$, we see that $f_a$ for $a=0,\dots,n-2$ are linearly independent as desired. 
+%We recall that $F_a=\frac{1}{1-x_az}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$, since the coefficient of $z^k$ for any $k$ in $F_a$ is a homogeneous polynomial in the $x_i$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands in $F_a$). 
+%
+%Since $c$ is generic, we can write the $f_a$ as polynomials in $c$ with coefficients from the polynomial ring $A$; we can therefore consider the `constant term' of $f_a$ as a polynomial in $c$. Recall that $f_a$ is the coefficient of $z^p$ in $F_a=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. Then as polynomials it is clear that $c \mid \binom{c}{k}$ for all $k > 0$; therefore when trying to find the constant term of the coefficient of $z^p$, we can ignore the terms with $k > 0$ in the second multiplicand. The term for $k=0$ is just $1$; it is then clear that the constant term (the coefficient of $c^0$) of $f_a$ is $x_a^p$.
+%
+%If $\sum_{a=0}^{n-2} \lambda_af_a=0$ for some $\lambda_a$ rational functions in $c$, we can multiply through by a least common denominator and assume the $\lambda_a$ are polynomials in $c$. We assume that not all of the $\lambda_a$ are $0$. Then we can let $e$ be the smallest nonnegative integer such that there exists an index $b$ with the coefficient of $c^e$ in $\lambda_b$ nonzero. We can divide all of the $\lambda_a$ by $c^e$, so that $\lambda_b$ for some $b$ must have nonzero constant term.
+%
+%The constant term of the sum is $\sum_{a=0}^{n-2}\mu_ax_a^p$ where $\mu_a$ is the constant term of $\lambda_a$. Since the $x_a^p$ for $a=0,\dots,n-2$ are clearly linearly independent, we see that $\mu_a$ must be $0$ for $a=0,\dots,n-2$ . Then in particular the constant term $\mu_b$ of $\lambda_b$ is $0$, a contradiction. This means that our assumption that not all of the $\lambda_a$ were $0$ is false, so $\lambda_a=0$ for all $a$. 
+%
+%Then since $\sum_{a=0}^{n-2} \lambda_af_a=0$ means all the $\lambda_a$ are $0$, we see that $f_a$ for $a=0,\dots,n-2$ are linearly independent as desired. 
 
 \end{proof}
 
@@ -181,24 +287,23 @@ Then since $\sum_{a=0}^{n-2} \lambda_af_a=0$ means all the $\lambda_a$ are $0$, 
 
 \begin{proof} 
 
-We write $x$ for the vector $\langle x_0,\dots, x_{n-2} \rangle$, where the $x_i$ are taken from the rational function field in $c$ over $K$. Then we can consider $f_a$ as a function on these vectors $x$ for all $a$. For any rational function $u( c)$, we let $u(c )x=\langle u(c )x_0,\dots, u(c )x_{n-2}\rangle$. 
-
-To show that $A/I$ is a complete intersection, we will show that if $f_a(x)=0$ for $a=0,\dots,n-2$, then $x=0$, which is an equivalent condition. 
-
-By Proposition~\ref{prop:linind}, $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$ for all $a$. Then for any rational function $u(c )$, we see that $f_a(u(c )x)=u(c )^pf_a(x)$. In particular, if $f_a(x)=0$, then for any rational function $u(c )$ we have $f_a(u(c )x)=0$ as well. Therefore if $f_a(x) = 0$ for all $a=0,\dots,n-2$, then by choosing a particular polynomial $v(c )$ such that $v(c )x_i$ is a polynomial in $c$ for all $i=0,\dots,n-2$ (a least common denominator), we see that since $f_a(v(c )x)=0$ that we can just assume the $x_i$ are polynomials in $c$. We assume that not all of the $x_a$ are $0$. Then we can find the smallest nonnegative integer $e$ such that there exists an $b$ with the coefficient of $c^e$ in $x_b$ nonzero. Then since $f_a(\frac{1}{c^e}x)=0$ and $x_i/c^e$ is still a polynomial for any $i$, we see that we can assume that the constant term of $x_b$ for some $b$ is nonzero by dividing through by $c^e$. 
-
-For any $a$, we can then consider $f_a(x)$ to be a polynomial in $c$. Since this is zero, we can in particular consider the constant term, which must be $0$. The constant term of the coefficient of $z^p$ is the constant term of $x_a^p$; this must be the constant term of $x_a$ raised to the $p$ power. If this is zero, then the constant term of $x_a$ must be $0$. 
-
-Then if $f_a(x) =0$ for $a=0,\dots,n-2$, we see that the constant terms in all the $x_a$ are $0$. In particular, $x_b$ has zero constant term, a contradiction. This means that our assumption that not all of the $x_a$ were $0$ is false, so $x_a=0$ for all $a$. 
-
-Therefore $f_0(x) = \dots = f_{n-2}(x)=0$ implies $x=0$, so $A/I$ is a complete intersection.
+%We write $x$ for the vector $\langle x_0,\dots, x_{n-2} \rangle$, where the $x_i$ are taken from the rational function field in $c$ over $K$. Then we can consider $f_a$ as a function on these vectors $x$ for all $a$. For any rational function $u( c)$, we let $u(c )x=\langle u(c )x_0,\dots, u(c )x_{n-2}\rangle$. 
+%
+%To show that $A/I$ is a complete intersection, we will show that if $f_a(x)=0$ for $a=0,\dots,n-2$, then $x=0$, which is an equivalent condition. 
+%
+%By Proposition~\ref{prop:linind}, $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$ for all $a$. Then for any rational function $u(c )$, we see that $f_a(u(c )x)=u(c )^pf_a(x)$. In particular, if $f_a(x)=0$, then for any rational function $u(c )$ we have $f_a(u(c )x)=0$ as well. Therefore if $f_a(x) = 0$ for all $a=0,\dots,n-2$, then by choosing a particular polynomial $v(c )$ such that $v(c )x_i$ is a polynomial in $c$ for all $i=0,\dots,n-2$ (a least common denominator), we see that since $f_a(v(c )x)=0$ that we can just assume the $x_i$ are polynomials in $c$. We assume that not all of the $x_a$ are $0$. Then we can find the smallest nonnegative integer $e$ such that there exists an $b$ with the coefficient of $c^e$ in $x_b$ nonzero. Then since $f_a(\frac{1}{c^e}x)=0$ and $x_i/c^e$ is still a polynomial for any $i$, we see that we can assume that the constant term of $x_b$ for some $b$ is nonzero by dividing through by $c^e$. 
+%
+%For any $a$, we can then consider $f_a(x)$ to be a polynomial in $c$. Since this is zero, we can in particular consider the constant term, which must be $0$. The constant term of the coefficient of $z^p$ is the constant term of $x_a^p$; this must be the constant term of $x_a$ raised to the $p$ power. If this is zero, then the constant term of $x_a$ must be $0$. 
+%
+%Then if $f_a(x) =0$ for $a=0,\dots,n-2$, we see that the constant terms in all the $x_a$ are $0$. In particular, $x_b$ has zero constant term, a contradiction. This means that our assumption that not all of the $x_a$ were $0$ is false, so $x_a=0$ for all $a$. 
+%
+%Therefore $f_0(x) = \dots = f_{n-2}(x)=0$ implies $x=0$, so $A/I$ is a complete intersection.
 \end{proof}
 
 Using these propositions, we are able to prove the main theorem.
 
-\begin{theorem}\label{thm:main} The irreducible representation $A/J$  of $\HH_{\hbar,c}(\h)$ is a complete intersection; it has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. $J$ is generated by the coefficients of $z^p$ in the formal power series
-\\$F_a=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(-1+\prod_{j=0}^{n-1} (1-x_jz))^k\right)$ for $a=0,\dots,n-2$. 
-\end{theorem} 
+\begin{theorem}\label{thm:main} The irreducible representation $A/J$  of $\HH_{\hbar,c}(\h)$ is a complete intersection with  Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. The maximal ideal $J$ is generated by the coefficients of $z^p$ in the formal power series \\
+$$F_a=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(-1+\prod_{j=0}^{n-1} (1-x_jz))^k\right)$$ for $a=0,\dots,n-2$. \end{theorem} 
 
 \begin{proof} It suffices to show that the $f_a$ generate the ideal $J$ and that $A/J$ has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. 
 
