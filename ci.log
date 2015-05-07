@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  6 MAY 2015 21:19
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.1.5)  6 MAY 2015 21:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -141,7 +141,7 @@ Package: amssymb 2009/06/22 v3.00
 )
 \c@thm=\count102
 
-No file ci.aux.
+(./ci.aux)
 \openout1 = `ci.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -157,11 +157,10 @@ LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Try loading font information for U+msa on input line 12.
-(/usr/local/texlive/2010basic/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2010basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 12.
-
 (/usr/local/texlive/2010basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
@@ -200,7 +199,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (21.26865pt too wide) in paragraph at lines 82--82
+Overfull \hbox (21.26865pt too wide) in paragraph at lines 79--79
 [] 
  []
 
@@ -208,52 +207,38 @@ Overfull \hbox (21.26865pt too wide) in paragraph at lines 82--82
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Overfull \hbox (6.124pt too wide) in paragraph at lines 94--95
+Overfull \hbox (6.124pt too wide) in paragraph at lines 91--92
 []\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 v[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
 z\OT1/cmr/m/n/10 ) = [] [][] [] [] +
  []
 
-[3] [4]
-
-LaTeX Warning: Reference `lem:lin-indep' on page 5 undefined on input line 160.
-
-
-
-LaTeX Warning: Reference `eq:lin-comb' on page 5 undefined on input line 164.
-
-[5] (./ci.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[3] [4] [5] (./ci.aux) ) 
 Here is how much of TeX's memory you used:
- 2098 strings out of 494749
- 24957 string characters out of 3170620
- 105875 words of memory out of 3000000
+ 2100 strings out of 494749
+ 24971 string characters out of 3170620
+ 105900 words of memory out of 3000000
  5175 multiletter control sequences out of 15000+200000
  9394 words of font info for 37 fonts, out of 3000000 for 9000
  327 hyphenation exceptions out of 8191
- 34i,12n,32p,881b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-0.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mcsc10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010basic/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2010basic/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2010basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2010basic/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2010
-basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ci.pdf (5 pages, 160408 bytes).
+ 34i,12n,32p,1134b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2010basic/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2010basic/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2010basic/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2010basic/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2010basic/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2010basic/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2010basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2010bas
+ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2010b
+asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texliv
+e/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
+live/2010basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local
+/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
+usr/local/texlive/2010basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb>
+Output written on ci.pdf (5 pages, 159719 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream
