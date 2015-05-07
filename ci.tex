@@ -1,0 +1,203 @@
+\documentclass{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsthm, amssymb}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+
+\begin{document}
+
+
+\section{Showing $A/J$ is a complete intersection} 
+
+We work over an algebraically closed field $k$ of characteristic $p > 0$.  Fix an element $c \in k$, and define the polynomial
+\[
+g(z) = \prod_{i = 0}^{n - 1} \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} x_i^k z^k\right).
+\]
+Consider the elements 
+\[
+f_i = [z^p] \frac{1}{1 - x_i z} g(z)
+\]
+in $k[x_0, \ldots, x_{n-1}]$, where we consider $\frac{1}{1 - x_i z} g(z)$ as a formal power series in $z$ and denote the coefficient of $z^p$ in $r$ by $[z^p] r(z, x_0, \ldots, x_{n - 1})$.
+
+\begin{lemma} \label{lem:lin-indep}
+Let $y_0, \ldots, y_{r - 1}$ be distinct elements of $k$.  Then the polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ are linearly independent.
+\end{lemma}
+\begin{proof} %this is a sketch
+
+Assume that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$. We can consider $b_i(z)$ as power series in $z$. Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)=0$ as power series. Therefore since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. Then in particular for $\ell=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^\ell=0$. This is just the product of the $\lambda$ vector with the Vandermonde matrix for the $y_i$, which will have nonzero determinant since they are distinct. Therefore the $\lambda$ vector must be $0$.
+\end{proof}
+
+\begin{prop} 
+For $c$ generic, if $x_0, \ldots, x_{n - i} \in k$ satisfy $f_i(x_0, \ldots, x_{n - 1}) = 0$ for all $i$, then $x_0 = \cdots = x_{n - 1} = 0$.
+\end{prop}
+\begin{proof}
+Suppose that the distinct elements of $\{x_0, \ldots, x_{n - 1}\}$ are $\{y_0, \ldots, y_{r - 1}\}$ and that $y_i$ occurs with multiplicity $m_i$ so that 
+\[
+\sum_i m_i y_i = 0.
+\]
+Then we see that 
+\[
+g(z) = \prod_{i = 0}^{r - 1} \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i}.
+\]
+
+If $r=1$, then $g(z)= \left(\sum_{k=0}^{p-1} (-1)^k \binom{c}{k} y_0^kz^k\right)^n$ and $f_0(z)=\frac{1}{1-y_0z}\left(\sum_{k=0}^{p-1} (-1)^k \binom{c}{k} y_0^kz^k\right)^n$. We note that $[z^p]f_0(z)=\sum_{k=0}^p y_0^{p-k}[z^k]g(z)$. For $k=1,\dots,p-1$ we note that the term $[z^k]g(z)$ is a linear combination of terms of the form $\binom{n}{\ell_1}\binom{n-\ell_1}{\ell_2}\dots\binom{n-\ell_1-\dots-\ell_{s-1}}{\ell_s}(-1)^k\binom{c}{k_1}^{\ell_1}\dots\binom{c}{k_s}^{\ell_s}y_0^k$ where $\ell_1,\dots,\ell_s$ are positive integers and $k_1,\dots,k_s$ are distinct positive integers with $\sum \ell_ik_i=k$ - this represents the product of $\ell_i$ terms $ (-1)^{k_i}\binom{c}{k_i} y_0^{k_i} z^{k_i}$. 
+
+
+. In particular this means that $0 < \ell_1 < p$, so $\binom{n}{\ell_1}$ is $0$ in characteristic $p$, so all of these terms are $0$. This means that $[z^p]f_0(z)=y_0^p[z^0]g(z)+[z^p]g(z)=y_0^p+[z^p]g(z)$. Note that $[z^p]g(z)$ is the sum of terms of the form $\binom{n}{\ell_1}\binom{n-\ell_1}{\ell_2}\dots\binom{n-\ell_{s-1}}{\ell_s}(-1)^k\binom{c}{k_1}\dots\binom{c}{k_s}y_0^k$ where $\ell_1,\dots,\ell_s$ are positive integers and $k_1,\dots,k_s$ are distinct positive integers with $\sum \ell_ik_i=p$; this term is $0$ unless $\ell_1=p$, so $[z^p]g(z)=\binom{n}{p}(-1)^p\binom{c}{1}^py_0^p=\binom{n}{p}(-c)^py_0^p$. Therefore $[z^p]f_0(z)=\left(1+\binom{n}{p}(-c)^p\right)y_0^p$; if this is $0$ but $y_0 \ne 0$, then $1+\binom{n}{p}(-c)^p=0$; this is false since $c$ is generic. Therefore $y_0=0$. This completes the case $r=1$. We now assume $r>1$.
+
+
+Define the associated function
+\[
+a(z) = \prod_{i = 0}^{r - 1} \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 1}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right).
+\]
+
+
+
+
+
+%my sketch goes here
+
+Then for $i=0,\dots,r-1$ we let $a_i(z)=\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 1}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)$ so $a(z)=\prod_{i=0}^{r-1} a_i(z)$. 
+
+
+\begin{align*}
+a_i'(z)&=\frac{\partial}{\partial z}\left(\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 1}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\right)\\
+&=\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\frac{\partial}{\partial z}\left(\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 1}\right)+\\
+&\;\;\;\;\;\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 1}\frac{\partial}{\partial z}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\\
+&=\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)(m_i-1)\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 1}^{p - 1}k (-1)^k\binom{c}{k} y_i^k z^{k-1}\right)+\\
+&\;\;\;\;\;\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 1}\left(\sum_{k = 1}^{p - 1}k (-1)^k\binom{c - 1}{k} y_i^k z^{k-1}\right)\\
+&=(m_i-1)\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\left(\sum_{k = 1}^{p - 1} c(-1)^k\binom{c-1}{k-1} y_i^k z^{k-1}\right)+\\
+&\;\;\;\;\;\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\left(\sum_{k = 1}^{p - 1}(c-1) (-1)^k\binom{c - 2}{k-1} y_i^k z^{k-1}\right)\\
+&=(m_i-1)\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\left(\sum_{k = 0}^{p - 2} c(-1)^{k+1}\binom{c-1}{k} y_i^{k+1} z^{k}\right)+\\
+&\;\;\;\;\;\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\left(\sum_{k = 0}^{p - 2}(c-1) (-1)^{k+1}\binom{c - 2}{k} y_i^{k+1} z^{k}\right)\\
+&=\frac{-(m_i-1)y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\left(\sum_{k = 0}^{p - 2} c(-1)^{k}\binom{c-1}{k} y_i^{k} z^{k}\right)(1-y_iz)+\\
+&\;\;\;\;\;\frac{-y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\left(\sum_{k = 0}^{p - 2}(c-1) (-1)^{k}\binom{c - 2}{k} y_i^{k} z^{k}\right)(1-y_iz)\\
+&=\frac{-(m_i-1)y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\\&\left(\sum_{k = 0}^{p - 2} c(-1)^{k+1}\binom{c-1}{k} y_i^{k+1} z^{k+1}+\sum_{k = 0}^{p - 2} c(-1)^{k}\binom{c-1}{k} y_i^{k} z^{k}\right)+\\
+&\;\;\;\;\;\frac{-y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\\&\left(\sum_{k = 0}^{p - 2}(c-1) (-1)^{k+1}\binom{c - 2}{k} y_i^{k+1} z^{k+1}+\sum_{k = 0}^{p - 2}(c-1) (-1)^{k}\binom{c - 2}{k} y_i^{k} z^{k}\right)\\
+\end{align*}
+\begin{align*}
+&=\frac{-(m_i-1)y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\\&\left(\sum_{k = 1}^{p - 1} c(-1)^{k}\binom{c-1}{k-1} y_i^{k} z^{k}+\sum_{k = 0}^{p - 2} c(-1)^{k}\binom{c-1}{k} y_i^{k} z^{k}\right)+\\
+&\;\;\;\;\;\frac{-y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\\&\left(\sum_{k = 1}^{p - 1}(c-1) (-1)^{k}\binom{c - 2}{k-1} y_i^{k} z^{k}+\sum_{k = 0}^{p - 2}(c-1) (-1)^{k}\binom{c - 2}{k} y_i^{k} z^{k}\right)\\
+&=\frac{-(m_i-1)y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\\&\left(c(-1)^{p-1}\binom{c-1}{p-1}y_i^{p-1}z^{p-1}+\sum_{k = 0}^{p - 1} c(-1)^{k}\binom{c-1}{k} y_i^{k} z^{k}\right)+\\
+&\;\;\;\;\;\frac{-y_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\\&\left(-(c-1)(-1)^{p-1}\binom{c-2}{p-1}y_i^{p-1}z^{p-1}+\sum_{k = 0}^{p - 1}(c-1) (-1)^{k}\binom{c - 1}{k} y_i^{k} z^{k}\right)\\
+&=\frac{-(m_i-1)cy_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\\&\left(-(-1)^{p-1}\binom{c-1}{p-1}y_i^{p-1}z^{p-1}+\sum_{k = 0}^{p - 1} (-1)^{k}\binom{c-1}{k} y_i^{k} z^{k}\right)+\\
+&\;\;\;\;\;\frac{-y_i(c-1)}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\\&\left(-(-1)^{p-1}\binom{c-2}{p-1}y_i^{p-1}z^{p-1}+\sum_{k = 0}^{p - 1} (-1)^{k}\binom{c - 1}{k} y_i^{k} z^{k}\right)\\
+&=\frac{-(m_i-1)cy_i-y_i(c-1)}{1-y_iz}a_i(z)\\&+\frac{-(m_i-1)cy_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\left(-(-1)^{p-1}\binom{c-1}{p-1}y_i^{p-1}z^{p-1}\right)\\&+\frac{-y_i(c-1)}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\left(-(-1)^{p-1}\binom{c-2}{p-1}y_i^{p-1}z^{p-1}\right)\\
+&=\frac{y_i(1-m_ic)}{1-y_iz}a_i(z)+v_i(z)\\
+\end{align*}
+
+where $v_i(z)=\frac{-(m_i-1)cy_i}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_i^k z^k\right)\left(-(-1)^{p-1}\binom{c-1}{p-1}y_i^{p-1}z^{p-1}\right)+\frac{-y_i(c-1)}{1-y_iz}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)^{m_i - 2}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_i^k z^k\right)\left(-(-1)^{p-1}\binom{c-2}{p-1}y_i^{p-1}z^{p-1}\right)$. Obviously $z^{p-1}$ divides this as a power series. Then $z^{p-1} \mid \sum_i v_i(z)$.  Note that since the $m_i$ are integers and $\sum m_iy_i=0$ that $\sum m_iy_i^p=0$.
+
+Also note that $(c-1)\binom{c-2}{p-1}=\frac{(c-1)(c-2)\dots(c-2-(p-3))(c-2-(p-2))}{(p-1)!}=\frac{(c-1)(c-2)\dots(c-2-(p-3))c)}{(p-1)!}=c\binom{c-1}{p-1}$.
+
+\begin{align*}
+\sum_i [z^{p-1}]v_i(z)&=\sum_i -(m_i-1)cy_i(-1)^p\binom{c-1}{p-1}y_i^{p-1}-y_i(c-1)(-1)^p\binom{c-2}{p-1}y_i^{p-1}\\
+&=\sum_i -cm_iy_i^p(-1)^p\binom{c-1}{p-1}+cy_i^p(-1)^p\binom{c-1}{p-1}-(c-1)y_i^p(-1)^p\binom{c-2}{p-1}\\
+&=\sum_i cy_i^p(-1)^p\binom{c-1}{p-1}-(c-1)y_i^p(-1)^p\binom{c-2}{p-1}\\
+&=\sum_i cy_i^p(-1)^p\binom{c-1}{p-1}-cy_i^p(-1)^p\binom{c-1}{p-1}\\
+&=0
+\end{align*}
+
+
+Then
+
+\begin{align*}
+a'(z)&=\frac{\partial}{\partial z}\left(\prod_{i=0}^{r-1} a_i(z)\right)\\
+&=\sum_{i=0}^{r-1} a_i'(z)\frac{a(z)}{a_i(z)}\\
+&=\sum_{i=0}^{r-1} \left(\frac{y_i(1-m_ic)}{1-y_iz}a_i(z)+v_i(z)\right)\frac{a(z)}{a_i(z)}\\
+&=-\sum_{i = 0}^{r - 1} \frac{(m_i c - 1)y_i}{1 - y_i z} a(z) +\sum_{i=0}^{r-1} v_i(z)\frac{a(z)}{a_i(z)}\\
+\end{align*}
+
+Recall that $a(z)/a_i(z)$ is a polynomial with constant term $1$ for all $i$ and $z^{p-1} \mid b_i(z)$ for all $i$. Therefore $[z^{p-1}]\sum_{i=0}^{r-1} b_i(z)\frac{a(z)}{a_i(z)}=[z^{p-1}]\sum_{i=0}^{r-1}b_i(z)=0$. Then we can write $\sum_{i=0}^{r-1} b_i(z)\frac{a(z)}{a_i(z)}$ as $z^pb(z)$ for some power series $b$. 
+
+
+
+
+%end sketch for first bullet; sketch for second bullet
+
+
+We write
+
+\begin{align*}
+a(z) \prod_{j}(1 - y_j z)&= \prod_{j} \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_j^k z^k\right)^{m_j - 1}\left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_j^k z^k\right)(1-y_jz)\\
+&= \prod_{j} \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_j^k z^k\right)^{m_j - 1}\left(\sum_{k = 0}^{p - 1} (-1)^{k+1}\binom{c - 1}{k} y_j^{k+1} z^{k+1}+\sum_{k = 0}^{p - 1} (-1)^k\binom{c - 1}{k} y_j^k z^k\right)\\
+&= \prod_{j } \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_j^k z^k\right)^{m_j - 1}\left((-1)^{p}\binom{c - 1}{p-1} y_j^{p} z^{p}+\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_j^k z^k\right)\\
+&= g(z)+\prod_{j } \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_j^k z^k\right)^{m_j - 1}\left((-1)^{p}\binom{c - 1}{p-1} y_j^{p} z^{p}\right)\\
+\end{align*}
+
+Then let $u(z)=\prod_{j } \left(\sum_{k = 0}^{p - 1} (-1)^k\binom{c}{k} y_j^k z^k\right)^{m_j - 1}\left((-1)^{p}\binom{c - 1}{p-1} y_j^{p} z^{p}\right)$. Note that $z^{pr} \mid u(z)$. 
+
+%r=1???
+
+Otherwise, we see that for all $i$, $a(z) \prod_{j \neq i}(1 - y_j z) = \frac{1}{1-y_iz}g(z)+\frac{u(z)}{1-y_iz}$. Then since $u(z)$ is divisible by $z^{pr}$, $[z^p]\frac{u(z)}{1-y_iz}=0$. Therefore $[z^p] a(z) \prod_{j \neq i} (1 - y_j z) = [z^p] \frac{1}{1 - y_i z} g(z) = [z^p]f_0(z)=0$.
+
+We write
+%my sketch ends here
+
+
+
+
+
+We claim that $a(z)$ satisfies
+\begin{itemize}
+
+\item $a'(z) = -\sum_{i = 0}^{r - 1} \frac{(m_i c - 1)y_i}{1 - y_i z} a(z) + z^p b(z)$ for some polynomial $b(z)$; %note: b(z) is actually a power series
+
+\item for any $i$, we have
+\[
+[z^p] a(z) \prod_{j \neq i} (1 - y_j z) = [z^p] \frac{1}{1 - y_i z} g(z) = 0.
+\]
+\end{itemize}
+This implies that for any $\lambda_i \in k$, we have
+\begin{equation} \label{eq:lin-comb}
+[z^p] a(z) \sum_{i = 0}^{r - 1} \lambda_i \prod_{j \neq i} (1 - y_j z) = 0.
+\end{equation}
+Note that the $r$ polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ have degree at most $r - 1$ and are linearly independent by Lemma \ref{lem:lin-indep}.  Therefore for $0 \leq k \leq r - 1$, there exist $\{\lambda_i^k\}$ so that
+\[
+\sum_i \lambda_i^k b_i(z) = z^k.
+\]
+Substituting these choices of $\{\lambda_i^k\}$ into (\ref{eq:lin-comb}), we find that for $0 \leq k \leq r - 1$, we have
+\[
+[z^p] a(z) z^k = 0
+\]
+and therefore that $[z^k] a(z) = 0$ for $p - r + 1 \leq k \leq p$.
+
+For each $l \in \ZZ$, consider now the Laurent polynomial
+\[
+h_l(z) = z^{-l - r} \prod_i (1 - y_i z)
+\]
+and notice that 
+\begin{align*}
+\frac{d}{dz} h_l(z) a(z) &= -(l + r)z^{-1} h_l(z) a(z) - \sum_i \frac{y_i}{1 - y_iz} h_l(z) a(z) + h_l(z) a'(z) \\
+&=  -(l + r)z^{-1} h_l(z) a(z) - \sum_i \frac{y_i}{1 - y_iz} h_l(z) a(z) - h_l(z) \sum_i \frac{(m_i c - 1)y_i}{1 - y_i z} a(z)  + z^ph_l(z) b(z)\\
+&= -(l + r)z^{-1} h_l(z) a(z) - \sum_i \frac{y_im_i c}{1 - y_iz} h_l(z) a(z) + z^ph_l(z) b(z)\\
+&= -\Big((l + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\Big) h_l(z) a(z) + z^ph_l(z) b(z).
+\end{align*}
+Notice that 
+\[
+ -\Big((l + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\Big) h_l(z)
+\]
+is a Laurent polynomial with lowest degree term 
+\[
+- z^{-l-r-1} \Big(l + r + \sum_i y_i m_i c\Big) = - z^{-l-r-1}(l + r)
+\]
+and highest degree term 
+\[
+- z^{-l - 1} (-1)^r  \prod_i y_i\Big((l + r) - \sum_i m_i c\Big).
+\]
+%this thing has to be nonzero. why? because we can assume c \notin \Fp?
+Further, the lowest degree term of $z^p h_l(z) b(z)$ has degree at least $p - l - r$.  Now, we see that $[z^{- 1}]\frac{d}{dz} h_l(z) a(z) = 0$, so if $p - l - r > -1$ then $[z^{l}] a(z)$ is a linear combination of $[z^{l + r}] a(z), \ldots, [z^{l + 1}]a(z)$.  If all $y_i$ are not equal to $0$, then inducting down from $l = p - r$ to $l = 0$, we find
+\[
+[z^0] a(z) = 0, 
+\]
+which is a contradiction. We conclude that one of the $y_i$ has value $0$. 
+
+Assume without loss of generality that $y_0 = 0$.  Since $r > 1$, we may then run the entire argument again with $y_1, \ldots, y_{r - 1}$ to conclude that one of $y_1, \ldots, y_{r - 1}$ must be $0$, which is a contradiction.
+\end{proof}
+
+\end{document}
