@@ -4,9 +4,18 @@
 \usepackage{amssymb,amsthm}
 \usepackage{color}
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{verbatim}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{todonotes}
 
 \numberwithin{equation}{section}
 \newtheorem{theorem}[equation]{Theorem}
@@ -114,12 +123,15 @@ To get a similar result in positive characteristic, we must consider formal powe
 \subsection{Relation to previous work}
 
 %fill in?
+\subsection{Acknowledgements} 
 
+This project was done with the support of the Undergraduate Research Opportunities Program (UROP) at MIT. The authors thank P. Etingof for suggesting the problem.  Some exploratory computations were done using Sage. Y.~S. was supported by a NSF Graduate Research Fellowship (NSF Grant \#1122374).
 
+\todo[inline]{Ask Pavel for his grant number}
 
- \section{The rational Cherednik algebra}
+\section{The rational Cherednik algebra}
  
- \subsection{Dunkl operators}
+\subsection{Dunkl operators}
 
 To understand the action of $\HH_{\hbar,c}(\h)$ on $A$, we can use the PBW decompositions. The action of $\Sym(\h^*)$ on $A$ is by left multiplication; $k[S_n]$ acts by the diagonal action, and $\Sym(\h)$ acts via {\it Dunkl operators}. For $y \in \h$, the Dunkl operator $D_y$ acts on $A$ by:
 \begin{align*}
@@ -334,52 +346,7 @@ By Proposition 3.4 in \cite{BC1}, we see that the Hilbert series of $A/J$ is $\l
 
 \end{proof}
 
-
-
-\paragraph{Acknowledgements} This project was done with the support of the Undergraduate Research Opportunities Program (UROP) at MIT. The author thanks Pavel Etingof and Yi Sun for supervising this project. The computer algebra system SAGE was used for obtaining data.
-
-
-
-
-\begin{thebibliography}{2}
-
-\setlength{\itemsep}{-1mm}
-\small
-
-\bibitem{BC1} Martina Balagovi\'c, Harrison Chen, Representations of rational Cherednik algebras in positive characteristic, {\it J. Pure Appl. Algebra} {\bf 217} (2013), no.~4, 716--740, \arxiv{1107.0504v2}.
-
-\bibitem{CE} Tatyana Chmutova, Pavel Etingof, On some representations of the rational Cherednik algebra, {\it Representation Theory of the American Mathematical Society} {\bf 7.24} (2003), 641--650, \arxiv{0303194v2}
-
-\bibitem{DS} Sheela Devadas, Steven V. Sam, Representations of rational Cherednik algebras of G(m,r,n) in positive characteristic, {\it Journal of Commutative Algebra} {\bf 6.4} (2014), 525--559, \arxiv{1304.0856v2}
-
-\bibitem{EM} Pavel Etingof, Xiaoguang Ma, Lecture notes on Cherednik algebras, \arxiv{1001.0432v4}.
-
-\bibitem{L} Carl Lian, Representations of Cherednik algebras associated to symmetric and dihedral groups in positive characteristic, \arxiv{1207.0182v1}.
-
-\end{thebibliography}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\bibliographystyle{alpha}
+\bibliography{rca-bib}
 
 \end{document}
