@@ -84,7 +84,7 @@ Let $T(\h \oplus \h^*)$ be the tensor algebra of $\h \oplus \h^*$. We choose $\h
 \begin{align*}
 [x,x']=0, \quad [y,y' = 0], \quad [y,x] = \hbar\langle y,x\rangle - \sum_{s \in \mathcal{S}} c\langle y,\alpha_s\rangle\langle \alpha_s^\vee,x\rangle s
 \end{align*}
- for all $x,x' \in \h^*, y,y' \in \h$. We can give $\HH_{\hbar,c}(\h)$ a $\mathbb{Z}$-grading by setting $\deg x=1$ for $x \in \h^*$, $\deg y = -1$ for $y \in \h$, and $\deg g=0$ for $g \in k[G]$. We get the PBW-type decomposition $\HH_{\hbar,c}(\h)=\Sym(\h) \otimes_k k[S_n] \otimes_k \Sym(\h^*)$ (\cite{EM}, section 3.2). 
+ for all $x,x' \in \h^*, y,y' \in \h$. We can give $\HH_{\hbar,c}(\h)$ a $\mathbb{Z}$-grading by setting $\deg x=1$ for $x \in \h^*$, $\deg y = -1$ for $y \in \h$, and $\deg g=0$ for $g \in k[G]$. We get the PBW-type decomposition $\HH_{\hbar,c}(\h)=\Sym(\h) \otimes_k k[S_n] \otimes_k \Sym(\h^*)$ (\cite[Section 3.2]{EM}). 
 
 In general, for any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)\simeq \HH_{\alpha\hbar,\alpha c}(\h)$, so we restrict to $\hbar=0$ or $\hbar = 1$. 
 
@@ -141,16 +141,11 @@ To understand the action of $\HH_{\hbar,c}(\h)$ on $A$, we can use the PBW decom
 \begin{align*}
 D_y(f) = \hbar \partial_y f  - \sum_{s \in \mathcal{S}} c \frac{ ( y, \alpha_s )}{\alpha_s} (1-s). f.
 \end{align*}
-
 We choose bases for $\h,\h^*$ in the following way: let $V$ be the vector space spanned by $y_0,\dots,y_{n-1}$ and let $\h$ be the subspace spanned by $y_i-y_j$ for $i \ne j$; $S_n$ acts by permuting indices. Then if $x_0,\dots,x_{n-1}$ is the dual basis for $V^*$, we see that $\h^*$ is the span of $x_0,\dots,x_{n-1}$ under the relation $x_0+\dots+x_{n-1}=0$; alternatively we can consider $\h^*$ as the span of $x_0,\dots,x_{n-2}$ with $x_{n-1}$ defined as $-x_0-\dots-x_{n-2}$.  If $D_i$ is the Dunkl operator corresponding to $y_i$, the Dunkl operators for the elements of $\h$ are spanned by $D_i-D_j$ with $i \ne j$. 
 
 For a transposition $s_{ij} \in S_n$ with $i<j$, we let the corresponding vector $\alpha_{s_{ij}} \in \h^*$ be $x_i-x_j$.
 
-
-
 \section{Proof of the main result}
-
-
 
 We let $g(z)=\prod_{j=0}^{n-1} (1-x_jz)$. Let $F_a(z)$ for $a=0,\dots,n-1$ be the formal power series in $z$ defined by $F_a(z)=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k\right)$ where $\binom{c}{k}=\frac{c(c-1)\dots(c-k+1)}{k!}$. 
 
@@ -160,7 +155,6 @@ Because of the definition of the contravariant form $\beta_c$, showing that an e
 \end{proposition}
 
 \begin{proof}
-
 Since $x_{n-1}=-x_0-\dots-x_{n-2}$, we see that $$\frac{\partial g}{\partial x_i}=-\frac{zg}{1-x_iz}+\frac{zg}{1-x_{n-1}z}$$ for all $0 \le i < n-1$. Let $$F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right).$$ Note that $F(z)$ is symmetric and $F_a(z)=\frac{F(z)}{1-x_az}$ for all $a$. Then we see that for all $0 \le i < n-1$ we have 
 \begin{align*}
 \frac{\partial F}{\partial x_i}%&=\frac{\partial}{\partial x_i}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
@@ -302,7 +296,8 @@ a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)\right)\\
 &=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F'(z)+\sum_{j=0}^{r-1}\frac{y_j}{(1-y_jz)\prod_{i=0}^{r-1}(1-y_iz)}F(z)\\
 &=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}\left(V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
 &=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}a(z)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
-&=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}-\left(\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)\right)\\\end{align*}
+&=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}-\left(\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)\right).
+\end{align*}
 Since $[z^\ell]V(z)=0$ for $0 \le \ell \le p$ we see that $\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)$ for some power series $b(z)$. Therefore $$a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)$$ for some power series $b(z)$.
 
 Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$; then by Proposition~\ref{prop:vand} we see that the polynomials $b_i(z)$ are linearly independent. 
@@ -322,7 +317,6 @@ For any integer $\ell$ we define the Laurent polynomial $$h_\ell(z)=z^{-\ell-r}\
 &= -(\ell + r)z^{-1} h_\ell(z) a(z) - \sum_i \frac{y_im_i c}{1 - y_iz} h_\ell(z) a(z) + z^ph_\ell(z) b(z)\\
 &= -\left((\ell + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\right) h_\ell(z) a(z) + z^ph_\ell(z) b(z).
 \end{align*}
-
 We note that $$-\left((\ell + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\right) h_\ell(z) $$ is a Laurent polynomial with lowest degree term $$- z^{-l-r-1} \left(\ell + r + \sum_i y_i m_i c\right) = - z^{-\ell-r-1}(\ell+ r)$$ and highest degree term 
 $$- z^{-\ell - 1} (-1)^r  \prod_i y_i\left((\ell + r) - \sum_i m_i c\right).$$
 
@@ -333,9 +327,6 @@ Then as long as $p-\ell-r \ge 0$, which is true when $\ell \le p-r$, we see that
 We see that since $[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0$, we can use induction starting with $\ell=p-r$ to show that $[z^\ell]a(z)=0$ for $\ell=p-r,p-r-1,\dots,0$. Therefore $[z^0]a(z)=0$; however, it is clear from the definition of $a(z)$ that this is not the case. Therefore we have a contradiction, so one of the $y_i$ is $0$.
 
 We can assume without loss of generality that $y_{r-1}=0$. Then if $r>1$, we can go through the same argument again with $y_0,\dots,y_{r-2}$. We are able to do this because our calculation of $F'(z)$ and $V(z)$ so that $z^p \mid V(z)$ relies only on the fact that $\sum m_iy_i=0$, which will still be true if we leave out $y_{r-1}=0$. We will then find that one of the $y_i$ with $i < r-1$ is $0$, which gives a contradiction since the $y_i$ are distinct. Therefore we must have $r=1$ and $y_0=0$. 
-
-
-
 \end{proof}
 
 Using these propositions, we are able to prove the main theorem.
@@ -347,7 +338,6 @@ Using these propositions, we are able to prove the main theorem.
 By Propositions~\ref{prop:linind}, \ref{prop:ci}, $A/I$ is a complete intersection with $n-1$ generators of degree $p$. It then must have Hilbert series $h_{A/I}(t)=\left(\frac{1-t^p}{1-t}\right)^{n-1}$. By Proposition~\ref{prop:ann}, the generators of $I$ are annihilated by the Dunkl operators, so $I \subseteq J$.
 
 By Proposition 3.4 in \cite{BC1}, we see that the Hilbert series of $A/J$ is $\left(\frac{1-t^p}{1-t}\right)^{n-1}h(t^p)$ for some polynomial $h$ with nonnegative integer coefficients; since $I \subseteq J$, we see that $h_{A/I}(t) \ge h_{A/J}(t)$ coefficient-wise; however by this restriction of the form of $h_{A/J}(t)$, we see that the only possible choice for $h$ is $h(t)=1$. Therefore $h_{A/I}(t)=h_{A/J}(t)$, so $I=J$ and these $n-1$ generators generate the whole ideal $J$.
-
 \end{proof}
 
 \bibliographystyle{alpha}
