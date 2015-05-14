@@ -155,23 +155,29 @@ For a transposition $s_{ij} \in S_n$ with $i<j$, we let the corresponding vector
 
 \section{Proof of the main result}
 
-We let $g(z)=\prod_{j=0}^{n-1} (1-x_jz)$. Let $F_a(z)$ for $a=0,\dots,n-1$ be the formal power series in $z$ defined by $F_a(z)=\frac{1}{1-x_az} \left( \sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k\right)$ where $\binom{c}{k}=\frac{c(c-1)\dots(c-k+1)}{k!}$. 
+\subsection{An explicit construction of singular vectors}
+
+We let $g(z)=\prod_{j=0}^{n-1} (1-x_jz)$ and $F(z)$ be the formal power series in $z$ defined by
+\[
+F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right).
+\]
+where $\binom{c}{k}=\frac{c(c-1)\dots(c-k+1)}{k!}$. 
+Let $F_i(z)$ for $i=0,\dots,n-1$ be $\frac{F(z)}{1-x_iz}$ and $f_i=[z^p]F_i(z)$. The $f_i$ will be the generators of the maximal ideal $J$. 
 
 Because of the definition of the contravariant form $\beta_c$, showing that an element $f$ of $A$ is in the kernel of $\beta_c$ is equivalent to showing that the Dunkl operators corresponding to the basis elements of $\h$ annihilate $f$.
 
-\begin{proposition}\label{prop:ann} Let $f_a=[z^p]F_a(z)$. Then $f_a$ for $a=0,\dots,n-1$ are annihilated by the Dunkl operators. 
+\begin{proposition}\label{prop:ann} The elements $f_i$ for $i=0,\dots,n-1$ are annihilated by $D_i-D_j$ for all $i \ne j$.
 \end{proposition}
 
 \begin{proof}
+
+We see that for all $i$, $f_i$ is symmetric in the $x_j$ for $j \ne i$. It therefore suffices to consider the action of the Dunkl operators on $f_0$. We note that the Dunkl operators $D_i-D_j$ for all $i \ne j$ are spanned by $D_i-D_0$ for $0<i \le n-1$; then because $f_0$ is symmetric in the $x_i$ with $i > 0$, we see that it suffices to consider the action of $D_1-D_0$ on $f_0$ to show that the $f_i$ are annihilated by $D_i \ne D_j$ for all $i \ne j$. 
+
 Since $x_{n-1}=-x_0-\dots-x_{n-2}$, we see that
 \[
 \frac{\partial g}{\partial x_i}=-\frac{zg}{1-x_iz}+\frac{zg}{1-x_{n-1}z} \text{ for all $0 \le i < n-1$}.
 \]
-Let 
-\[
-F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right).
-\]
-Note that $F(z)$ is symmetric and $F_a(z)=\frac{F(z)}{1-x_az}$ for all $a$. Then we see that for all $0 \le i < n-1$ we have 
+We recall that $F(z)$ is symmetric and $F_a(z)=\frac{F(z)}{1-x_az}$ for all $a$. Then we see that for all $0 \le i < n-1$ we have 
 \begin{align*}
 \frac{\partial F}{\partial x_i}%&=\frac{\partial}{\partial x_i}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
 &=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial x_i}\\
@@ -216,7 +222,7 @@ We recall that we need only consider the action of $D_1-D_0$ on $F_0(z)$. We con
 \[
 D_0=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right), D_1=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)
 \]
-since $F_0$ is invariant under $s_{ij}$ where $0 < i,j$. 
+since $F_0$ is invariant under $s_{ij}$ where $0 < i,j$. We now compute
 \begin{align*}
 D_0F_0&=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right)(F_0)\\
 &=\frac{\partial F_0}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}(F_0)\\
@@ -236,7 +242,7 @@ We see easily that
 \[
 \frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_jz}.
 \]
-We now consider $\frac{\partial F}{\partial z}$.
+We now consider $\frac{\partial F}{\partial z}$. We compute
 \begin{align*}
 \frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
 &=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
@@ -293,45 +299,43 @@ Let $b=[z^{p-1}](F_0)$. We see that $[z^p](-zF_0)=-b$. Then $[z^{p-2}]\left(\fra
 \[
 [z^p]((D_1-D_0)(F_0))=(D_1-D_0)([z^p]F_0)=(D_1-D_0)f_0=0.
 \]
-By the symmetry of the $F_a$, this is the only Dunkl operator we need consider; it is clear that all the $f_a$ are killed by the Dunkl operators.
+By the symmetry of the $F_i$, this is the only Dunkl operator we need consider; it is clear that all the $f_i$ are killed by the Dunkl operators.
 \end{proof}
 
-\begin{proposition}\label{prop:linind} The $f_a$ for $a=0,\dots,n-2$ are linearly independent homogeneous polynomials of degree $p$.
+\begin{proposition}\label{prop:linind} The $f_i$ for $i=0,\dots,n-2$ are linearly independent homogeneous polynomials of degree $p$.
 \end{proposition} 
 
 \begin{proof} 
-We recall that $F_a(z)=\frac{1}{1-x_az}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_a^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $f_a$ is a homogeneous polynomial in the $x_i$ of degree $p$, since $[z^k]F_a(z)$ is a homogeneous polynomial in the $x_i$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands in $F_a$). 
+We recall that $F_i(z)=\frac{1}{1-x_iz}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_i^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $f_i$ is a homogeneous polynomial in the $x_j$ of degree $p$, since $[z^k]F_i(z)$ is a homogeneous polynomial in the $x_j$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands in $F_i$). 
 
-Assume $\sum_{a=0}^{n-2} \lambda_af_a=0$ for some $\lambda_a \in k$. Then in particular this must be true when we set $x_a=1$ and $x_i=0$ for $i \ne a,i < n-1$. (We let $x_{n-1}=-1$ so that $\sum x_i=0$.) Note that if this is the case that $g(z)=(1-z)(1+z)=1-z^2$, so 
+Assume $\sum_{i=0}^{n-2} \lambda_if_i=0$ for some $\lambda_i \in k$. Then in particular this must be true when we set $x_j=1$ and $x_i=0$ for $i \ne j,i < n-1$. (We let $x_{n-1}=-1$ so that $\sum x_i=0$.) Note that if this is the case that $g(z)=(1-z)(1+z)=1-z^2$, so 
 \[
-F_a(z)=\left(\sum_{k=0}^\infty z^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k\right)
+F_j(z)=\left(\sum_{k=0}^\infty z^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k\right)
 \]
 and 
 \[
 F_i(z)=\left(\sum_{k=0}^\infty 0^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k\right)=\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k
 \]
-for $n-1>i \ne a$.
+for $n-1>i \ne j$.
 
-Therefore we have $[z^p]F_a(z)=f_a=\sum_{k=0}^{(p-1)/2} (-1)^k\binom{c}{k}=\binom{c-1}{(p-1)/2}$ and $[z^p]F_i(z)=f_i=0$ for $n-1>i \ne a$ (since $p > 2$). Since $c$ is generic, we can assume $\binom{c-1}{(p-1)/2} \ne 0$. Then since $\sum_{a=0}^{n-2} \lambda_af_a=0$, we see that $\lambda_a\binom{c-1}{(p-1)/2}=0$; then we must have $\lambda_a=0$.
+Therefore we have $[z^p]F_j(z)=f_j=\sum_{k=0}^{(p-1)/2} (-1)^k\binom{c}{k}=\binom{c-1}{(p-1)/2}$ and $[z^p]F_i(z)=f_i=0$ for $n-1>i \ne j$ (since $p > 2$). Since $c$ is generic, we can assume $\binom{c-1}{(p-1)/2} \ne 0$. Then since $\sum_{i=0}^{n-2} \lambda_if_i=0$, we see that $\lambda_j\binom{c-1}{(p-1)/2}=0$; then we must have $\lambda_j=0$.
 
-By setting $x_a=1,x_{n-1}=-1$ and $x_i=0$ for $i \ne a, i \ne n-1$ for all $a=0,\dots,n-1$ in succession, we find that $\lambda_a=0$ for all $a$. Therefore the $f_a$ for $a=0,\dots,n-2$ are linearly independent as desired.
+By setting $x_j=1,x_{n-1}=-1$ and $x_i=0$ for $i \ne j, i \ne n-1$ for all $j=0,\dots,n-1$ in succession, we find that $\lambda_j=0$ for all $j$. Therefore the $f_i$ for $i=0,\dots,n-2$ are linearly independent as desired.
 \end{proof}
+
+\subsection{Complete interesction properties}
 
 \begin{proposition}\label{prop:vand}Let $y_0, \ldots, y_{r - 1}$ be distinct elements of $k$.  Then the polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ are linearly independent.
 \end{proposition}
 \begin{proof} 
-Assume that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Therefore since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. Then in particular for $\ell=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^\ell=0$.
+Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. In particular for $\ell=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^\ell=0$. 
 
-This implies that the product of the Vandermonde matrix 
-\[
-\left(\begin{matrix} 1& 1& \dots& 1\\y_0&y_1&\dots&y_{r-1}\\\dots&\dots&\dots&\dots\\y_0^{r-1}&y_1^{r-1}&\dots&y_{r-1}^{r-1}\end{matrix}\right)
-\]
-with the column vector $(\lambda_0,\dots,\lambda_{r-1})$ is $0$; however since all the $y_i$ are distinct, the Vandermonde matrix has nonzero determinant $\prod_{0 \le i < j \le r-1} (y_i-y_j)$, implying that $\lambda_i=0$ for all $i$. 
+However, the vectors $(1,y_i,\dots,y_i^{r-1})$ are linearly independent by the Vandermonde determinant, so $\lambda_i=0$ for all $i$.
 
 Therefore the polynomials $b_i(z)$ are linearly independent as desired.
 \end{proof}
 
-\begin{proposition}\label{prop:ci} Let $I \subseteq A$ be the ideal generated by $f_a$ for $a=0,\dots,n-2$. $A/I$ is a complete intersection. 
+\begin{proposition}\label{prop:ci} Let $I \subseteq A$ be the ideal generated by $f_i$ for $i=0,\dots,n-2$.  The $A/I$ is a complete intersection. 
 \end{proposition}
 
 \begin{proof} 
