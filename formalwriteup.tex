@@ -348,8 +348,8 @@ By setting $x_j=1,x_{n-1}=-1$ and $x_i=0$ for $i \ne j, i \ne n-1$ for all $j=0,
 
 \section{Complete interesction properties}
 
-\begin{proposition}\label{prop:vand}Let $y_0, \ldots, y_{r - 1}$ be distinct elements of $k$.  Then the polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ are linearly independent.
-\end{proposition}
+\begin{lemma}\label{lem:vand}Let $y_0, \ldots, y_{r - 1}$ be distinct elements of $k$.  Then the polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ are linearly independent.
+\end{lemma}
 \begin{proof} 
 Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. In particular for $\ell=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^\ell=0$.  However, the vectors $(1,y_i,\dots,y_i^{r-1})$ are linearly independent by the Vandermonde determinant, so $\lambda_i=0$ for all $i$, meaning that $b_i(z)$ are linearly independent.
 \end{proof}
@@ -392,7 +392,7 @@ a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)
 \]
 for some power series $b(z)$.
 
-Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$; then by Proposition~\ref{prop:vand} we see that the polynomials $b_i(z)$ are linearly independent. 
+Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$; then by Lemma~\ref{lem:vand} we see that the polynomials $b_i(z)$ are linearly independent. 
 
 Note that for any $i$, $a(z)b_i(z)=\frac{1}{1-y_iz}F(z)$. Then in particular, we have 
 \[
