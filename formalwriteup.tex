@@ -106,7 +106,7 @@ D_y(f) = \hbar \partial_y f  - \sum_{k=0}^{n-1} \sum_{l=0}^{n-1} c  \langle y, x
 \end{align*}
 where we note that $\frac{(1-s_{kl}) f}{x_k - x_l}$ is a polynomial for $f \in A$. Explicitly, for 
 \[
-D_i = ,
+D_i = 
 \]
 we have $D_{y_i - y_j} = D_i - D_j$. 
 
@@ -183,8 +183,11 @@ The authors thank P. Etingof for suggesting the problem and for helpful discussi
 \section{An explicit construction of singular vectors}
 
 Define $g(z)=\prod_{j=0}^{n-1} (1-x_jz)$ and $F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g(z)-1)^k\right)$ so that $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i = [z^p] \frac{F(z)}{1-x_iz}$.  We now show that $f_i$ are singular vectors.
+
+\todo[inline]{Break up the proof into lemmas, e.g. for the value of $\frac{\partial F}{\partial z}$}
+
 \begin{proposition}\label{prop:ann} 
-The elements $f_i$ for $i=0,\dots,n-1$ singular vectors in $A$.
+The elements $f_i$ for $i=0,\dots,n-1$ are singular vectors in $A$.
 \end{proposition}
 \begin{proof}
 We must show that $f_i$ is annihilated by annihilated by $D_j-D_l$ for all $j \ne l$.
@@ -357,6 +360,8 @@ Let the vectors $f_i \in A$ generate an ideal $I \subset A$.  We will now show t
 \begin{proof} 
 Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. In particular for $l=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^l=0$.  However, the vectors $(1,y_i,\dots,y_i^{r-1})$ are linearly independent by the Vandermonde determinant, so $\lambda_i=0$ for all $i$, meaning that $b_i(z)$ are linearly independent.
 \end{proof}
+
+\todo[inline]{Split computations out into some lemmas on computations of $F'(z)$ and $V(z)$ which explicitly mention the hypotheses that $\sum_i m_i y_i = 0$.}
 
 \begin{proposition}\label{prop:ci}
 The quotient $A/I$ is a complete intersection. 
