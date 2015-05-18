@@ -301,15 +301,15 @@ We now again consider $(D_1-D_0)(F_0)$. Recall that $n \equiv 0 \bmod p$, so in 
 \end{align*}
 We consider $z^2V(z)$ and $G_i(z)$ for $i=0,1$. We note that $(g-1)^{p-1}$ divides $V(z)$ and $z(g-1)^{p-1}$ divides $G_i(z)$. Since the sum $\sum_{a=0}^{n-1} x_a$ is $0$, we see that $z^2 \mid g(z)-1$; therefore $z^{2p-2} \mid (g-1)^{p-1}$. Therefore $z^{p+1} \mid z^{2p-1} \mid G_i(z)$ and $z^{p+1} \mid z^{2p} \mid z^2V(z)$. (We note that $z^p \mid z^{2p-2} \mid V(z)$; this will be relevant later.)
 
-Then we see that for $0 \le \ell \le p$ we have
+Then we see that for $0 \le l \le p$ we have
 \[
-[z^\ell](z^2V(z))=[z^\ell]G_0(z)=[z^\ell]G_1(z)=0.
+[z^l](z^2V(z))=[z^l]G_0(z)=[z^l]G_1(z)=0.
 \]
 Then we also have
 \[
-[z^\ell](G_1(z)-G_0(z)+z^2V(z))=0.
+[z^l](G_1(z)-G_0(z)+z^2V(z))=0.
 \]
-Then $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is $0$ since it is a linear combination of $[z^\ell](G_1(z)-G_0(z)+z^2V(z))$ for $0 \le \ell \le p$, so 
+Then $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is $0$ since it is a linear combination of $[z^l](G_1(z)-G_0(z)+z^2V(z))$ for $0 \le l \le p$, so 
 \[
 [z^p]\left((D_1-D_0)(F_0)\right)=[z^p]\left(-zF_0-z^2\frac{\partial F_0}{\partial z}\right).
 \]
@@ -355,7 +355,7 @@ Let the vectors $f_i \in A$ generate an ideal $I \subset A$.  We will now show t
 \begin{lemma}\label{lem:vand}Let $y_0, \ldots, y_{r - 1}$ be distinct elements of $k$.  Then the polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ are linearly independent.
 \end{lemma}
 \begin{proof} 
-Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. In particular for $\ell=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^\ell=0$.  However, the vectors $(1,y_i,\dots,y_i^{r-1})$ are linearly independent by the Vandermonde determinant, so $\lambda_i=0$ for all $i$, meaning that $b_i(z)$ are linearly independent.
+Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. In particular for $l=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^l=0$.  However, the vectors $(1,y_i,\dots,y_i^{r-1})$ are linearly independent by the Vandermonde determinant, so $\lambda_i=0$ for all $i$, meaning that $b_i(z)$ are linearly independent.
 \end{proof}
 
 \begin{proposition}\label{prop:ci}
@@ -374,7 +374,7 @@ We will assume that $\prod_i y_i \ne 0$ in order to derive a contradiction and s
 \[
 F'(z)=V(z)+\left(\sum_j \frac{-cx_j}{1-x_jz}F(z)\right)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
 \]
-where $[z^\ell]V(z)=0$ for $0 \le \ell \le p$. 
+where $[z^l]V(z)=0$ for $0 \le l \le p$. 
 
 We will use a `residues by parts' argument; using the fact that the residue of an exact differential is zero, we will relate the coefficients of a power series to the coefficients of the derivative of that power series and derive a contradiction. 
 Let
@@ -389,7 +389,7 @@ a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)\right)\\
 &=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}a(z)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
 &=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}-\left(\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)\right).
 \end{align*}
-Since $[z^\ell]V(z)=0$ for $0 \le \ell \le p$ we see that $\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)$ for some power series $b(z)$. Therefore
+Since $[z^l]V(z)=0$ for $0 \le l \le p$ we see that $\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)$ for some power series $b(z)$. Therefore
 \[
 a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)
 \]
@@ -413,32 +413,32 @@ Choosing these $\lambda_i^k$ in (\ref{eq:lincomb}), we see that $[z^p](a(z)z^k)=
 
 We will now derive from this that $[z^0]a(z)=0$, a contradiction. If $r > p$ then this has already been established, so it suffices to assume $r \le p$. 
 
-For any integer $\ell$, define the Laurent polynomial 
+For any integer $l$, define the Laurent polynomial 
 \[
-h_\ell(z)=z^{-\ell-r}\prod_i(1-y_iz).
+h_l(z)=z^{-l-r}\prod_i(1-y_iz).
 \]
 Notice that
 \begin{align*}
-\frac{d}{dz}( h_\ell(z) a(z)) &= -(l + r)z^{-1} h_\ell(z) a(z) - \sum_i \frac{y_i}{1 - y_iz} h_\ell(z) a(z) + h_\ell(z) a'(z) \\
-&=  -(\ell + r)z^{-1} h_\ell(z) a(z) - \sum_i \frac{y_i}{1 - y_iz} h_\ell(z) a(z) - h_\ell(z) \sum_j \frac{(m_j c - 1)y_i}{1 - y_ijz} a(z)  + z^ph_\ell(z) b(z)\\
-&= -(\ell + r)z^{-1} h_\ell(z) a(z) - \sum_i \frac{y_im_i c}{1 - y_iz} h_\ell(z) a(z) + z^ph_\ell(z) b(z)\\
-&= -\left((\ell + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\right) h_\ell(z) a(z) + z^ph_\ell(z) b(z).
+\frac{d}{dz}( h_l(z) a(z)) &= -(l + r)z^{-1} h_l(z) a(z) - \sum_i \frac{y_i}{1 - y_iz} h_l(z) a(z) + h_l(z) a'(z) \\
+&=  -(l + r)z^{-1} h_l(z) a(z) - \sum_i \frac{y_i}{1 - y_iz} h_l(z) a(z) - h_l(z) \sum_j \frac{(m_j c - 1)y_i}{1 - y_ijz} a(z)  + z^ph_l(z) b(z)\\
+&= -(l + r)z^{-1} h_l(z) a(z) - \sum_i \frac{y_im_i c}{1 - y_iz} h_l(z) a(z) + z^ph_l(z) b(z)\\
+&= -\left((l + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\right) h_l(z) a(z) + z^ph_l(z) b(z).
 \end{align*}
 We note that 
 \[
--\left((\ell + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\right) h_\ell(z)
+-\left((l + r) z^{-1} + \sum_i \frac{y_im_i c}{1 - y_iz}\right) h_l(z)
 \]
 is a Laurent polynomial with lowest degree term 
 \[
-- z^{-l-r-1} \left(\ell + r + \sum_i y_i m_i c\right) = - z^{-\ell-r-1}(\ell+ r)
+- z^{-l-r-1} \left(l + r + \sum_i y_i m_i c\right) = - z^{-l-r-1}(l+ r)
 \]
 and highest degree term 
 \[
-- z^{-\ell - 1} (-1)^r  \prod_i y_i\left((\ell + r) - \sum_i m_i c\right).
+- z^{-l - 1} (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right).
 \]
-The lowest degree term of the formal power series $z^ph_\ell(z)b(z)$ has degree at least $p-\ell-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_\ell(z) a(z))\right)=0$, so for $p-\ell-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_\ell(z) a(z))\right)=0$ is a linear combination of $[z^\ell]a(z),[z^{\ell+1}]a(z),\dots,[z^{\ell+r}]a(z)$ in which $[z^\ell]a(z)$ has nonzero coefficient $ (-1)^r  \prod_i y_i\left((\ell + r) - \sum_i m_i c\right)$. The latter coefficient is nonzero since $c$ is generic and none of the $y_i$ are $0$. Therefore $[z^\ell]a(z)$ is a linear combination of $[z^{\ell+1}]a(z),\dots,[z^{\ell+r}]a(z)$ when $\ell \le p-r$. 
+The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at least $p-l-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$, so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient $ (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right)$. The latter coefficient is nonzero since $c$ is generic and none of the $y_i$ are $0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ when $l \le p-r$. 
 
-Since $[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0$, by induction starting with $\ell=p-r$ we find that $[z^\ell]a(z)=0$ for $\ell=p-r,p-r-1,\dots,0$. Therefore, $[z^0]a(z)=0$; a contradiction. We conclude that $y_i=0$ for some $i$.
+Since $[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0$, by induction starting with $l=p-r$ we find that $[z^l]a(z)=0$ for $l=p-r,p-r-1,\dots,0$. Therefore, $[z^0]a(z)=0$; a contradiction. We conclude that $y_i=0$ for some $i$.
 
 Assume without loss of generality that $y_{r-1}=0$. If $r>1$, we can repeat the same argument again with $y_0,\dots,y_{r-2}$. 
 
