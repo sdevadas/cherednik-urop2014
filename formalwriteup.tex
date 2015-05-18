@@ -456,11 +456,15 @@ h_L(t) = \left(\frac{1-t^p}{1-t}\right)^{n-1}.
 \]
 \end{theorem}
 \begin{proof}
-It suffices to show that the $f_i$ generate the ideal $J$ and that $A/J$ has Hilbert series $\left(\frac{1-t^p}{1-t}\right)^{n-1}$. 
-
-By Propositions~\ref{prop:linind} and \ref{prop:ci}, $A/I$ is a complete intersection with $n-1$ linearly independent generators $f_i$ in degree $p$, so then its Hilbert series is $h_{A/I}(t)=\left(\frac{1-t^p}{1-t}\right)^{n-1}$. By Proposition~\ref{prop:ann}, the generators of $I$ are annihilated by the Dunkl operators, so $I \subseteq J$.
-
-By \cite[Proposition 3.4]{BC1}, the Hilbert series of $A/J$ is $\left(\frac{1-t^p}{1-t}\right)^{n-1}h(t^p)$ for some polynomial $h$ with nonnegative integer coefficients. Since $I \subseteq J$, we see that $h_{A/I}(t) \ge h_{A/J}(t)$ coefficient-wise; hence $h(t)=1$. Therefore $h_{A/I}(t)=h_{A/J}(t)$, so $I=J$, completing the proof.
+By \cite[Proposition 3.4]{BC1}, the Hilbert series of $L$ is 
+\[
+h_L(t) = \left(\frac{1-t^p}{1-t}\right)^{n-1}h(t^p)
+\]
+for some polynomial $h(t)$ with nonnegative integer coefficients.  On the other hand, by Propositions~\ref{prop:linind} and \ref{prop:ci}, $A/I$ is a complete intersection with $n-1$ linearly independent generators $f_i$ in degree $p$.  Therefore, its Hilbert series is 
+\[
+h_{A/I}(t)=\left(\frac{1-t^p}{1-t}\right)^{n-1}.
+\]
+By Proposition~\ref{prop:ann}, the generators $f_i$ of $I$ are singular vectors, so $I \subseteq J$, implying that $h_{A/I}(t) \ge h_{A/J}(t)$ coefficient-wise.  We conclude that $h(t) = 1$, hence $h_{A/I}(t)=h_{A/J}(t)$ and $I=J$, completing the proof.
 \end{proof}
 
 \bibliographystyle{alpha}
