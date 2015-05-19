@@ -184,7 +184,7 @@ The authors thank P. Etingof for suggesting the problem and for helpful discussi
 
 Define the polynomials 
 \[
-g(z)=\prod_{j=0}^{n-1} (1-x_jz) \qquad \text{ and } \qquad F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g(z)-1)^k\right).
+g(z)=\prod_{j=0}^{n-1} (1-x_jz) \qquad \text{ and } \qquad F(z) = \sum_{k=0}^{p-1} \binom{c}{k} (g(z)-1)^k.
 \]
 In terms of $g(z)$ and $F(z)$, we have $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i = [z^p] \frac{F(z)}{1-x_iz}$.  We will show that $f_i$ are singular vectors.
 
@@ -227,7 +227,7 @@ F'(z) = V(z) - \sum_{j=0}^{n-1} \frac{cx_j}{1-x_jz} F(z).
 \]
 It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$.  Consider the expansion 
 \[
-g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_0, \ldots, x_{n - 1})+\dots+z^ne_n(x_0, \ldots, x_{n - 1})
+g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\sum_i x_i+z^2e_2(x_0, \ldots, x_{n - 1})+\dots+z^ne_n(x_0, \ldots, x_{n - 1})
 \]
 for some polynomials $e_2, \ldots, e_n$.  Recalling that $\sum_i x_i=0$ by hypothesis, we see that $z^2 \mid g(z)-1$. By definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, hence $z^{2p-2} \mid V(z)$. Since $p \ge 2$, this implies $z^p \mid V(z)$, completing the proof.
 \end{proof}
@@ -362,32 +362,41 @@ Let $b=[z^{p-1}](F_0)$. We see that $[z^p](-zF_0)=-b$. Then $[z^{p-2}]\left(\fra
 By the symmetry of the $F_i$, this is the only Dunkl operator we need consider; it is clear that all the $f_i$ are killed by the Dunkl operators.
 \end{proof}
 
-\begin{proposition}\label{prop:linind} The $f_i$ for $i=0,\dots,n-2$ are linearly independent degree $p$ homogeneous polynomials.
+\subsection{Proof of linear independence of $f_i$}
+
+\begin{proposition}\label{prop:linind} 
+For generic $c$, the $f_i$ for $i=0,\dots,n-2$ are linearly independent degree $p$ homogeneous polynomials.
 \end{proposition} 
-
 \begin{proof} 
-We recall that $F_i(z)=\frac{1}{1-x_iz}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)=\left(\sum_{k=0}^\infty x_i^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)$. It is then clear that $f_i$ is a homogeneous polynomial in the $x_j$ of degree $p$, since $[z^k]F_i(z)$ is a homogeneous polynomial in the $x_j$ of degree $k$ for all $k$ (this follows from the fact that this is true in both multiplicands in $F_i$). 
-
-Assume $\sum_{i=0}^{n-2} \lambda_if_i=0$ for some $\lambda_i \in k$. Then in particular this must be true when we set $x_j=1$ and $x_i=0$ for $i \ne j,i < n-1$. (We let $x_{n-1}=-1$ so that $\sum x_i=0$.) Note that if this is the case that $g(z)=(1-z)(1+z)=1-z^2$, so 
+We have the expansion
 \[
-F_j(z)=\left(\sum_{k=0}^\infty z^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k\right)
+F_i(z)=\frac{1}{1-x_iz}\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k=\sum_{k=0}^\infty x_i^kz^k\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k.
+\]
+Because for any $l$ the coefficient of $z^l$ in each factor is a homogeneous polynomial of degree $l$, we see that $[z^p]F_i(z)$ is homogeneous of degree $p$.
+
+For linear independence, suppose that $\sum_{i=0}^{n-2} \lambda_if_i=0$ for some $\lambda_i \in k$.  Substitute $x_{n-1} = -1$, $x_j=1$ and $x_i=0$ for $i \ne j,i < n-1$ so that $g(z)=(1-z)(1+z)=1-z^2$ and hence
+\[
+F_j(z)=\sum_{k=0}^\infty z^k\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k
 \]
 and 
 \[
-F_i(z)=\left(\sum_{k=0}^\infty 0^kz^k\right)\left(\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k\right)=\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k
+F_i(z)=\sum_{k=0}^\infty 0^kz^k\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k=\sum_{k=0}^{p-1} \binom{c}{k} (-z^2)^k \text{ for $i < n - 1$, $i \neq j$}.
 \]
-for $n-1>i \ne j$.
-
-We first consider the case $p=2$. In this case $[z^2]F_j(z)=1-c$ and $[z^2]F_i(z)=-c$. By setting $x_j=1,x_{n-1}=-1$ and $x_i=0$ for $i \ne j, i \ne n-1$ for all $j=0,\dots,n-1$ in succession, we find that 
+If $p = 2$, we see that $[z^2]F_j(z)=1-c$ and $[z^2]F_i(z)=-c$, so varying $j$ implies that
 \[
-\lambda_j-c\sum_{i=0}^{n-2} \lambda_i = 0 \text{ for all }j.
+\lambda_j = c\sum_{i=0}^{n-2} \lambda_i \text{ for all }j.
 \]
-Therefore for all $j$, $\lambda_j=c\sum_{i=0}^{n-2} \lambda_i$. Then in particular all of the $\lambda_i$ are equal to some $\lambda \in k$ with $(1-c(n-1))\lambda = 0$. Since $c$ is generic, we can assume $(1-c(n-1)) \ne 0$, so then $\lambda=0$. Therefore $\lambda_j=0$ for all $j$; then the $f_i$ for $i=0,\dots,n-2$ are linearly independent as desired.
+In particular, all $\lambda_i$ have common value $\lambda \in k$ solving $(1-c(n-1))\lambda = 0$, which for generic $c$ implies that $\lambda = 0$, giving linear independence.
 
-
-We now suppose $p>2$. Then we have $[z^p]F_j(z)=f_j=\sum_{k=0}^{(p-1)/2} (-1)^k\binom{c}{k}=\binom{c-1}{(p-1)/2}$ and $[z^p]F_i(z)=f_i=0$ for $n-1>i \ne j$ (since $p > 2$). Since $c$ is generic, we can assume $\binom{c-1}{(p-1)/2} \ne 0$. Then since $\sum_{i=0}^{n-2} \lambda_if_i=0$, we see that $\lambda_j\binom{c-1}{(p-1)/2}=0$; then we must have $\lambda_j=0$.
-
-By setting $x_j=1,x_{n-1}=-1$ and $x_i=0$ for $i \ne j, i \ne n-1$ for all $j=0,\dots,n-1$ in succession, we find that $\lambda_j=0$ for all $j$. Therefore the $f_i$ for $i=0,\dots,n-2$ are linearly independent as desired.
+If $p > 2$, we have 
+\[
+[z^p]F_j(z)=f_j=\sum_{k=0}^{(p-1)/2} (-1)^k\binom{c}{k}=\binom{c-1}{(p-1)/2}
+\]
+and $[z^p]F_i(z)=f_i=0$ for $i < n - 1$ and $i \neq j$. For generic $c$, we have $\binom{c-1}{(p-1)/2} \ne 0$, meaning that 
+\[
+\sum_{i=0}^{n-2} \lambda_if_i=0 = \lambda_j\binom{c-1}{(p-1)/2}=0
+\]
+implies $\lambda_j=0$.  Varying $j$ implies that $\lambda_j=0$ for all $j$, again yielding linear independence.
 \end{proof}
 
 \section{Complete intersection properties}
@@ -492,7 +501,7 @@ which is nonzero for $c$ generic and $\prod_i y_i \ne 0$. Therefore $[z^l]a(z)$ 
 We now show that $A/I$ is a complete intersection.  Our technique is a translation of the idea of the proof of \cite[Theorem 3.2]{CE} to the formal power series context.
 
 \begin{proposition}\label{prop:ci}
-The quotient $A/I$ is a complete intersection. 
+For generic $c$, the quotient $A/I$ is a complete intersection. 
 \end{proposition}
 \begin{proof}
 It suffices to show that if $x_0,\dots,x_{n-1} \in k$ satisfy $f_i(x_0,\dots,x_{n-1})=0$ for all $i$, then $x_0=\dots=x_{n-1}=0$.  Suppose that the $x_i$ take the distinct values $\{y_0,\dots,y_{r-1}\}$, where $y_i$ occurs with multiplicity $m_i>0$ so that $g(z)=(1-y_iz)^{m_i}$.  In these terms, we have that 
