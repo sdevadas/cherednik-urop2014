@@ -100,21 +100,16 @@ For any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)$ and $\HH_{\alpha\hbar,\alpha c}(\h)$
 
 \subsection{Polynomial representation of the rational Cherednik algebra}
 
-The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}. In particular, for any $f \in A$ we can take a partial derivative $\frac{\partial f}{\partial x_i}$ by noting that $A=k[x_0,\dots,x_{n-2}]$ with $x_{n-1}=-x_0-\dots-x_{n-2}$; then we can write $f$ as a polynomial and take its partial derivative by any $x_i$ with $0 \le i \le n-2$. 
-
-The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act via the \textit{Dunkl operator} $D_y$ defined by
+The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act via the \textit{Dunkl operator} $D_y$ defined by
 \begin{align*}
 D_y(f) = \hbar \partial_y f  - \sum_{k=0}^{n-1} \sum_{l=0}^{n-1} c  \langle y, x_k-x_l \rangle \frac{(1-s_{kl}) f}{x_k - x_l},
 \end{align*}
-where we note that $\frac{(1-s_{kl}) f}{x_k - x_l}$ is a polynomial for $f \in A$. Explicitly, for 
+where we note that $\frac{(1-s_{kl}) f}{x_k - x_l}$ is a polynomial for $f \in A$. Explicitly, we have  
 \[
-D_i = \hbar\frac{\partial f}{\partial x_i} -c \sum_{k \ne i} \frac{(1-s_{ki})f}{x_i-x_k}
+D_{y_i - y_j} = 
 \]
-we have $D_{y_i - y_j} = D_i - D_j$. 
 
-
-\todo[inline]{Fill this in, $D_{y_i}$ is not well-defined because $y_i$ is not in $\h$}
-
+\todo[inline]{Remove $D_i$ and replace the quantity above}
 
 \subsection{Maximal ideal and irreducible quotient of the polynomial representation}
 
@@ -250,7 +245,7 @@ Then we see that for all $0 \le i < n-1$ we have
 &=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
 %&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g\\
 %&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
-&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
+&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}+\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\\
 %&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
 %&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
 &=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}+F(z)\right).
@@ -263,13 +258,11 @@ Then we see that
 \[
 \frac{\partial F}{\partial x_i}=G_i(z)+\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F(z).
 \]
-
-Then it remains only to show that $[z^l]G_i(z)=0$ for $l=0,\dots,p$. To show this, we need only show that $G_i(z)=z^{p+1}g_i(z)$ for some power series $v(z)$. 
-
-We consider the expansion of $g(z)$; this is $g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_i)+\dots+z^ne_n(x_i)$ where $e_2,\dots,e_n$ are polynomials in the $x_i$. In particular we note that $x_{n-1}=-x_0-\dots-x_{n-2}$ by hypothesis, so $z^2 \mid g(z)-1$. 
-
-Then by the definition of $G_i(z)$, we see that $z(g-1)^{p-1} \mid G_i(z)$, so $z^{2p-1} \mid V(z)$. Since $p \ge 2$, it is clear that $z^{p+1} \mid G_i(z)$, so we can write $G_i(z)=z^{p+1}g_i(z)$ for some power series $g_i(z)$ as desired. 
-
+It remains only to show that $[z^l]G_i(z)=0$ for $l=0,\dots,p$. To show this, we need only show that $G_i(z)=z^{p+1}g_i(z)$ for some power series $v(z)$.  Consider the expansion 
+\[
+g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_0, \ldots, x_{n-1})+\dots+z^ne_n(x_0, \ldots, x_{n - 1}).
+\]
+Recall that $\sum_i x_i = 0$, so $z^2 \mid g(z)-1$.  By definition of $G_i(z)$, we see that $z(g-1)^{p-1} \mid G_i(z)$, so $z^{2p-1} \mid V(z)$. Since $p \ge 2$, this implies $z^{p+1} \mid G_i(z)$, giving the desired.
 \end{proof}
 
 
@@ -323,7 +316,6 @@ It is then easy to see that
 (D_1-D_0)(F_0)=\frac{G_1-G_0}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0.
 \]
 In order to show that the $p$th coefficient in this formal power series is $0$, we must consider $\frac{\partial F_0}{\partial z}$. 
-
 
 We recall by Lemma~\ref{lem:dFdz} that
 \[
@@ -454,10 +446,9 @@ a(z)=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z).
 Then we have
 \begin{enumerate}
 \item $a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)$ for some power series $b(z)$;
-\item For any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$.\end{enumerate}
-
+\item For any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$.
+\end{enumerate}
 \end{lemma}
-
 \begin{proof} We begin by computing $a'(z)$. By Lemma~\ref{lem:dFdz2} we have
 \[
 F'(z)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
@@ -501,7 +492,6 @@ and highest degree term
 - z^{-l - 1} (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right).
 \]
 The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at least $p-l-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$, so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient $ (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right)$. The latter coefficient is nonzero since $c$ is generic and $\prod_i y_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ when $l \le p-r$. 
-
 \end{proof}
 
 \begin{proposition}\label{prop:ci}
