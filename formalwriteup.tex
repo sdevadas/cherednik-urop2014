@@ -106,9 +106,10 @@ D_y(f) = \hbar \partial_y f  - \sum_{k=0}^{n-1} \sum_{l=0}^{n-1} c  \langle y, x
 \end{align*}
 where we note that $\frac{(1-s_{kl}) f}{x_k - x_l}$ is a polynomial for $f \in A$. Explicitly, we have  
 \[
-D_{y_i - y_j} = 
+D_{y_i - y_j} = \hbar \frac{\partial}{\partial (y_i-y_j)}-c\left(\sum_{k \ne i} \frac{1-s_{ki}}{x_i-x_k}\right)-c\left(\sum_{k \ne j} \frac{1-s_{ki}}{x_j-x_k}\right)
 \]
 
+where $\frac{\partial}{\partial (y_i-y_j)}$ is a differential operator we compute by letting $\frac{\partial x}{\partial (y_i-y_j)} = \langle y_i-y_j,x\rangle$ for all $x \in \h^*$ and extending via the Leibnitz rule to the rest of $A=\Sym(\h^*)$. 
 \todo[inline]{Remove $D_i$ and replace the quantity above}
 
 \subsection{Maximal ideal and irreducible quotient of the polynomial representation}
@@ -192,6 +193,17 @@ In terms of $g(z)$ and $F(z)$, we have $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i =
 
 We begin by computing some partial derivatives of $F$ which will be useful for computing the action of the Dunkl operators.
 
+\begin{lemma}\label{lem:z2g}
+We have $[z^0]g(z)=1$ and $[z^1]g(z)=0$, meaning $z^2 \mid g(z)-1$.
+\end{lemma}
+\begin{proof}
+Consider the expansion 
+\[
+g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\sum_i x_i+z^2e_2(x_0, \ldots, x_{n - 1})+\dots+(-1)^nz^ne_n(x_0, \ldots, x_{n - 1})
+\]
+for the elementary symmetric polynomials $e_2, \ldots, e_n$.  Recalling that $\sum_i x_i=0$ by hypothesis, we see that $[z^1]g(z)=0$ and $[z^0]g(z)=1$, so $z^2 \mid g(z)-1$ as desired.
+\end{proof}
+
 \begin{lemma}\label{lem:dFdz}
 We have
 \[
@@ -207,12 +219,9 @@ We see easily that
 \]
 We now consider $\frac{\partial F}{\partial z}$. We compute
 \begin{align*}
-\frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+\frac{\partial F}{\partial z}
 &=\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\frac{\partial g}{\partial z}\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g(z)\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g(z)\\
 &=-\sum_j \frac{x_j}{1-x_jz}\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}(g-1+1)\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
 &=-\sum_j \frac{x_j}{1-x_jz}\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}+\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\\
 &=-\sum_j \frac{x_j}{1-x_jz}\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
 &=-\sum_j \frac{cx_j}{1-x_jz}F(z)+\sum_j \frac{x_j}{1-x_jz}c\binom{c-1}{p-1}(g-1)^{p-1}.
@@ -225,51 +234,38 @@ we see that
 \[
 F'(z) = V(z) - \sum_{j=0}^{n-1} \frac{cx_j}{1-x_jz} F(z).
 \]
-It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$.  Consider the expansion 
-\[
-g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\sum_i x_i+z^2e_2(x_0, \ldots, x_{n - 1})+\dots+z^ne_n(x_0, \ldots, x_{n - 1})
-\]
-for some polynomials $e_2, \ldots, e_n$.  Recalling that $\sum_i x_i=0$ by hypothesis, we see that $z^2 \mid g(z)-1$. By definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, hence $z^{2p-2} \mid V(z)$. Since $p \ge 2$, this implies $z^p \mid V(z)$, completing the proof.
+It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$.  By definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, hence by Lemma~\ref{lem:z2g}, $z^{2p-2} \mid V(z)$. Since $p \ge 2$, this implies $z^p \mid V(z)$, completing the proof.
 \end{proof}
 
-\begin{lemma}\label{lem:dFdxi} For any $0 \le i < n-1$ we have 
+\begin{lemma}\label{lem:dFdxi} We have
 \[
-\frac{\partial F}{\partial x_i} = G_i(z) - \left(\frac{zc}{1-x_{n-1}z}-\frac{zc}{1-x_iz}\right)F(z)
+\frac{\partial F}{\partial(y_1-y_0)} = G(z) - \left(\frac{zc}{1-x_1z}-\frac{zc}{1-x_0z}\right)F(z)
 \]
-such that $G_i(z)$ is a power series with $[z^l]G_i(z)=0$ for $l=0,\dots,p$. 
+such that $G(z)$ is a power series with $[z^l]G(z)=0$ for $l=0,\dots,p$. 
 \end{lemma}
 
 \begin{proof}
 
-Since $x_{n-1}=-x_0-\dots-x_{n-2}$, we see that
+We see that
 \[
-\frac{\partial g}{\partial x_i}=-\frac{zg}{1-x_iz}+\frac{zg}{1-x_{n-1}z} \text{ for all $0 \le i < n-1$}.
+\frac{\partial g}{\partial(y_1-y_0)}=-\frac{zg}{1-x_1z}+\frac{zg}{1-x_0z}.
 \]
-Then we see that for all $0 \le i < n-1$ we have 
+Then we see that
 \begin{align*}
-\frac{\partial F}{\partial x_i}%&=\frac{\partial}{\partial x_i}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
-&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial x_i}\\
-&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
-%&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g\\
-%&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
-&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}+\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\\
-%&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
-%&=\left(-\frac{z}{1-x_iz}+\frac{z}{1-x_{n-1}z}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
-&=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}+F(z)\right).
+\frac{\partial F}{\partial(y_1-y_0)}&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial (y_1-y_0)}\\
+&=\left(-\frac{z}{1-x_1z}+\frac{z}{1-x_0z}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g\\
+&=\left(-\frac{z}{1-x_1z}+\frac{z}{1-x_0z}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}+\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\\
+&=\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_0z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}+F(z)\right).
 \end{align*}
 We define
 \[
-G_i(z)=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}\right).
+G(z)=\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_0z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}\right).
 \]
 Then we see that
 \[
-\frac{\partial F}{\partial x_i}=G_i(z)+\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F(z).
+\frac{\partial F}{\partial(y_1-y_0)}= G(z) - \left(\frac{zc}{1-x_1z}-\frac{zc}{1-x_0z}\right)F(z)
 \]
-It remains only to show that $[z^l]G_i(z)=0$ for $l=0,\dots,p$. To show this, we need only show that $G_i(z)=z^{p+1}g_i(z)$ for some power series $v(z)$.  Consider the expansion 
-\[
-g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_0, \ldots, x_{n-1})+\dots+z^ne_n(x_0, \ldots, x_{n - 1}).
-\]
-Recall that $\sum_i x_i = 0$, so $z^2 \mid g(z)-1$.  By definition of $G_i(z)$, we see that $z(g-1)^{p-1} \mid G_i(z)$, so $z^{2p-1} \mid V(z)$. Since $p \ge 2$, this implies $z^{p+1} \mid G_i(z)$, giving the desired.
+It remains only to show that $[z^l]G(z)=0$ for $l=0,\dots,p$. By definition of $G(z)$, we see that $z(g-1)^{p-1} \mid G(z)$, so by Lemma~\ref{lem:z2g}, $z^{2p-1} \mid G(z)$. Since $p \ge 2$, this implies $z^{p+1} \mid G(z)$, completing the proof.
 \end{proof}
 
 \subsection{Proving $f_i$ are singular vectors} 
@@ -282,47 +278,34 @@ We must show that $f_i$ is annihilated by annihilated by $D_j-D_l$ for all $j \n
 
 We see that for all $i$, $f_i$ is symmetric in the $x_j$ for $j \ne i$. It therefore suffices to consider the action of the Dunkl operators on $f_0$. We note that the Dunkl operators $D_i-D_j$ for all $i \ne j$ are spanned by $D_i-D_0$ for $0<i \le n-1$; then because $f_0$ is symmetric in the $x_i$ with $i > 0$, we see that it suffices to consider the action of $D_1-D_0$ on $f_0$ to show that the $f_i$ are annihilated by $D_i \ne D_j$ for all $i \ne j$. 
 
-By Lemma~\ref{lem:dFdxi} we note that for $i=0,1$ we have $\frac{\partial F}{\partial x_i} = G_i(z)+\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F(z)$ for power series $G_i(z)$ with $[z^l]G_i(z)=0$ for $l=0,\dots,p$.
+By Lemma~\ref{lem:dFdxi} we recall that $\frac{\partial F}{\partial(y_1-y_0)}= G(z) - \left(\frac{zc}{1-x_1z}-\frac{zc}{1-x_0z}\right)F(z)$ for a power series $G(z)$ with $[z^l]G(z)=0$ for $l=0,\dots,p$. 
 
-We can now calculate $\frac{\partial F_0}{\partial x_1},\frac{\partial F_0}{\partial x_0}$. We compute
+We can now calculate $\frac{\partial F_0}{\partial (y_1-y_0)}$. We compute
 \begin{align*}
-\frac{\partial F_0}{\partial x_1}%&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
-&=\frac{1}{1-x_0z}\frac{\partial F}{\partial x_1}\\
-&=\frac{1}{1-x_0z}\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F(z)+\frac{G_1(z)}{1-x_0z}\\
-&=\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F_0(z)+\frac{G_1(z)}{1-x_0z}.\\
-\frac{\partial F_0}{\partial x_0}%&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
-&=\frac{z}{(1-x_0z)^2}F(z)+\frac{1}{1-x_0z}\frac{\partial F}{\partial x_0}\\
-&=\frac{z}{1-x_0z}F_0(z)+\frac{1}{1-x_0z}\left(-\frac{zc}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F(z)+\frac{G_0(z)}{1-x_0z}\\
-%&=\frac{z}{1-x_0z}F_0(z)+\left(-\frac{zc}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F_0(z)+\frac{G_0(z)}{1-x_0z}\\
-&=\left(\frac{z(1-c)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F_0(z)+\frac{G_0(z)}{1-x_0z}.
+\frac{\partial F_0}{\partial (y_1-y_0)}
+&=-\frac{z}{(1-x_0z)^2}F(z)+\frac{1}{1-x_0z}\frac{\partial F}{\partial (y_1-y_0)}\\
+&=-\frac{z}{1-x_0z}F_0(z)+\frac{1}{1-x_0z}\left(\frac{zc}{1-x_0z}-\frac{zc}{1-x_1z}\right)F(z)+\frac{G(z)}{1-x_0z}\\
+&=\left(\frac{z(c-1)}{1-x_0z}-\frac{zc}{1-x_1z}\right)F_0(z)+\frac{G(z)}{1-x_0z}.
 \end{align*}
 We note that $F_0(z)$ is invariant under $s_{ij}$ where $0 < i,j$. Therefore for transpositions we need only consider transpositions of the form $s_{0i}$ for $0 < i \le n-1$. We see that 
 \begin{align*}
-\frac{1-s_{0i}}{x_0-x_i}(F_0)%&=\frac{1}{x_0-x_i}\left(\frac{F(z)}{1-x_0z}-\frac{F(z)}{1-x_iz}\right)\\
+\frac{1-s_{0i}}{x_0-x_i}(F_0)
 &=\frac{1}{x_0-x_i}\left(\frac{1}{1-x_0z}-\frac{1}{1-x_iz}\right)F(z)\\
-%&=\frac{1}{x_0-x_i}\left(\frac{(1-x_iz)-(1-x_0z)}{(1-x_0z)(1-x_iz)}\right)F(z)\\
-%&=\frac{x_0z-x_iz}{(1-x_0z)(1-x_iz)(x_0-x_i)}F(z)\\
 &=\frac{z}{(1-x_iz)(1-x_0z)}F(z)\\
 &=\frac{z}{1-x_iz}F_0(z).
 \end{align*}
-We recall that we need only consider the action of $D_1-D_0$ on $F_0(z)$. We consider $D_0F_0, D_1F_0$ separately first. We see that 
+We recall that we need only consider the action of $D_1-D_0$ on $F_0(z)$. We see that 
 \[
-D_0=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right), D_1=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)
+D_1-D_0=\frac{\partial}{\partial (y_1-y_0)}-c\left(\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right)-c\left(\frac{1-s_{01}}{x_1-x_0}\right)
 \]
 since $F_0$ is invariant under $s_{ij}$ where $0 < i,j$. We now compute
 \begin{align*}
-D_0F_0&=\left(\frac{\partial}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right)(F_0)\\
-&=\frac{\partial F_0}{\partial x_0}-c\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}(F_0)\\
-&=\frac{G_0(z)}{1-x_0z}+\left(\frac{z(1-c)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}\right)F_0(z)-\sum_{j > 0} \frac{zc}{1-x_jz}F_0(z).\\
-D_1F_0&=\left(\frac{\partial}{\partial x_1}-c \frac{1-s_{01}}{x_1-x_0}\right)(F_0)\\
-&=\frac{\partial F_0}{\partial x_1}+c \frac{1-s_{01}}{x_0-x_1}(F_0)\\
-&=\frac{G_1(z)}{1-x_0z}+\left(-\frac{zc}{1-x_1z}+\frac{zc}{1-x_{n-1}z}\right)F_0(z)+\frac{zc}{1-x_1z}F_0(z)\\
-&=\frac{G_1(z)}{1-x_0z}+\frac{zc}{1-x_{n-1}z}F_0(z).
+(D_1-D_0)F_0&=\left(\frac{\partial}{\partial (y_1-y_0)}-c\left(\sum_{j > 0} \frac{1-s_{0j}}{x_0-x_j}\right)-c\left(\frac{1-s_{01}}{x_1-x_0}\right)\right)(F_0)\\
+&=\frac{\partial F_0}{\partial (y_1-y_0)}-c\sum_{j > 1} \left(\frac{1-s_{0j}}{x_0-x_j}\right)(F_0)\\
+&=\frac{G(z)}{1-x_0z}+\left(\frac{z(c-1)}{1-x_0z}-\frac{zc}{1-x_1z}\right)F_0(z)-\sum_{j > 1} \frac{zc}{1-x_jz}F_0(z)\\
+&=\frac{G}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0.
 \end{align*}
-It is then easy to see that 
-\[
-(D_1-D_0)(F_0)=\frac{G_1-G_0}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0.
-\]
+
 In order to show that the $p$th coefficient in this formal power series is $0$, we must consider $\frac{\partial F_0}{\partial z}$. 
 
 We recall by Lemma~\ref{lem:dFdz} that
@@ -340,18 +323,13 @@ From this it follows that
 \end{align*}
 We now again consider $(D_1-D_0)(F_0)$. Recall that $n \equiv 0 \bmod p$, so in particular we can add $n$ times any multiple of $F_0$ since that is $0$ in characteristic $p$. 
 \begin{align*}
-(D_1-D_0)(F_0)&=\frac{G_1(z)-G_0(z)}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0\\
-%&=\frac{G_1(z)-G_0(z)}{1-x_0z}-\frac{z}{1-x_0z}F_0+\sum_{j} \frac{zc}{1-x_jz}F_0\\
-%&=\frac{G_1(z)-G_0(z)}{1-x_0z}-\frac{z}{1-x_0z}F_0+\left(\sum_{j} \frac{zc}{1-x_jz}F_0\right)-nzcF_0\\
-&=\frac{G_1(z)-G_0(z)}{1-x_0z}-zF_0+zF_0-\frac{z}{1-x_0z}F_0+\left(\sum_{j} -zcF_0+\frac{zc}{1-x_jz}F_0\right)\\
-%&=\frac{G_1(z)-G_0(z)}{1-x_0z}-zF_0+\frac{z-x_0z^2}{1-x_0z}F_0-\frac{z}{1-x_0z}F_0+\left(\sum_{j} \frac{-zc+x_jcz^2}{1-x_jz}F_0+\frac{zc}{1-x_jz}F_0\right)\\
-&=\frac{G_1(z)-G_0(z)}{1-x_0z}-zF_0+\frac{-x_0z^2}{1-x_0z}F_0+\left(\sum_{j} \frac{x_jcz^2}{1-x_jz}F_0\right)\\
-%&=\frac{G_1(z)-G_0(z)}{1-x_0z}-zF_0-z^2\left(\frac{x_0}{1-x_0z}F_0+\left(\sum_{j}- \frac{x_jc}{1-x_jz}F_0\right)\right)\\
-&=\frac{G_1(z)-G_0(z)}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}+z^2\frac{V(z)}{1-x_0z}\\
-&=\frac{G_1(z)-G_0(z)+z^2V(z)}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}.
+(D_1-D_0)(F_0)&=\frac{G(z)}{1-x_0z}+\frac{z(c-1)}{1-x_0z}F_0+\sum_{j>0} \frac{zc}{1-x_jz}F_0\\
+&=\frac{G(z)}{1-x_0z}-zF_0+zF_0-\frac{z}{1-x_0z}F_0+\left(\sum_{j} -zcF_0+\frac{zc}{1-x_jz}F_0\right)\\
+&=\frac{G(z)}{1-x_0z}-zF_0+\frac{-x_0z^2}{1-x_0z}F_0+\left(\sum_{j} \frac{x_jcz^2}{1-x_jz}F_0\right)\\&=\frac{G(z)}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}+z^2\frac{V(z)}{1-x_0z}\\
+&=\frac{G(z)+z^2V(z)}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}.
 \end{align*}
 
-We note that $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is a linear combination of $[z^l](G_1(z)-G_0(z)+z^2V(z))$ for $0 \le l \le p$. This means that $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is a linear combination of $[z^l]G_0(z)$ for $0 \le l \le p$, $[z^l]G_1(z)$ for $0 \le l \le p$, and $[z^l]V(z)$ for $0 \le l \le p-2$. By Lemmas~\ref{lem:dFdz} and \ref{lem:dFdxi} we recall that the coefficients of $G_i(z),V(z)$ under consideration are all $0$. This implies that $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)=0$. Therefore
+We note that $[z^p]\left(\frac{G+z^2V}{1-x_0z}\right)$ is a linear combination of $[z^l](G(z)+z^2V(z))$ for $0 \le l \le p$. This means that $[z^p]\left(\frac{G+z^2V}{1-x_0z}\right)$ is a linear combination of $[z^l]G(z)$ for $0 \le l \le p$ and $[z^l]V(z)$ for $0 \le l \le p-2$. By Lemmas~\ref{lem:dFdz} and \ref{lem:dFdxi} we recall that the coefficients of $G(z),V(z)$ under consideration are all $0$. This implies that $[z^p]\left(\frac{G+z^2V}{1-x_0z}\right)=0$. Therefore
 \[
 [z^p]\left((D_1-D_0)(F_0)\right)=[z^p]\left(-zF_0-z^2\frac{\partial F_0}{\partial z}\right).
 \]
