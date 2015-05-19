@@ -180,13 +180,20 @@ The authors thank P. Etingof for suggesting the problem and for helpful discussi
 
 \section{An explicit construction of singular vectors}
 
-Define $g(z)=\prod_{j=0}^{n-1} (1-x_jz)$ and $F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g(z)-1)^k\right)$ so that $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i = [z^p] \frac{F(z)}{1-x_iz}$.  We now show that $f_i$ are singular vectors.
+\subsection{Definition of the singular vectors}
 
-\todo[inline]{Break up the proof into lemmas, e.g. for the value of $\frac{\partial F}{\partial z}$}
+Define the polynomials 
+\[
+g(z)=\prod_{j=0}^{n-1} (1-x_jz) \qquad \text{ and } \qquad F(z) =\left(\sum_{k=0}^{p-1} \binom{c}{k} (g(z)-1)^k\right).
+\]
+In terms of $g(z)$ and $F(z)$, we have $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i = [z^p] \frac{F(z)}{1-x_iz}$.  We will show that $f_i$ are singular vectors.
+
+\subsection{Computation of some partial derivatives}
 
 We begin by computing some partial derivatives of $F$ which will be useful for computing the action of the Dunkl operators.
 
-\begin{lemma}\label{lem:dFdz} We have
+\begin{lemma}\label{lem:dFdz}
+We have
 \[
 F'(z) = V(z) - \sum_{j=0}^{n-1} \frac{cx_j}{1-x_jz} F(z)
 \]
@@ -201,28 +208,28 @@ We see easily that
 We now consider $\frac{\partial F}{\partial z}$. We compute
 \begin{align*}
 \frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
-&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
+&=\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\frac{\partial g}{\partial z}\\
 %&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g(z)\\
 %&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g(z)\\
-&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
+&=-\sum_j \frac{x_j}{1-x_jz}\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}(g-1+1)\\
 %&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
-&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
-&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
-&=\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F(z)+\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
+&=-\sum_j \frac{x_j}{1-x_jz}\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}+\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\\
+&=-\sum_j \frac{x_j}{1-x_jz}\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=-\sum_j \frac{cx_j}{1-x_jz}F(z)+\sum_j \frac{x_j}{1-x_jz}c\binom{c-1}{p-1}(g-1)^{p-1}.
 \end{align*}
-We define 
+Defining the formal power series
 \[
-V(z)=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
+V(z)=\sum_j \frac{x_j}{1-x_jz}c\binom{c-1}{p-1}(g-1)^{p-1},
 \]
-It is then clear that 
+we see that 
 \[
 F'(z) = V(z) - \sum_{j=0}^{n-1} \frac{cx_j}{1-x_jz} F(z).
 \]
-Then it remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$. To show this, we need only show that $V(z)=z^pv(z)$ for some power series $v(z)$. 
-
-We consider the expansion of $g(z)$; this is $g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_i)+\dots+z^ne_n(x_i)$ where $e_2,\dots,e_n$ are polynomials in the $x_i$. In particular we note that $\sum_i x_i=0$ by hypothesis, so $z^2 \mid g(z)-1$. 
-
-Then by the definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, so $z^{2p-2} \mid V(z)$. Since $p \ge 2$, it is clear that $z^p \mid V(z)$, so we can write $V(z)=z^pv(z)$ for some power series $v(z)$ as desired. 
+It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$.  Consider the expansion 
+\[
+g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_0, \ldots, x_{n - 1})+\dots+z^ne_n(x_0, \ldots, x_{n - 1})
+\]
+for some polynomials $e_2, \ldots, e_n$.  Recalling that $\sum_i x_i=0$ by hypothesis, we see that $z^2 \mid g(z)-1$. By definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, hence $z^{2p-2} \mid V(z)$. Since $p \ge 2$, this implies $z^p \mid V(z)$, completing the proof.
 \end{proof}
 
 \begin{lemma}\label{lem:dFdxi} For any $0 \le i < n-1$ we have 
@@ -265,6 +272,7 @@ g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_0, \ldots,
 Recall that $\sum_i x_i = 0$, so $z^2 \mid g(z)-1$.  By definition of $G_i(z)$, we see that $z(g-1)^{p-1} \mid G_i(z)$, so $z^{2p-1} \mid V(z)$. Since $p \ge 2$, this implies $z^{p+1} \mid G_i(z)$, giving the desired.
 \end{proof}
 
+\subsection{Proving $f_i$ are singular vectors} 
 
 \begin{proposition}\label{prop:ann} 
 The elements $f_i$ for $i=0,\dots,n-1$ are singular vectors in $A$.
@@ -400,7 +408,7 @@ Our goal in this subsection is to establish Lemma \ref{lem:resbyparts}, which is
 Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  Then $\left(\prod_j (1-y_jz)\right)\left(\sum_i \frac{\lambda_i}{1-y_iz}\right)$ must be $0$ in the ring of formal power series. Since the ring of power series is an integral domain, $\sum_i \frac{\lambda_i}{1-y_iz}=0$. In particular for $l=0,\dots,r-1$ we have $\sum_i \lambda_iy_i^l=0$.  However, the vectors $(1,y_i,\dots,y_i^{r-1})$ are linearly independent by the Vandermonde determinant, so $\lambda_i=0$ for all $i$, meaning that $b_i(z)$ are linearly independent.
 \end{proof}
 
-\begin{lemma}\label{lem:dFdz2}
+\begin{corollary}\label{corr:dFdz2}
 Let $y_0,\dots,y_{r-1}$ be distinct elements of $k$ and $m_i$ positive integers such that $\sum_i m_iy_i=0$.  Define 
 \[
 g(z)=\prod_{i=0}^{r-1} (1-y_iz)^{m_i} \text{  and } F(z)=\sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k.
@@ -409,42 +417,13 @@ For some $V(z)$ satisfying $[z^l]V(z)=0$ for $0 \le l \le p-1$, we have
 \[
 F'(z)=V(z) - \sum_j \frac{cm_jy_j}{1-y_jz}F(z).
 \]
-\end{lemma}
+\end{corollary}
 \begin{proof}
-We compute as in the proof of Lemma~\ref{lem:dFdz}. We see easily that 
-\[
-\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-m_jy_j}{1-y_jz}.
-\]
-We now consider $\frac{\partial F}{\partial z}$. We compute
-\begin{align*}
-\frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
-&=\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\frac{\partial g}{\partial z}\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g(z)\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g(z)\\
-&=- \sum_j\frac{m_jy_j}{1-y_jz}\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
-&=-\sum_j\frac{m_jy_j}{1-y_jz}\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}+\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\\
-&=-\sum_j \frac{m_jy_j}{1-y_jz}\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
-&=-\sum_j \frac{cm_jy_j}{1-y_jz}F(z) + \sum_j \frac{m_jy_j}{1-y_jz}c\binom{c-1}{p-1}(g-1)^{p-1}.
-\end{align*}
-Defining the formal power series
-\[
-V(z)=\sum_j \frac{m_jy_j}{1-y_jz} c\binom{c-1}{p-1}(g-1)^{p-1},
-\]
-we have shown that 
-\[
-F'(z)=V(z)- \sum_j \frac{cm_jy_j}{1-y_jz}F(z).
-\]
-
-It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$, for which it suffices to show that $z^p \mid V(z)$.  Consider the expansion
-\[
-g(z)=\prod_j (1-y_jz)^{m_j} = 1-z\left(\sum_i m_iy_i \right)+z^2e_2(y_0, \ldots, y_{r - 1})+\dots+z^ne_n(y_0, \ldots, y_{r - 1})
-\]
-for some polynomials $e_2,\dots,e_n$. Since $\sum_i m_iy_i=0$ by hypothesis, we obtain $z^2 \mid g(z)-1$.  By definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, so $z^{2p-2} \mid V(z)$. Since $p \ge 2$, this implies $z^p \mid V(z)$, as needed.
+Evaluate Lemma \ref{lem:dFdz} by substituting $m_i$ copies of $y_i$ for the $x_i$.
 \end{proof}
 
 \begin{lemma} \label{lem:resbyparts}
-Let $y_0,\dots,y_{r-1}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_iy_i=0$.  For $F(z)$ as in Lemma \ref{lem:dFdz2}, let $a(z)$ be the formal power series
+Let $y_0,\dots,y_{r-1}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_iy_i=0$.  For $F(z)$ as in Corollary \ref{corr:dFdz2}, let $a(z)$ be the formal power series
 \[
 a(z)=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z).
 \]
@@ -455,7 +434,7 @@ We will use an analogue of ``residues by parts'' in a formal power series settin
 \[
 a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)
 \]
-for some formal power series $b(z)$. By Lemma~\ref{lem:dFdz2} we have
+for some formal power series $b(z)$. By Corollary~\ref{corr:dFdz2} we have
 \[
 F'(z)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
 \]
