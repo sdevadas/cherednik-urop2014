@@ -100,15 +100,18 @@ For any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)$ and $\HH_{\alpha\hbar,\alpha c}(\h)$
 
 \subsection{Polynomial representation of the rational Cherednik algebra}
 
-The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}. The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act via the \textit{Dunkl operator} $D_y$ defined by
+The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}. In particular, for any $f \in A$ we can take a partial derivative $\frac{\partial f}{\partial x_i}$ by noting that $A=k[x_0,\dots,x_{n-2}]$ with $x_{n-1}=-x_0-\dots-x_{n-2}$; then we can write $f$ as a polynomial and take its partial derivative by any $x_i$ with $0 \le i \le n-2$. 
+
+The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act via the \textit{Dunkl operator} $D_y$ defined by
 \begin{align*}
 D_y(f) = \hbar \partial_y f  - \sum_{k=0}^{n-1} \sum_{l=0}^{n-1} c  \langle y, x_k-x_l \rangle \frac{(1-s_{kl}) f}{x_k - x_l},
 \end{align*}
 where we note that $\frac{(1-s_{kl}) f}{x_k - x_l}$ is a polynomial for $f \in A$. Explicitly, for 
 \[
-D_i = 
+D_i = \hbar\frac{\partial f}{\partial x_i} -c \sum_{k \ne i} \frac{(1-s_{ki})f}{x_i-x_k}
 \]
 we have $D_{y_i - y_j} = D_i - D_j$. 
+
 
 \todo[inline]{Fill this in, $D_{y_i}$ is not well-defined because $y_i$ is not in $\h$}
 
@@ -186,19 +189,61 @@ Define $g(z)=\prod_{j=0}^{n-1} (1-x_jz)$ and $F(z) =\left(\sum_{k=0}^{p-1} \bino
 
 \todo[inline]{Break up the proof into lemmas, e.g. for the value of $\frac{\partial F}{\partial z}$}
 
-\begin{proposition}\label{prop:ann} 
-The elements $f_i$ for $i=0,\dots,n-1$ are singular vectors in $A$.
-\end{proposition}
-\begin{proof}
-We must show that $f_i$ is annihilated by annihilated by $D_j-D_l$ for all $j \ne l$.
+We begin by computing some partial derivatives of $F$ which will be useful for computing the action of the Dunkl operators.
 
-We see that for all $i$, $f_i$ is symmetric in the $x_j$ for $j \ne i$. It therefore suffices to consider the action of the Dunkl operators on $f_0$. We note that the Dunkl operators $D_i-D_j$ for all $i \ne j$ are spanned by $D_i-D_0$ for $0<i \le n-1$; then because $f_0$ is symmetric in the $x_i$ with $i > 0$, we see that it suffices to consider the action of $D_1-D_0$ on $f_0$ to show that the $f_i$ are annihilated by $D_i \ne D_j$ for all $i \ne j$. 
+\begin{lemma}\label{lem:dFdz} We have
+\[
+F'(z) = V(z) - \sum_{j=0}^{n-1} \frac{cx_j}{1-x_jz} F(z)
+\]
+such that $V(z)$ is a power series with $[z^l]V(z)=0$ for $l=0,\dots,p-1$. 
+\end{lemma}
+
+\begin{proof}
+We see easily that 
+\[
+\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_jz}.
+\]
+We now consider $\frac{\partial F}{\partial z}$. We compute
+\begin{align*}
+\frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
+%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g(z)\\
+%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g(z)\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
+%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
+&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F(z)+\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
+\end{align*}
+We define 
+\[
+V(z)=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
+\]
+It is then clear that 
+\[
+F'(z) = V(z) - \sum_{j=0}^{n-1} \frac{cx_j}{1-x_jz} F(z).
+\]
+Then it remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$. To show this, we need only show that $V(z)=z^pv(z)$ for some power series $v(z)$. 
+
+We consider the expansion of $g(z)$; this is $g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_i)+\dots+z^ne_n(x_i)$ where $e_2,\dots,e_n$ are polynomials in the $x_i$. In particular we note that $\sum_i x_i=0$ by hypothesis, so $z^2 \mid g(z)-1$. 
+
+Then by the definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, so $z^{2p-2} \mid V(z)$. Since $p \ge 2$, it is clear that $z^p \mid V(z)$, so we can write $V(z)=z^pv(z)$ for some power series $v(z)$ as desired. 
+\end{proof}
+
+\begin{lemma}\label{lem:dFdxi} For any $0 \le i < n-1$ we have 
+\[
+\frac{\partial F}{\partial x_i} = G_i(z) - \left(\frac{zc}{1-x_{n-1}z}-\frac{zc}{1-x_iz}\right)F(z)
+\]
+such that $G_i(z)$ is a power series with $[z^l]G_i(z)=0$ for $l=0,\dots,p$. 
+\end{lemma}
+
+\begin{proof}
 
 Since $x_{n-1}=-x_0-\dots-x_{n-2}$, we see that
 \[
 \frac{\partial g}{\partial x_i}=-\frac{zg}{1-x_iz}+\frac{zg}{1-x_{n-1}z} \text{ for all $0 \le i < n-1$}.
 \]
-We recall that $F(z)$ is symmetric and $F_a(z)=\frac{F(z)}{1-x_az}$ for all $a$. Then we see that for all $0 \le i < n-1$ we have 
+Then we see that for all $0 \le i < n-1$ we have 
 \begin{align*}
 \frac{\partial F}{\partial x_i}%&=\frac{\partial}{\partial x_i}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
 &=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial x_i}\\
@@ -214,11 +259,31 @@ We define
 \[
 G_i(z)=\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)\left(-\binom{c-1}{p-1}(g-1)^{p-1}\right).
 \]
-Then we see that 
+Then we see that
 \[
 \frac{\partial F}{\partial x_i}=G_i(z)+\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F(z).
 \]
-We can now calculate $\frac{\partial F_0}{\partial x_1},\frac{\partial F_0}{\partial x_0}$. 
+
+Then it remains only to show that $[z^l]G_i(z)=0$ for $l=0,\dots,p$. To show this, we need only show that $G_i(z)=z^{p+1}g_i(z)$ for some power series $v(z)$. 
+
+We consider the expansion of $g(z)$; this is $g(z)=\prod_{j=0}^{n-1} (1-x_jz) = 1-z\left(\sum_i x_i\right)+z^2e_2(x_i)+\dots+z^ne_n(x_i)$ where $e_2,\dots,e_n$ are polynomials in the $x_i$. In particular we note that $x_{n-1}=-x_0-\dots-x_{n-2}$ by hypothesis, so $z^2 \mid g(z)-1$. 
+
+Then by the definition of $G_i(z)$, we see that $z(g-1)^{p-1} \mid G_i(z)$, so $z^{2p-1} \mid V(z)$. Since $p \ge 2$, it is clear that $z^{p+1} \mid G_i(z)$, so we can write $G_i(z)=z^{p+1}g_i(z)$ for some power series $g_i(z)$ as desired. 
+
+\end{proof}
+
+
+\begin{proposition}\label{prop:ann} 
+The elements $f_i$ for $i=0,\dots,n-1$ are singular vectors in $A$.
+\end{proposition}
+\begin{proof}
+We must show that $f_i$ is annihilated by annihilated by $D_j-D_l$ for all $j \ne l$.
+
+We see that for all $i$, $f_i$ is symmetric in the $x_j$ for $j \ne i$. It therefore suffices to consider the action of the Dunkl operators on $f_0$. We note that the Dunkl operators $D_i-D_j$ for all $i \ne j$ are spanned by $D_i-D_0$ for $0<i \le n-1$; then because $f_0$ is symmetric in the $x_i$ with $i > 0$, we see that it suffices to consider the action of $D_1-D_0$ on $f_0$ to show that the $f_i$ are annihilated by $D_i \ne D_j$ for all $i \ne j$. 
+
+By Lemma~\ref{lem:dFdxi} we note that for $i=0,1$ we have $\frac{\partial F}{\partial x_i} = G_i(z)+\left(-\frac{zc}{1-x_iz}+\frac{zc}{1-x_{n-1}z}\right)F(z)$ for power series $G_i(z)$ with $[z^l]G_i(z)=0$ for $l=0,\dots,p$.
+
+We can now calculate $\frac{\partial F_0}{\partial x_1},\frac{\partial F_0}{\partial x_0}$. We compute
 \begin{align*}
 \frac{\partial F_0}{\partial x_1}%&=\frac{\partial}{\partial x_1}\left(\frac{1}{1-x_0z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\right)\\
 &=\frac{1}{1-x_0z}\frac{\partial F}{\partial x_1}\\
@@ -259,30 +324,13 @@ It is then easy to see that
 \]
 In order to show that the $p$th coefficient in this formal power series is $0$, we must consider $\frac{\partial F_0}{\partial z}$. 
 
-We see easily that 
-\[
-\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_jz}.
-\]
-We now consider $\frac{\partial F}{\partial z}$. We compute
-\begin{align*}
-\frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
-&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g(z)\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g(z)\\
-&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
-%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
-&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
-&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
-&=\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F(z)+\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
-\end{align*}
-We define 
-\[
-V(z)=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
-\]
-Then we see that 
+
+We recall by Lemma~\ref{lem:dFdz} that
 \[
 \frac{\partial F}{\partial z}=V(z)+\left(\sum_j \frac{-cx_j}{1-x_jz}\right)F(z).
 \]
+where $[z^l]V(z)=0$ for $l=0,\dots,p-1$. 
+
 From this it follows that
 \begin{align*}
 \frac{\partial F_0}{\partial z} &= \frac{\partial}{\partial z}\left(\frac{F(z)}{1-x_0z}\right)\\
@@ -302,17 +350,8 @@ We now again consider $(D_1-D_0)(F_0)$. Recall that $n \equiv 0 \bmod p$, so in 
 &=\frac{G_1(z)-G_0(z)}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}+z^2\frac{V(z)}{1-x_0z}\\
 &=\frac{G_1(z)-G_0(z)+z^2V(z)}{1-x_0z}-zF_0-z^2\frac{\partial F_0}{\partial z}.
 \end{align*}
-We consider $z^2V(z)$ and $G_i(z)$ for $i=0,1$. We note that $(g-1)^{p-1}$ divides $V(z)$ and $z(g-1)^{p-1}$ divides $G_i(z)$. Since the sum $\sum_{a=0}^{n-1} x_a$ is $0$, we see that $z^2 \mid g(z)-1$; therefore $z^{2p-2} \mid (g-1)^{p-1}$. Therefore $z^{p+1} \mid z^{2p-1} \mid G_i(z)$ and $z^{p+1} \mid z^{2p} \mid z^2V(z)$. (We note that $z^p \mid z^{2p-2} \mid V(z)$; this will be relevant later.)
 
-Then we see that for $0 \le l \le p$ we have
-\[
-[z^l](z^2V(z))=[z^l]G_0(z)=[z^l]G_1(z)=0.
-\]
-Then we also have
-\[
-[z^l](G_1(z)-G_0(z)+z^2V(z))=0.
-\]
-Then $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is $0$ since it is a linear combination of $[z^l](G_1(z)-G_0(z)+z^2V(z))$ for $0 \le l \le p$, so 
+We note that $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is a linear combination of $[z^l](G_1(z)-G_0(z)+z^2V(z))$ for $0 \le l \le p$. This means that $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)$ is a linear combination of $[z^l]G_0(z)$ for $0 \le l \le p$, $[z^l]G_1(z)$ for $0 \le l \le p$, and $[z^l]V(z)$ for $0 \le l \le p-2$. By Lemmas~\ref{lem:dFdz} and \ref{lem:dFdxi} we recall that the coefficients of $G_i(z),V(z)$ under consideration are all $0$. This implies that $[z^p]\left(\frac{G_1-G_0+z^2V}{1-x_0z}\right)=0$. Therefore
 \[
 [z^p]\left((D_1-D_0)(F_0)\right)=[z^p]\left(-zF_0-z^2\frac{\partial F_0}{\partial z}\right).
 \]
@@ -363,30 +402,68 @@ Suppose that for some $\lambda_i \in k$ we have $\sum_i \lambda_ib_i(z)=0$.  The
 
 \todo[inline]{Split computations out into some lemmas on computations of $F'(z)$ and $V(z)$ which explicitly mention the hypotheses that $\sum_i m_i y_i = 0$.}
 
-\begin{proposition}\label{prop:ci}
-The quotient $A/I$ is a complete intersection. 
-\end{proposition}
-\begin{proof} 
-We will show that if $x_0,\dots,x_{n-1} \in k$ satisfy $f_i(x_0,\dots,x_{n-1})=0$ for all $i$, then $x_0=\dots=x_{n-1}=0$. 
+To show that $A/I$ is a complete intersection, we will show that if $x_0,\dots,x_{n-1} \in k$ satisfy $f_i(x_0,\dots,x_{n-1})=0$ for all $i$, then $x_0=\dots=x_{n-1}=0$. We will use a `residues by parts' argument; using the fact that the residue of an exact differential is zero, we will relate the coefficients of a power series to the coefficients of the derivative of that power series and derive a contradiction. To show this we must consider the derivatives of some power series in $z$ (including $F(z)$) with coefficients from $k$ rather than coefficients from $A$.
 
-We suppose that the $x_i$ take the distinct values $\{y_0,\dots,y_{r-1}\}$ with multiplicity $m_i>0$. Then $g(z)=(1-y_iz)^{m_i}$. Recall that
+
+\begin{lemma}\label{lem:dFdz2}
+For any $y_0,\dots,y_{r-1}$ distinct elements of $k$ with $m_i$ positive integers such that $\sum_i m_iy_i=0$, if we let $g(z)=\prod_{i=0}^{r-1} (1-y_iz)^{m_i}$ and $F(z)=\sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k$, then
 \[
-F(z)=\sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k.
+F'(z)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
 \]
-Then we assume that $[z^p]\left(\frac{1}{1-y_iz}F(z)\right)=0$ for all $i=0,\dots,r-1$. We wish to show that $r=1$ and $y_0=0$. 
+where $[z^l]V(z)=0$ for $0 \le l \le p-1$. 
+\end{lemma}
+\begin{proof}
+The computation proceeds essentially as it did for Lemma~\ref{lem:dFdz}.
 
-We will assume that $\prod_i y_i \ne 0$ in order to derive a contradiction and show that one of the $y_i$ is $0$. Since $\sum_{i=0}^{n-1} x_i=0$ we also have $\sum_{i=0}^{r-1} m_iy_i=0$; this enables us to compute the derivative $F'(z)$, which is 
+We see easily that 
 \[
-F'(z)=V(z)+\left(\sum_j \frac{-cx_j}{1-x_jz}F(z)\right)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
+\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-m_jy_j}{1-y_jz}.
 \]
-where $[z^l]V(z)=0$ for $0 \le l \le p$. 
+We now consider $\frac{\partial F}{\partial z}$. We compute
+\begin{align*}
+\frac{\partial F}{\partial z}%&=\frac{\partial}{\partial z}\left(\sum_{k=0}^{p-1} \binom{c}{k} (g-1)^k\right)\\
+&=\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)\frac{\partial g}{\partial z}\\
+%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=1}^{p-1}k\binom{c}{k}(g-1)^{k-1}\right)g(z)\\
+%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\sum_{k=0}^{p-2}(k+1)\binom{c}{k+1}(g-1)^{k}\right)g(z)\\
+&=\left(\sum_j\frac{-m_jy_j}{1-y_jz}\right)\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)(g-1+1)\\
+%&=\left(\sum_j \frac{-x_j}{1-x_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k+1}\right)\right)\\
+&=\left(\sum_j\frac{-m_jy_j}{1-y_jz}\right)\left(\left(\sum_{k=0}^{p-2}c\binom{c-1}{k}(g-1)^{k}\right)+\left(\sum_{k=1}^{p-1}c\binom{c-1}{k-1}(g-1)^{k}\right)\right)\\
+&=\left(\sum_j \frac{-m_jy_j}{1-y_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}+\sum_{k=0}^{p-1}c\binom{c}{k}(g-1)^{k}\right)\\
+&=\left(\sum_j \frac{-cm_jy_j}{1-y_jz}\right)F(z)+\left(\sum_j \frac{-m_jy_j}{1-y_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
+\end{align*}
+We define 
+\[
+V(z)=\left(\sum_j \frac{-m_jy_j}{1-y_jz}\right)\left(-c\binom{c-1}{p-1}(g-1)^{p-1}\right).
+\]
+It is then clear that 
+\[
+F'(z)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right).
+\]
+Then it remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$. To show this, we need only show that $V(z)=z^pv(z)$ for some power series $v(z)$. 
 
-We will use a `residues by parts' argument; using the fact that the residue of an exact differential is zero, we will relate the coefficients of a power series to the coefficients of the derivative of that power series and derive a contradiction. 
-Let
+We consider the expansion of $g(z)$; this is $g(z)=\prod_j (1-y_jz)^{m_j} = 1-z\left(\sum_i m_iy_i \right)+z^2e_2(y_i)+\dots+z^ne_n(y_i)$ where $e_2,\dots,e_n$ are polynomials in the $y_i$. In particular we note that $\sum_i m_iy_i=0$ by hypothesis, so $z^2 \mid g(z)-1$. 
+
+Then by the definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, so $z^{2p-2} \mid V(z)$. Since $p \ge 2$, it is clear that $z^p \mid V(z)$, so we can write $V(z)=z^pv(z)$ for some power series $v(z)$ as desired. 
+\end{proof}
+
+\begin{lemma} \label{lem:resbyparts}
+For any $y_0,\dots,y_{r-1}$ distinct elements of $k$ such that $\prod_i y_i \ne 0$ and $m_i$ positive integers such that $\sum_i m_iy_i=0$, define $g(z), F(z)$ as in Lemma~\ref{lem:dFdz2}. Let 
 \[
 a(z)=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z).
+\].
+Then we have
+\begin{enumerate}
+\item $a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)$ for some power series $b(z)$;
+\item For any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$.\end{enumerate}
+
+\end{lemma}
+
+\begin{proof} We begin by computing $a'(z)$. By Lemma~\ref{lem:dFdz2} we have
+\[
+F'(z)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
 \]
-We then see that
+where $[z^l]V(z)=0$ for $0 \le l \le p-1$. 
+We now compute
 \begin{align*}
 a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)\right)\\
 &=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F'(z)+\sum_{j=0}^{r-1}\frac{y_j}{(1-y_jz)\prod_{i=0}^{r-1}(1-y_iz)}F(z)\\
@@ -394,29 +471,11 @@ a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)\right)\\
 &=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}a(z)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
 &=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}-\left(\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)\right).
 \end{align*}
-Since $[z^l]V(z)=0$ for $0 \le l \le p$ we see that $\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)$ for some power series $b(z)$. Therefore
+Since $[z^l]V(z)=0$ for $0 \le l \le p-1$ we see that $\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)$ for some power series $b(z)$. Therefore
 \[
 a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)
 \]
 for some power series $b(z)$.
-
-Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$; then by Lemma~\ref{lem:vand} we see that the polynomials $b_i(z)$ are linearly independent. 
-
-Note that for any $i$, $a(z)b_i(z)=\frac{1}{1-y_iz}F(z)$. Then in particular, we have 
-\[
-[z^p]a(z)b_i(z)=[z^p]\frac{1}{1-y_iz}F(z)=0
-\]
-Therefore for any $\lambda_i \in k$, we have
-\begin{equation}\label{eq:lincomb}
-\sum_{i=0}^{r-1} \lambda_i[z^p]a(z)b_i(z)=[z^p]\left( a(z)\sum_{i=0}^{r-1}\lambda_ib_i(z)\right)=0.
-\end{equation}
-Recall that the $b_i(z)$ are linearly independent and have degree at most $r-1$. Therefore for $0 \le k \le r-1$ we can choose $\{\lambda_i^k\}$ so that 
-\[
-\sum_i\lambda_i^kb_i(z)=z^k.
-\]
-Choosing these $\lambda_i^k$ in (\ref{eq:lincomb}), we see that $[z^p](a(z)z^k)=[z^{p-k}]a(z)=0$ for $k=0,\dots,r-1$. 
-
-We will now derive from this that $[z^0]a(z)=0$, a contradiction. If $r > p$ then this has already been established, so it suffices to assume $r \le p$. 
 
 For any integer $l$, define the Laurent polynomial 
 \[
@@ -441,13 +500,46 @@ and highest degree term
 \[
 - z^{-l - 1} (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right).
 \]
-The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at least $p-l-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$, so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient $ (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right)$. The latter coefficient is nonzero since $c$ is generic and none of the $y_i$ are $0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ when $l \le p-r$. 
+The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at least $p-l-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$, so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient $ (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right)$. The latter coefficient is nonzero since $c$ is generic and $\prod_i y_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ when $l \le p-r$. 
 
-Since $[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0$, by induction starting with $l=p-r$ we find that $[z^l]a(z)=0$ for $l=p-r,p-r-1,\dots,0$. Therefore, $[z^0]a(z)=0$; a contradiction. We conclude that $y_i=0$ for some $i$.
+\end{proof}
 
-Assume without loss of generality that $y_{r-1}=0$. If $r>1$, we can repeat the same argument again with $y_0,\dots,y_{r-2}$. 
+\begin{proposition}\label{prop:ci}
+The quotient $A/I$ is a complete intersection. 
+\end{proposition}
+\begin{proof} 
+We will show that if $x_0,\dots,x_{n-1} \in k$ satisfy $f_i(x_0,\dots,x_{n-1})=0$ for all $i$, then $x_0=\dots=x_{n-1}=0$. 
 
-We are able to do this because our calculation of $F'(z)$ and $V(z)$ so that $z^p \mid V(z)$ relies only on the fact that $\sum m_iy_i=0$. Since $y_{r-1}=0$, we see that $\sum_{i=0}^{r-2}m_iy_i=\sum_{i=0}^{r-1}m_iy_i=0$. Then since the $y_i$ are distinct, $\prod_{i=0}^{r-2} y_i \ne 0$, so both necessary assumptions are true. We will then find that one of the $y_i$ with $i < r-1$ is $0$, which gives a contradiction since the $y_i$ are distinct. Therefore we must have $r=1$ and $y_0=0$. 
+We suppose that the $x_i$ take the distinct values $\{y_0,\dots,y_{r-1}\}$ with multiplicity $m_i>0$. Then $g(z)=(1-y_iz)^{m_i}$. Recall that
+\[
+F(z)=\sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k.
+\]
+Then we assume that $[z^p]\left(\frac{1}{1-y_iz}F(z)\right)=0$ for all $i=0,\dots,r-1$. We wish to show that $r=1$ and $y_0=0$. 
+
+We will assume that $\prod_i y_i \ne 0$ in order to derive a contradiction and show that one of the $y_i$ is $0$. 
+Let
+\[
+a(z)=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)
+\]
+as in Lemma~\ref{lem:resbyparts}.
+
+Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$; then by Lemma~\ref{lem:vand} we see that the polynomials $b_i(z)$ are linearly independent. 
+
+Note that for any $i$, $a(z)b_i(z)=\frac{1}{1-y_iz}F(z)$. Then in particular, we have 
+\[
+[z^p]a(z)b_i(z)=[z^p]\frac{1}{1-y_iz}F(z)=0
+\]
+Therefore for any $\lambda_i \in k$, we have
+\begin{equation}\label{eq:lincomb}
+\sum_{i=0}^{r-1} \lambda_i[z^p]a(z)b_i(z)=[z^p]\left( a(z)\sum_{i=0}^{r-1}\lambda_ib_i(z)\right)=0.
+\end{equation}
+Recall that the $b_i(z)$ are linearly independent and have degree at most $r-1$. Therefore for $0 \le k \le r-1$ we can choose $\{\lambda_i^k\}$ so that 
+\[
+\sum_i\lambda_i^kb_i(z)=z^k.
+\]
+Choosing these $\lambda_i^k$ in (\ref{eq:lincomb}), we see that $[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0$. Then by repeated application of Lemma~\ref{lem:resbyparts} starting with $l=p-r$, we find that $[z^l]a(z)=0$ for $l=p-r,p-r-1,\dots,0$. Therefore, $[z^0]a(z)=0$; a contradiction. We conclude that $y_i=0$ for some $i$.
+
+Assume without loss of generality that $y_{r-1}=0$. If $r>1$, then we note that since the $y_i$ were distinct that $\prod_{i=0}^{r-2} y_i \ne 0$ and $\sum_{i=0}^{r-1} m_iy_i = \sum_{i=0}^{r-2} m_iy_i=0$; therefore we are still able to apply Lemma~\ref{lem:resbyparts} to $y_0,\dots,y_{r-2}$. By redefining the $b_i(z)$ appropriately and repeating the argument above, we find that one of the $y_i$ with $i < r-1$ is $0$, which gives a contradiction since the $y_i$ are distinct. Therefore we must have $r=1$ and $y_0=0$. 
 \end{proof}
 
 \section{Proof of the main result}
