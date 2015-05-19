@@ -384,7 +384,9 @@ By setting $x_j=1,x_{n-1}=-1$ and $x_i=0$ for $i \ne j, i \ne n-1$ for all $j=0,
 
 \section{Complete intersection properties}
 
-Let the vectors $f_i \in A$ generate an ideal $I \subset A$.  We will now show that $A/I$ is a complete intersection.
+Let the vectors $f_i \in A$ generate an ideal $I \subset A$.  We will now show that $A/I$ is a complete intersection.  For this, we require some preparatory computations.
+
+\subsection{Derivative computations}
 
 \begin{lemma}\label{lem:vand}Let $y_0, \ldots, y_{r - 1}$ be distinct elements of $k$.  Then the polynomials $b_i(z) = \prod_{j \neq i} (1 - y_j z)$ are linearly independent.
 \end{lemma}
@@ -439,17 +441,17 @@ Then by the definition of $V(z)$, we see that $(g-1)^{p-1} \mid V(z)$, so $z^{2p
 \end{proof}
 
 \begin{lemma} \label{lem:resbyparts}
-For any $y_0,\dots,y_{r-1}$ distinct elements of $k$ such that $\prod_i y_i \ne 0$ and $m_i$ positive integers such that $\sum_i m_iy_i=0$, define $g(z), F(z)$ as in Lemma~\ref{lem:dFdz2}. Let 
+Let $y_0,\dots,y_{r-1}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_iy_i=0$.  For $F(z)$ as in Lemma \ref{lem:dFdz2}, let $a(z)$ be the formal power series
 \[
 a(z)=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z).
-\].
-Then we have
-\begin{enumerate}
-\item $a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)$ for some power series $b(z)$;
-\item For any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$.
-\end{enumerate}
+\]
+For any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\ldots$, $[z^{l+r}]a(z)$.
 \end{lemma}
-\begin{proof} We begin by computing $a'(z)$. By Lemma~\ref{lem:dFdz2} we have
+\begin{proof} We begin by showing that 
+\[
+a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)
+\]
+for some formal power series $b(z)$. By Lemma~\ref{lem:dFdz2} we have
 \[
 F'(z)=V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right),
 \]
@@ -458,17 +460,17 @@ We now compute
 \begin{align*}
 a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)\right)\\
 &=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F'(z)+\sum_{j=0}^{r-1}\frac{y_j}{(1-y_jz)\prod_{i=0}^{r-1}(1-y_iz)}F(z)\\
-&=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}\left(V(z)+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
-&=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}+\left(\sum_j \frac{-cm_jy_j}{1-y_jz}a(z)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
-&=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}-\left(\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)\right).
+&=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}\left(V(z)+\sum_j \frac{-cm_jy_j}{1-y_jz}F(z)\right)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
+&=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}+\sum_j \frac{-cm_jy_j}{1-y_jz}a(z)+\sum_{j=0}^{r-1}\frac{y_j}{1-y_jz}a(z)\\
+&=\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z).
 \end{align*}
-Since $[z^l]V(z)=0$ for $0 \le l \le p-1$ we see that $\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)$ for some power series $b(z)$. Therefore
+Since $[z^l]V(z)=0$ for $0 \le l \le p-1$ we see that 
 \[
-a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)y_j}{1-y_jz}a(z)
+\frac{V(z)}{\prod_{i=0}^{r-1}(1-y_iz)}=z^pb(z)
 \]
-for some power series $b(z)$.
+for some power series $b(z)$, giving the claim.
 
-For any integer $l$, define the Laurent polynomial 
+Now, for any integer $l$, define the Laurent polynomial 
 \[
 h_l(z)=z^{-l-r}\prod_i(1-y_iz).
 \]
@@ -491,45 +493,54 @@ and highest degree term
 \[
 - z^{-l - 1} (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right).
 \]
-The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at least $p-l-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$, so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient $ (-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right)$. The latter coefficient is nonzero since $c$ is generic and $\prod_i y_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ when $l \le p-r$. 
+The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at least $p-l-r$. We note that we must have $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$, so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient 
+\[
+(-1)^r  \prod_i y_i\left((l + r) - \sum_i m_i c\right),
+\]
+which is nonzero for $c$ generic and $\prod_i y_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\dots$, $[z^{l+r}]a(z)$ when $l \le p-r$. 
 \end{proof}
+
+\subsection{Complete intersection property}
+
+We are now ready to show that $A/I$ is a complete intersection.
 
 \begin{proposition}\label{prop:ci}
 The quotient $A/I$ is a complete intersection. 
 \end{proposition}
-\begin{proof} 
-We will show that if $x_0,\dots,x_{n-1} \in k$ satisfy $f_i(x_0,\dots,x_{n-1})=0$ for all $i$, then $x_0=\dots=x_{n-1}=0$. 
-
-We suppose that the $x_i$ take the distinct values $\{y_0,\dots,y_{r-1}\}$ with multiplicity $m_i>0$. Then $g(z)=(1-y_iz)^{m_i}$. Recall that
+\begin{proof}
+It suffices to show that if $x_0,\dots,x_{n-1} \in k$ satisfy $f_i(x_0,\dots,x_{n-1})=0$ for all $i$, then $x_0=\dots=x_{n-1}=0$.  Suppose that the $x_i$ take the distinct values $\{y_0,\dots,y_{r-1}\}$, where $y_i$ occurs with multiplicity $m_i>0$ so that $g(z)=(1-y_iz)^{m_i}$.  In these terms, we have that 
 \[
-F(z)=\sum_{k=0}^{p-1} \binom{c}{k}(g-1)^k.
+[z^p]\left(\frac{1}{1-y_iz}F(z)\right)= 0
 \]
-Then we assume that $[z^p]\left(\frac{1}{1-y_iz}F(z)\right)=0$ for all $i=0,\dots,r-1$. We wish to show that $r=1$ and $y_0=0$. 
+for $i = 0, \ldots, r - 1$ and wish to show that $r=1$ and $y_0=0$. 
 
-We will assume that $\prod_i y_i \ne 0$ in order to derive a contradiction and show that one of the $y_i$ is $0$. 
-Let
+We first claim that at least one $y_i$ is $0$. Suppose for the sake of contradiction that $\prod_i y_i \ne 0$.  Then let
 \[
 a(z)=\frac{1}{\prod_{i=0}^{r-1}(1-y_iz)}F(z)
 \]
-as in Lemma~\ref{lem:resbyparts}.
-
-Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$; then by Lemma~\ref{lem:vand} we see that the polynomials $b_i(z)$ are linearly independent. 
-
-Note that for any $i$, $a(z)b_i(z)=\frac{1}{1-y_iz}F(z)$. Then in particular, we have 
+as in Lemma~\ref{lem:resbyparts}.  Define $b_i(z)=\prod_{j \ne i} (1-y_jz)$ for $i=0,\dots,r-1$.   Now, for any $i$, we have $a(z)b_i(z)=\frac{1}{1-y_iz}F(z)$ so in particular 
 \[
-[z^p]a(z)b_i(z)=[z^p]\frac{1}{1-y_iz}F(z)=0
+[z^p]a(z)b_i(z)=[z^p]\frac{1}{1-y_iz}F(z)=0.
 \]
 Therefore for any $\lambda_i \in k$, we have
 \begin{equation}\label{eq:lincomb}
 \sum_{i=0}^{r-1} \lambda_i[z^p]a(z)b_i(z)=[z^p]\left( a(z)\sum_{i=0}^{r-1}\lambda_ib_i(z)\right)=0.
 \end{equation}
-Recall that the $b_i(z)$ are linearly independent and have degree at most $r-1$. Therefore for $0 \le k \le r-1$ we can choose $\{\lambda_i^k\}$ so that 
+By Lemma~\ref{lem:vand}, $b_i(z)$ are linearly independent polynomials of degree at most $r-1$. Therefore for $0 \le k \le r-1$ we can choose $\{\lambda_i^k\}$ so that 
 \[
 \sum_i\lambda_i^kb_i(z)=z^k.
 \]
-Choosing these $\lambda_i^k$ in (\ref{eq:lincomb}), we see that $[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0$. Then by repeated application of Lemma~\ref{lem:resbyparts} starting with $l=p-r$, we find that $[z^l]a(z)=0$ for $l=p-r,p-r-1,\dots,0$. Therefore, $[z^0]a(z)=0$; a contradiction. We conclude that $y_i=0$ for some $i$.
+Choosing these $\lambda_i^k$ in (\ref{eq:lincomb}), we see that
+\[
+[z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0.
+\]
+By repeated application of Lemma~\ref{lem:resbyparts} starting with $l=p-r$, we find that 
+\[
+[z^l]a(z)=0 \text{ for $l=p-r,p-r-1,\dots,0$}.
+\]
+This implies that $[z^0]a(z)=0$, a contradiction. We conclude that $y_i=0$ for some $i$.
 
-Assume without loss of generality that $y_{r-1}=0$. If $r>1$, then we note that since the $y_i$ were distinct that $\prod_{i=0}^{r-2} y_i \ne 0$ and $\sum_{i=0}^{r-1} m_iy_i = \sum_{i=0}^{r-2} m_iy_i=0$; therefore we are still able to apply Lemma~\ref{lem:resbyparts} to $y_0,\dots,y_{r-2}$. By redefining the $b_i(z)$ appropriately and repeating the argument above, we find that one of the $y_i$ with $i < r-1$ is $0$, which gives a contradiction since the $y_i$ are distinct. Therefore we must have $r=1$ and $y_0=0$. 
+Now, suppose without loss of generality that $y_{r-1}=0$. If $r = 1$, we are done.  Otherwise, we have $\sum_{i=0}^{r-2} m_iy_i = \sum_{i=0}^{r-1} m_iy_i = 0$ and because the $y_i$ are distinct we see that $\prod_{i=0}^{r-2} y_i \ne 0$.  Therefore, we may apply Lemma~\ref{lem:resbyparts} and repeat the argument above with $y_0, \ldots, y_{r - 2}$.  We find that at least one of the $y_i$ with $i < r-1$ is $0$, a contradiction since the $y_i$ are distinct. Therefore, we must have $r=1$ and $y_0=0$, concluding the proof.
 \end{proof}
 
 \section{Proof of the main result}
