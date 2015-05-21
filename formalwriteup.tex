@@ -178,7 +178,7 @@ The authors thank P. Etingof for suggesting the problem and for helpful discussi
 
 \subsection{Definition of the singular vectors}
 
-Define the polynomials 
+In $A$, define the polynomials 
 \[
 g(z)=\prod_{j=1}^{n} (1-x_jz) \qquad \text{ and } \qquad F(z) = \sum_{m=0}^{p-1} \binom{c}{m} (g(z)-1)^m.
 \]
@@ -192,11 +192,11 @@ We begin by computing some partial derivatives of $F$ which will be useful for c
 We have $[z^0]g(z)=1$ and $[z^1]g(z)=0$, meaning $z^2 \mid g(z)-1$.
 \end{lemma}
 \begin{proof}
-Consider the expansion 
+For elementary symmetric polynomials $e_2, \ldots, e_n$, we have the expansion 
 \[
-g(z)=\prod_{j=1}^{n} (1-x_jz) = 1-z\sum_i x_i+z^2e_2(x_1, \ldots, x_{n})+\dots+(-1)^nz^ne_n(x_1, \ldots, x_{n})
+g(z)=\prod_{j=1}^{n} (1-x_jz) = 1-z\sum_i x_i+z^2e_2(x_1, \ldots, x_{n})+\dots+(-1)^nz^ne_n(x_1, \ldots, x_{n}).
 \]
-for the elementary symmetric polynomials $e_2, \ldots, e_n$.  Recalling that $\sum_i x_i=0$ by hypothesis, we see that $[z^1]g(z)=0$ and $[z^0]g(z)=1$, so $z^2 \mid g(z)-1$ as desired.
+Recalling that $\sum_i x_i=0$ in $A$, we see that $[z^1]g(z)=0$ and $[z^0]g(z)=1$, so $z^2 \mid g(z)-1$ as desired.
 \end{proof}
 
 \begin{lemma}\label{lem:dFdz}
