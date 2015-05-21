@@ -76,13 +76,13 @@ The present work presents a detailed study of the polynomial representation of t
 
 In characteristic $p$ and especially in the modular case, much less is known about the representation theory of the rational Cherednik algebra.  In this paper, we consider the modular case $p \mid n$.  For $\hbar = 1$ and generic $c$, we provide a complete characterization of the irreducible quotient of the polynomial representation.  We give explicit generators for the unique maximal ideal, show that the irreducible quotient is a complete intersection, and compute its Hilbert series.
 
-Our techniques are inspired by taking characteristic $p$ analogues of results about Cherednik algebras in characteristic $0$.  In particular, our explicit expression for generators of the maximal ideal was obtained by converting expressions containing complex residues to equivalent expressions dealing only with formal power series which may be interpreted in characteristic $p$.  While we restrict our present study to the polynomial representation in type $A$, we view this problem as a test case for this philosophy and believe it may admit wider application.
+Our techniques are inspired by taking characteristic $p$ analogues of results about Cherednik algebras in characteristic $0$.  In particular, our explicit expression for generators of the maximal ideal was obtained by converting expressions with complex residues to equivalent expressions dealing only with formal power series which may be interpreted in characteristic $p$.  While we restrict our study to the polynomial representation in type $A$, we view it as a test case for this philosophy, which we believe may admit wider application.
 
-In the remainder of this introduction, we give precise statements of our results and explain how they relate to other recent work.
+We now state our results precisely and explain their relation to other recent work.
 
 \subsection{The rational Cherednik algebra in positive characteristic}
 
-Throughout this paper, we work over an algebraically closed field $k$ of characteristic $p > 0$ and fix $n$ so that $p \mid n$.  Let $S_n$ denote the symmetric group on $n$ elements, $V = k^n$ its permutation representation, and $s_{ij} \in S_n$ the transposition permuting $i$ and $j$.  Fix a basis $y_1,\ldots,y_{n}$ for $V$ and a dual basis $x_1, \ldots, x_{n}$ for $V^*$.  Let $\h$ and $\h^*$ be the dual $(n - 1)$-dimensional $S_n$-representations which are subrepresentation and quotient of $V$ and $V^*$, respectively given by
+We work over an algebraically closed field $k$ of characteristic $p > 0$ and fix $n$ so that $p \mid n$.  Let $S_n$ denote the symmetric group on $n$ elements, $V = k^n$ its permutation representation, and $s_{ij} \in S_n$ the transposition permuting $i$ and $j$.  Fix a basis $y_1,\ldots,y_{n}$ for $V$ and a dual basis $x_1, \ldots, x_{n}$ for $V^*$.  Let $\h$ and $\h^*$ be the dual $(n - 1)$-dimensional $S_n$-representations which are subrepresentation and quotient of $V$ and $V^*$, respectively given by
 \[
 \h = \sspan\{y_i - y_j \mid i \neq j\} \text{ and } \h^* = V^*/(x_1 + \cdots + x_{n}).
 \]
@@ -100,18 +100,15 @@ For any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)$ and $\HH_{\alpha\hbar,\alpha c}(\h)$
 
 \subsection{Polynomial representation of the rational Cherednik algebra}
 
-The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act via the \textit{Dunkl operator} $D_y$ defined by
+The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act by the \textit{Dunkl operator}
 \begin{align*}
 D_y(f) = \hbar \partial_y f  - \sum_{m=1}^{n} \sum_{l=1}^{n} c  \langle y, x_m-x_l \rangle \frac{(1-s_{ml}) f}{x_m - x_l},
 \end{align*}
 where we note that $\frac{(1-s_{ml}) f}{x_m - x_l}$ is a polynomial for $f \in A$. Explicitly, we have  
 \[
-D_{y_i - y_j} = \hbar \partial_{y_i-y_j}-c\sum_{m \ne i} \frac{1-s_{mi}}{x_i-x_m}+c\sum_{m \ne j} \frac{1-s_{mi}}{x_j-x_m}
+D_{y_i - y_j} = \hbar \partial_{y_i-y_j}-c\sum_{m \ne i} \frac{1-s_{mi}}{x_i-x_m}+c\sum_{m \ne j} \frac{1-s_{mi}}{x_j-x_m},
 \]
-
-where $\partial_{y_i-y_j}$ is a differential operator we compute by letting $\partial_{y_i-y_j}(x) = \langle y_i-y_j,x\rangle$ for all $x \in \h^*$ and extending via the Leibnitz rule to the rest of $A=\Sym(\h^*)$. 
-
-We note that we can extend the Dunkl operators $D_y$ to formal power series in $z$ with coefficients from $A$ by letting the Dunkl operators act on each coefficient of the power series. 
+where $\partial_{y_i-y_j}$ is the differential operator satisfying $\partial_{y_i-y_j}(x) = \langle y_i-y_j,x\rangle$ for all $x \in \h^*$.  We will also consier Dunkl operators acting on $A[[z]]$ by the coefficient-wise action.
 
 \subsection{Maximal ideal and irreducible quotient of the polynomial representation}
 
@@ -133,11 +130,11 @@ where $L_j$ is the degree $j$ subspace of $L$.
 
 \subsection{Statement of the main result}
 
-For a formal Laurent series $r(z)$, we denote by $[z^l] r(z)$ the coefficient of $z^l$ in $r(z)$. We present some power series as rational functions which we expand near $z=0$. For $i = 1, \ldots, n - 1$, define the formal power series
+For a formal Laurent series $r(z)$, we denote by $[z^l] r(z)$ the coefficient of $z^l$ in $r(z)$.  Throughout the paper, we will consider formal power series in $z$ considered as expansions of rational functions around $z = 0$. For $i = 1, \ldots, n - 1$, define the formal power series
 \[
 F_i(z)=\frac{1}{1-x_iz} \left(\sum_{m=0}^{p-1} \binom{c}{m}(-1+\prod_{j=1}^{n} (1-x_jz))^m\right),
 \]
-where $\binom{c}{m} = \frac{c (c - 1) \cdots (c - m + 1)}{m!}$ and consider the coefficients $f_i = [z^p] F_i(z)$.
+where $\binom{c}{m} = \frac{c (c - 1) \cdots (c - m + 1)}{m!}$ and denote the coefficients $f_i = [z^p] F_i(z)$.
 
 \newtheorem*{thm:main}{Theorem \ref{thm:main}} \begin{thm:main}
 For generic $c$, the $f_i$ are linearly independent and generate the maximal ideal $J$ of the polynomial representation for $\HH_{1, c}(\h)$.  The irreducible quotient $L = A/J$ is a complete intersection with Hilbert series 
