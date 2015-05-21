@@ -102,9 +102,9 @@ For any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)$ and $\HH_{\alpha\hbar,\alpha c}(\h)$
 
 The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act by the \textit{Dunkl operator}
 \begin{align*}
-D_y(f) = \hbar \partial_y f  - \sum_{m=1}^{n} \sum_{l=1}^{n} c  \langle y, x_m-x_l \rangle \frac{(1-s_{ml}) f}{x_m - x_l},
+D_y = \hbar \partial_y  - \sum_{m=1}^{n} \sum_{l=1}^{n} c  \langle y, x_m-x_l \rangle \frac{1-s_{ml}}{x_m - x_l},
 \end{align*}
-where we note that $\frac{(1-s_{ml}) f}{x_m - x_l}$ is a polynomial for $f \in A$. Explicitly, we have  
+where we note that $\frac{1-s_{ml}}{x_m - x_l}f$ is a polynomial for $f \in A$. Explicitly, we have  
 \[
 D_{y_i - y_j} = \hbar \partial_{y_i-y_j}-c\sum_{m \ne i} \frac{1-s_{mi}}{x_i-x_m}+c\sum_{m \ne j} \frac{1-s_{mi}}{x_j-x_m},
 \]
@@ -182,7 +182,7 @@ Define the polynomials
 \[
 g(z)=\prod_{j=1}^{n} (1-x_jz) \qquad \text{ and } \qquad F(z) = \sum_{m=0}^{p-1} \binom{c}{m} (g(z)-1)^m.
 \]
-In terms of $g(z)$ and $F(z)$, we have $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i = [z^p] \frac{F(z)}{1-x_iz}$.  We will show that $f_i$ are singular vectors.
+In these terms, we have $F_i(z) = \frac{F(z)}{1-x_iz}$ and $f_i = [z^p] \frac{F(z)}{1-x_iz}$.  We will show that $f_i$ are singular vectors.
 
 \subsection{Computation of some partial derivatives}
 
@@ -200,19 +200,14 @@ for the elementary symmetric polynomials $e_2, \ldots, e_n$.  Recalling that $\s
 \end{proof}
 
 \begin{lemma}\label{lem:dFdz}
-We have
+For some formal power series $V(z)$ with $[z^l]V(z)=0$ for $l=0,\dots,p-1$, we have
 \[
-F'(z) = V(z) - \sum_{j=1}^{n} \frac{cx_j}{1-x_jz} F(z)
+F'(z) = V(z) - \sum_{j=1}^{n} \frac{cx_j}{1-x_jz} F(z).
 \]
-such that $V(z)$ is a power series with $[z^l]V(z)=0$ for $l=0,\dots,p-1$. 
 \end{lemma}
 
 \begin{proof}
-We see easily that 
-\[
-\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_jz}.
-\]
-We now consider $\frac{\partial F}{\partial z}$. We compute
+We see easily that $\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_jz}$. We now consider $\frac{\partial F}{\partial z}$. We compute
 \begin{align*}
 \frac{\partial F}{\partial z}
 &=\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\frac{\partial g}{\partial z}\\
@@ -225,42 +220,28 @@ Defining the formal power series
 \[
 V(z)=\sum_j \frac{x_j}{1-x_jz}c\binom{c-1}{p-1}(g(z)-1)^{p-1},
 \]
-we see that 
-\[
-F'(z) = V(z) - \sum_{j=1}^{n} \frac{cx_j}{1-x_jz} F(z).
-\]
-It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$.  By definition of $V(z)$, we see that $(g(z)-1)^{p-1} \mid V(z)$, hence by Lemma~\ref{lem:z2g}, $z^{2p-2} \mid V(z)$. Since $p \ge 2$, this implies $z^p \mid V(z)$, completing the proof.
+we see that $F'(z) = V(z) - \sum_{j=1}^{n} \frac{cx_j}{1-x_jz} F(z)$. It remains only to show that $[z^l]V(z)=0$ for $l=0,\dots,p-1$, which follows by noting that $(g(z)-1)^{p-1} \mid V(z)$, applying Lemma~\ref{lem:z2g}, and noting $p \ge 2$.
 \end{proof}
 
-\begin{lemma}\label{lem:dFdxi} We have
+\begin{lemma}\label{lem:dFdxi} 
+For some formal power series $G(z)$ with $[z^l]V(z)=0$ for $l=0,\dots,p$, we have
 \[
-\partial_{y_2-y_1}(F(z))= G(z) - \left(\frac{zc}{1-x_2z}-\frac{zc}{1-x_1z}\right)F(z)
+\partial_{y_2-y_1}(F(z))= G(z) - \left(\frac{zc}{1-x_2z}-\frac{zc}{1-x_1z}\right)F(z).
 \]
-such that $G(z)$ is a power series with $[z^l]G(z)=0$ for $l=0,\dots,p$. 
 \end{lemma}
-
 \begin{proof}
-
-We see that
-\[
-\partial_{y_2-y_1}(g(z))=g(z)\left(-\frac{z}{1-x_2z}+\frac{z}{1-x_1z}\right).
-\]
-Then we see that
+We may compute $\partial_{y_2-y_1}(g(z))=g(z)\left(-\frac{z}{1-x_2z}+\frac{z}{1-x_1z}\right)$. Using this, we see that
 \begin{align*}
 \partial_{y_2-y_1}(F(z))&=\left(\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\right)\partial_{y_2-y_1}(g(z))\\
 &=\left(-\frac{z}{1-x_2z}+\frac{z}{1-x_1z}\right)\left(\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\right)g(z)\\
 &=\left(-\frac{z}{1-x_2z}+\frac{z}{1-x_1z}\right)\left(\sum_{m=0}^{p-2}c\binom{c-1}{m}(g(z)-1)^{m}+\sum_{m=0}^{p-2}c\binom{c-1}{m}(g(z)-1)^{m+1}\right)\\
 &=\left(-\frac{zc}{1-x_2z}+\frac{zc}{1-x_1z}\right)\left(-\binom{c-1}{p-1}(g(z)-1)^{p-1}+F(z)\right).
 \end{align*}
-We define
-\[
-G(z)=\left(\frac{zc}{1-x_2z}- \frac{zc}{1-x_1z}\right)\binom{c-1}{p-1}(g(z)-1)^{p-1}.
-\]
-Then we see that
+Defining $G(z)=\left(\frac{zc}{1-x_2z}- \frac{zc}{1-x_1z}\right)\binom{c-1}{p-1}(g(z)-1)^{p-1}$, we have shown that
 \[
 \partial_{y_2-y_1}(F(z))= G(z) - \left(\frac{zc}{1-x_2z}-\frac{zc}{1-x_1z}\right)F(z)
 \]
-It remains only to show that $[z^l]G(z)=0$ for $l=0,\dots,p$. By definition of $G(z)$, we see that $z(g(z)-1)^{p-1} \mid G(z)$, so by Lemma~\ref{lem:z2g}, $z^{2p-1} \mid G(z)$. Since $p \ge 2$, this implies $z^{p+1} \mid G(z)$, completing the proof.
+It remains only to show that $[z^l]G(z)=0$ for $l=0,\dots,p$. By definition of $G(z)$, which follows by noting that $z(g(z)-1)^{p-1} \mid G(z)$, applying Lemma~\ref{lem:z2g}, and noting $p \geq 2$.
 \end{proof}
 
 \subsection{Proving $f_i$ are singular vectors} 
@@ -279,12 +260,10 @@ Recall by Lemma~\ref{lem:dFdxi} that $\partial_{y_2-y_1}(F(z))= G(z) - \left(\fr
 &=\left(\frac{z(c-1)}{1-x_1z}-\frac{zc}{1-x_2z}\right)F_1(z)+\frac{G(z)}{1-x_1z}.
 \end{align*}
 We note that $F_1(z)$ is invariant under $s_{ij}$ where $1 < i,j$. Therefore for transpositions we need only consider transpositions of the form $s_{1i}$ for $1 < i \le n$. We see that 
-\begin{align*}
+\[
 \frac{1-s_{1i}}{x_1-x_i}(F_1(z))
-&=\frac{1}{x_1-x_i}\left(\frac{1}{1-x_1z}-\frac{1}{1-x_iz}\right)F(z)\\
-&=\frac{z}{(1-x_iz)(1-x_1z)}F(z)\\
-&=\frac{z}{1-x_iz}F_1(z).
-\end{align*}
+=\frac{1}{x_1-x_i}\left(\frac{1}{1-x_1z}-\frac{1}{1-x_iz}\right)F(z)=\frac{z}{(1-x_iz)(1-x_1z)}F(z)=\frac{z}{1-x_iz}F_1(z).
+\]
 We recall that we need only consider the action of $D_{y_2-y_1}$ on $F_1(z)$. We see that 
 \[
 D_{y_2-y_1}=\partial_{y_2-y_1}-c\frac{1-s_{12}}{x_2-x_1}+c\sum_{j > 1} \frac{1-s_{1j}}{x_1-x_j}
@@ -304,8 +283,7 @@ where $[z^l]V(z)=0$ for $l=0,\dots,p-1$.
 
 From this it follows that
 \begin{align*}
-\frac{\partial F_1}{\partial z} &= \frac{\partial}{\partial z}\left(\frac{F(z)}{1-x_1z}\right)\\
-&=\frac{1}{1-x_1z} \frac{\partial F}{\partial z}+\frac{x_1}{(1-x_1z)^2} F(z)\\
+\frac{\partial F_1}{\partial z} = \frac{\partial}{\partial z}\left(\frac{F(z)}{1-x_1z}\right) &=\frac{1}{1-x_1z} \frac{\partial F}{\partial z}+\frac{x_1}{(1-x_1z)^2} F(z)\\
 &=\frac{V(z)}{1-x_1z}-\frac{1}{1-x_1z}\sum_j \frac{cx_j}{1-x_jz}F(z)+\frac{x_1}{(1-x_1z)^2} F(z)\\
 &=\frac{V(z)}{1-x_1z} - \sum_j \frac{cx_j}{1-x_jz}F_1(z)+\frac{x_1}{1-x_1z} F_1(z).
 \end{align*}
@@ -411,11 +389,7 @@ We will use an analogue of ``residues by parts'' in a formal power series settin
 \[
 a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)s_j}{1-s_jz}a(z)
 \]
-for some formal power series $b(z)$. By Corollary~\ref{corr:dFdz2} we have
-\[
-F'(z)=V(z)+\sum_j \frac{-cm_js_j}{1-s_jz}F(z),
-\]
-where $[z^l]V(z)=0$ for $0 \le l \le p-1$. We now compute
+for some formal power series $b(z)$. By Corollary~\ref{corr:dFdz2} we have for some $V(z)$ where $[z^l]V(z)=0$ for $0 \le l \le p-1$ that $F'(z)=V(z)+\sum_j \frac{-cm_js_j}{1-s_jz}F(z)$. We now compute
 \begin{align*}
 a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=1}^{r}(1-s_iz)}F(z)\right)\\
 &=\frac{1}{\prod_{i=1}^{r}(1-s_iz)}F'(z)+\sum_{j=1}^{r}\frac{s_j}{(1-s_jz)\prod_{i=1}^{r}(1-s_iz)}F(z)\\
@@ -423,11 +397,7 @@ a'(z)&=\frac{d}{dz}\left(\frac{1}{\prod_{i=1}^{r}(1-s_iz)}F(z)\right)\\
 &=\frac{V(z)}{\prod_{i=1}^{r}(1-s_iz)}+\sum_j \frac{-cm_js_j}{1-s_jz}a(z)+\sum_{j=1}^{r}\frac{s_j}{1-s_jz}a(z)\\
 &=\frac{V(z)}{\prod_{i=1}^{r}(1-s_iz)}-\sum_j \frac{(m_jc-1)s_j}{1-s_jz}a(z).
 \end{align*}
-Since $[z^l]V(z)=0$ for $0 \le l \le p-1$ we see that 
-\[
-\frac{V(z)}{\prod_{i=1}^{r}(1-s_iz)}=z^pb(z)
-\]
-for some power series $b(z)$, giving the claim.
+The fact that $[z^l]V(z)=0$ for $0 \le l \le p-1$ then gives the claim.
 
 Now, for any integer $l$, define the Laurent polynomial 
 \[
@@ -456,11 +426,7 @@ The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at 
 \[
 [z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0,
 \]
-so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z),[z^{l+1}]a(z),\dots,[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has nonzero coefficient 
-\[
-(-1)^r  \prod_i s_i\left((l + r) - \sum_i m_i c\right),
-\]
-which is nonzero for $c$ generic and $\prod_i s_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\dots$, $[z^{l+r}]a(z)$ when $l \le p-r$. 
+so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z)$, $\ldots$, $[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has coefficient $(-1)^r \prod_i s_i\left((l + r) - \sum_i m_i c\right)$, which is nonzero for $c$ generic and $\prod_i s_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\dots$, $[z^{l+r}]a(z)$ when $l \le p-r$. 
 \end{proof}
 
 \subsection{Complete intersection property}
@@ -489,11 +455,7 @@ Therefore for any $\lambda_i \in k$, we have
 \begin{equation}\label{eq:lincomb}
 \sum_{i=1}^{r} \lambda_i[z^p]a(z)b_i(z)=[z^p]\left( a(z)\sum_{i=1}^{r}\lambda_ib_i(z)\right)=0.
 \end{equation}
-By Lemma~\ref{lem:vand}, $b_i(z)$ are linearly independent polynomials of degree at most $r-1$. Therefore for $0 \le m \le r-1$ we can choose $\{\lambda_i^m\}$ so that 
-\[
-\sum_i\lambda_i^mb_i(z)=z^m.
-\]
-Choosing these $\lambda_i^m$ in (\ref{eq:lincomb}), we see that
+By Lemma~\ref{lem:vand}, $b_i(z)$ are linearly independent polynomials of degree at most $r-1$. Therefore for $0 \le m \le r-1$ we can choose $\{\lambda_i^m\}$ so that $\sum_i\lambda_i^mb_i(z)=z^m$. Choosing these $\lambda_i^m$ in (\ref{eq:lincomb}), we see that
 \[
 [z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0.
 \]
