@@ -129,9 +129,9 @@ h_L(t) = \sum_{j \geq 0} \dim L_j t^j.
 
 For a formal Laurent series $r(z)$, we denote by $[z^l] r(z)$ the coefficient of $z^l$ in $r(z)$.  Throughout the paper, we will consider formal power series in $z$ considered as expansions of rational functions around $z = 0$. For $i = 1, \ldots, n - 1$, define the formal power series
 \[
-F_i(z)=\frac{1}{1-x_iz} \left(\sum_{m=0}^{p-1} \binom{c}{m}(-1+\prod_{j=1}^{n} (1-x_jz))^m\right),
+F_i(z)=\frac{1}{1-x_iz} \sum_{m=0}^{p-1} \binom{c}{m}\left(\prod_{j=1}^{n} (1-x_jz) - 1\right)^m
 \]
-where $\binom{c}{m} = \frac{c (c - 1) \cdots (c - m + 1)}{m!}$ and denote the coefficients $f_i = [z^p] F_i(z)$.
+for $\binom{c}{m} = \frac{c (c - 1) \cdots (c - m + 1)}{m!}$.  Denote by $f_i$ the coefficients $f_i = [z^p] F_i(z)$.
 
 \newtheorem*{thm:main}{Theorem \ref{thm:main}} \begin{thm:main}
 For generic $c$, $f_1, \ldots, f_{n-1}$ are linearly independent and generate the maximal ideal $J$ of the polynomial representation for $\HH_{1, c}(\h)$.  The irreducible quotient $L = A/J$ is a complete intersection with Hilbert series 
@@ -213,7 +213,7 @@ We see easily that $\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_
 &=\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\frac{\partial g}{\partial z}\\
 &=-\sum_j \frac{x_j}{1-x_jz}\sum_{m=0}^{p-2}c\binom{c-1}{m}(g(z)-1)^{m}(g(z)-1+1)\\
 &=-\sum_j \frac{x_j}{1-x_jz}\left(\sum_{m=0}^{p-2}c\binom{c-1}{m}(g(z)-1)^{m}+\sum_{m=1}^{p-1}c\binom{c-1}{m-1}(g(z)-1)^{m}\right)\\
-&=-\sum_j \frac{x_j}{1-x_jz}\left(-c\binom{c-1}{p-1}(g(z)-1)^{p-1}+\sum_{m=0}^{p-1}c\binom{c}{m}(g(z)-1)^{m}\right)\\
+&=-\sum_j \frac{x_j}{1-x_jz}\left(\sum_{m=0}^{p-1}c\binom{c}{m}(g(z)-1)^{m}-c\binom{c-1}{p-1}(g(z)-1)^{p-1}\right)\\
 &=-\sum_j \frac{cx_j}{1-x_jz}F(z)+\sum_j \frac{x_j}{1-x_jz}c\binom{c-1}{p-1}(g(z)-1)^{p-1}.
 \end{align*}
 Defining the formal power series
@@ -235,7 +235,7 @@ We may compute $\partial_{y_2-y_1}(g(z))=g(z)\left(-\frac{z}{1-x_2z}+\frac{z}{1-
 \partial_{y_2-y_1}(F(z))&=\left(\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\right)\partial_{y_2-y_1}(g(z))\\
 &=\left(-\frac{z}{1-x_2z}+\frac{z}{1-x_1z}\right)\left(\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\right)g(z)\\
 &=\left(-\frac{z}{1-x_2z}+\frac{z}{1-x_1z}\right)\left(\sum_{m=0}^{p-2}c\binom{c-1}{m}(g(z)-1)^{m}+\sum_{m=0}^{p-2}c\binom{c-1}{m}(g(z)-1)^{m+1}\right)\\
-&=\left(-\frac{zc}{1-x_2z}+\frac{zc}{1-x_1z}\right)\left(-\binom{c-1}{p-1}(g(z)-1)^{p-1}+F(z)\right).
+&=\left(-\frac{zc}{1-x_2z}+\frac{zc}{1-x_1z}\right)\left(F(z)-\binom{c-1}{p-1}(g(z)-1)^{p-1}\right).
 \end{align*}
 Defining $G(z)=\left(\frac{zc}{1-x_2z}- \frac{zc}{1-x_1z}\right)\binom{c-1}{p-1}(g(z)-1)^{p-1}$, we have shown that
 \[
@@ -259,49 +259,43 @@ Recall by Lemma~\ref{lem:dFdxi} that $\partial_{y_2-y_1}(F(z))= G(z) - \left(\fr
 &=-\frac{z}{1-x_1z}F_1(z)+\frac{1}{1-x_1z}\left(\frac{zc}{1-x_1z}-\frac{zc}{1-x_2z}\right)F(z)+\frac{G(z)}{1-x_1z}\\
 &=\left(\frac{z(c-1)}{1-x_1z}-\frac{zc}{1-x_2z}\right)F_1(z)+\frac{G(z)}{1-x_1z}.
 \end{align*}
-We note that $F_1(z)$ is invariant under $s_{ij}$ where $1 < i,j$. Therefore for transpositions we need only consider transpositions of the form $s_{1i}$ for $1 < i \le n$. We see that 
+In addition, we have that 
 \[
 \frac{1-s_{1i}}{x_1-x_i}(F_1(z))
 =\frac{1}{x_1-x_i}\left(\frac{1}{1-x_1z}-\frac{1}{1-x_iz}\right)F(z)=\frac{z}{(1-x_iz)(1-x_1z)}F(z)=\frac{z}{1-x_iz}F_1(z).
 \]
-We recall that we need only consider the action of $D_{y_2-y_1}$ on $F_1(z)$. We see that 
-\[
-D_{y_2-y_1}=\partial_{y_2-y_1}-c\frac{1-s_{12}}{x_2-x_1}+c\sum_{j > 1} \frac{1-s_{1j}}{x_1-x_j}
-\]
-since $F_1(z)$ is invariant under $s_{ij}$ where $1 < i,j$. We now compute
+Because $F_1(z)$ is invariant under $s_{ij}$ for $i,j > 1$, we now compute
 \begin{align*}
 D_{y_2-y_1}(F_1(z))&=\left(\partial_{y_2-y_1}-c\frac{1-s_{12}}{x_2-x_1}+c\sum_{j > 1} \frac{1-s_{1j}}{x_1-x_j}\right)F_1(z)\\
-&=\partial_{y_2-y_1}(F_1(z))-c\frac{1-s_{12}}{x_2-x_1}(F_1(z))+c\sum_{j > 1} \frac{1-s_{1j}}{x_1-x_j}F_1(z)\\
+&=\partial_{y_2-y_1}(F_1(z))-c\frac{1-s_{12}}{x_2-x_1}F_1(z)+c\sum_{j > 1} \frac{1-s_{1j}}{x_1-x_j}F_1(z)\\
 &=\frac{G(z)}{1-x_1z}+\left(\frac{z(c-1)}{1-x_1z}-\frac{zc}{1-x_2z}\right)F_1(z)+\frac{zc}{1-x_2z}F_1(z)+\sum_{j > 1} \frac{zc}{1-x_jz}F_1(z)\\
-&=\frac{G(z)}{1-x_1z}+\frac{z(c-1)}{1-x_1z}F_1(z)+\sum_{j>1} \frac{zc}{1-x_jz}F_1(z).
+&=\frac{G(z)}{1-x_1z}-\frac{z}{1-x_1z}F_1(z)+\sum_{j} \frac{zc}{1-x_jz}F_1(z).
 \end{align*}
-In order to show that the $p$th coefficient in this formal power series is $0$, we must consider $\frac{\partial F_1}{\partial z}$.  Recall by Lemma~\ref{lem:dFdz} that
+To show that the $z^p$ coefficient in $D_{y_2-y_1}(F_1(z))$ vanishes, we must consider $\frac{\partial F_1}{\partial z}$.  By Lemma~\ref{lem:dFdz}, we have
 \[
-\frac{\partial F}{\partial z}=V(z)+\sum_j \frac{-cx_j}{1-x_jz}F(z).
+\frac{\partial F}{\partial z}=V(z) - \sum_j \frac{cx_j}{1-x_jz}F(z),
 \]
-where $[z^l]V(z)=0$ for $l=0,\dots,p-1$. 
-
-From this it follows that
+where $[z^l]V(z)=0$ for $l=0,\dots,p-1$. From this, it follows that
 \begin{align*}
 \frac{\partial F_1}{\partial z} = \frac{\partial}{\partial z}\left(\frac{F(z)}{1-x_1z}\right) &=\frac{1}{1-x_1z} \frac{\partial F}{\partial z}+\frac{x_1}{(1-x_1z)^2} F(z)\\
 &=\frac{V(z)}{1-x_1z}-\frac{1}{1-x_1z}\sum_j \frac{cx_j}{1-x_jz}F(z)+\frac{x_1}{(1-x_1z)^2} F(z)\\
 &=\frac{V(z)}{1-x_1z} - \sum_j \frac{cx_j}{1-x_jz}F_1(z)+\frac{x_1}{1-x_1z} F_1(z).
 \end{align*}
-We now again consider $D_{y_2-y_1}(F_1(z))$. Recall that $n \equiv 0 \bmod p$, so in particular we can add $n$ times any multiple of $F_1(z)$ since that is $0$ in characteristic $p$. 
+We now compute
 \begin{align*}
-D_{y_2-y_1}(F_1(z))&=\frac{G(z)}{1-x_1z}+\frac{z(c-1)}{1-x_1z}F_1(z)+\sum_{j>1} \frac{zc}{1-x_jz}F_1(z)\\
-&=\frac{G(z)}{1-x_1z}-zF_1(z)+zF_1(z)-\frac{z}{1-x_1z}F_1(z)-\sum_{j} zcF_1(z)+\frac{zc}{1-x_jz}F_1(z)\\
+D_{y_2-y_1}(F_1(z))&=\frac{G(z)}{1-x_1z}-\frac{z}{1-x_1z}F_1(z)+\sum_{j} \frac{zc}{1-x_jz}F_1(z)\\
+&=\frac{G(z)}{1-x_1z}-zF_1(z)+zF_1(z)-\frac{z}{1-x_1z}F_1(z) + \sum_{j} \left(\frac{zc}{1-x_jz} - zc\right) F_1(z)\\
 &=\frac{G(z)}{1-x_1z}-zF_1(z)-\frac{x_1z^2}{1-x_1z}F_1(z)+\sum_{j} \frac{x_jcz^2}{1-x_jz}F_1(z)\\
 &=\frac{G(z)}{1-x_1z}-zF_1(z)-z^2\frac{\partial F_1}{\partial z}+z^2\frac{V(z)}{1-x_1z}\\
-&=\frac{G(z)+z^2V(z)}{1-x_1z}-zF_1(z)-z^2\frac{\partial F_1}{\partial z}.
+&=\frac{G(z)+z^2V(z)}{1-x_1z}-zF_1(z)-z^2\frac{\partial F_1}{\partial z},
 \end{align*}
-We note that $[z^p]\left(\frac{G(z)+z^2V(z)}{1-x_1z}\right)$ is a linear combination of $[z^l](G(z)+z^2V(z))$ for $0 \le l \le p$. This means that $[z^p]\left(\frac{G(z)+z^2V(z)}{1-x_1z}\right)$ is a linear combination of $[z^l]G(z)$ for $0 \le l \le p$ and $[z^l]V(z)$ for $0 \le l \le p-2$. By Lemmas~\ref{lem:dFdz} and \ref{lem:dFdxi} we recall that the coefficients of $G(z),V(z)$ under consideration are all $0$. This implies that $[z^p]\left(\frac{G(z)+z^2V(z)}{1-x_1z}\right)=0$. Therefore
+where in the second step we have subtracted $n zc F_1(z)$.  We note that $[z^p]\left(\frac{G(z)+z^2V(z)}{1-x_1z}\right)$ is a linear combination of $[z^l](G(z)+z^2V(z))$ for $0 \le l \le p$, hence a linear combination of $[z^l]G(z)$ for $0 \le l \le p$ and $[z^l]V(z)$ for $0 \le l \le p-2$. By Lemmas~\ref{lem:dFdz} and \ref{lem:dFdxi}, these coefficients of $G(z)$ and $V(z)$ are all $0$, hence $[z^p]\left(\frac{G(z)+z^2V(z)}{1-x_1z}\right)=0$. We conclude that 
 \[
-[z^p](D_{y_2-y_1}(F_1(z)))=[z^p]\left(-zF_1(z)-z^2\frac{\partial F_1}{\partial z}\right).
+[z^p]D_{y_2-y_1}(F_1(z))=[z^p]\left(-zF_1(z)-z^2\frac{\partial F_1}{\partial z}\right).
 \]
-Let $b=[z^{p-1}](F_1(z))$. We see that $[z^p](-zF_1(z))=-b$. Then $[z^{p-2}]\left(\frac{\partial F_1}{\partial z}\right)=(p-1)b=-b$, so $[z^p]\left(-z^2\frac{\partial F_1}{\partial z}\right)=b$. Therefore $[z^p]\left(-zF_1(z)-z^2\frac{\partial F_1}{\partial z}\right)=-b+b=0$, yielding the desired
+If $b=[z^{p-1}](F_1(z))$, then $[z^p](-zF_1(z))=-b$ and $[z^p]\left(-z^2\frac{\partial F_1}{\partial z}\right)=b$, which implies that 
 \[
-D_{y_2 - y_1} f_1 = [z^p](D_{y_2-y_1}(F_1(z)))=D_{y_2-y_1}([z^p]F_1(z))=D_{y_2-y_1}f_1=0. \qedhere
+D_{y_2 - y_1} f_1 = [z^p]D_{y_2-y_1}(F_1(z))= [z^p]\left(-zF_1(z)-z^2\frac{\partial F_1}{\partial z}\right) = -b + b = 0. \qedhere
 \]
 \end{proof}
 
