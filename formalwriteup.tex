@@ -63,7 +63,7 @@
 \date{\today}
 
 \begin{abstract}
-We study the polynomial representation of the rational Cherednik algebra of type $A_{n-1}$ with generic parameter in characteristic $p$ for $p \mid n$. We give explicit formulas for generators for the maximal ideal, show that they cut out a complete intersection, and thus compute the Hilbert series of the irreducible quotient. Our methods are motivated by taking characteristic $p$ analogues of existing characteristic $0$ results.
+We study the polynomial representation of the rational Cherednik algebra of type $A_{n-1}$ with generic parameter in characteristic $p$ for $p \mid n$. We give explicit formulas for generators for the maximal proper graded submodule, show that they cut out a complete intersection, and thus compute the Hilbert series of the irreducible quotient. Our methods are motivated by taking characteristic $p$ analogues of existing characteristic $0$ results.
 \end{abstract}
 
 \maketitle
@@ -74,9 +74,9 @@ We study the polynomial representation of the rational Cherednik algebra of type
 
 The present work presents a detailed study of the polynomial representation of the type $A_{n - 1}$ rational Cherednik algebra over a field of characteristic $p$ dividing $n$.  Rational Cherednik algebras were introduced by Etingof-Ginzburg in \cite{EG} as a rational degeneration of the double affine Hecke algebra dependent on two parameters $\hbar$ and $c$.  In characteristic $0$, their type $A$ representation theory has been the subject of extensive study.  We refer the reader to \cite{EM} for a survey of these results. 
 
-In characteristic $p$ and especially in the modular case, much less is known about the representation theory of the rational Cherednik algebra.  In this paper, we consider the modular case $p \mid n$.  For $\hbar = 1$ and generic $c$, we provide a complete characterization of the irreducible quotient of the polynomial representation.  We give explicit generators for the unique maximal ideal, show that the irreducible quotient is a complete intersection, and compute its Hilbert series.
+In characteristic $p$ and especially in the modular case, much less is known about the representation theory of the rational Cherednik algebra.  In this paper, we consider the modular case $p \mid n$.  For $\hbar = 1$ and generic $c$, we provide a complete characterization of the irreducible quotient of the polynomial representation.  We give explicit generators for the unique maximal proper graded submodule $J$, show that the irreducible quotient is a complete intersection, and compute its Hilbert series.
 
-Our techniques are inspired by taking characteristic $p$ analogues of results about Cherednik algebras in characteristic $0$.  In particular, our explicit expression for generators of the maximal ideal was obtained by converting expressions with complex residues to equivalent expressions dealing only with formal power series which may be interpreted in characteristic $p$.  While we restrict our study to the polynomial representation in type $A$, we view it as a test case for this philosophy, which we believe may admit wider application.
+Our techniques are inspired by taking characteristic $p$ analogues of results about Cherednik algebras in characteristic $0$.  In particular, our explicit expression for generators of $J$ was obtained by converting expressions with complex residues to equivalent expressions dealing only with formal power series which may be interpreted in characteristic $p$.  While we restrict our study to the polynomial representation in type $A$, we view it as a test case for this philosophy, which we believe may admit wider application.
 
 We now state our results precisely and explain their relation to other recent work.
 
@@ -90,9 +90,8 @@ The action of $S_n$ on $\h$ and $\h^*$ is given explicitly by natural permutatio
 
 Fix constants $\hbar$ and $c$ in $k$.  Denoting the tensor algebra of $\h \oplus \h^*$ by $T(\h \oplus \h^*)$, the \textit{type $A_{n - 1}$ rational Cherednik algebra} $\HH_{\hbar, c}(\h)$ is the quotient of $k[S_n] \ltimes T(\h \oplus \h^*)$ by the relations
 \begin{align*}
-[x_i,x_j]=0, \quad [y_i,y_j] = 0, \quad [y_i,x_j] = \hbar\langle y_i,x_j\rangle - \sum_{m=1}^{n}\sum_{l=1}^{n} c\langle y_i,x_m-x_l \rangle\langle y_m-y_l,x_j\rangle s_{ml}
-\end{align*}
-for all $1 \le i,j \le n$.  There is a $\ZZ$-grading on $\HH_{\hbar,c}(\h)$ given by setting $\deg x=1$ for $x \in \h^*$, $\deg y = -1$ for $y \in \h$, and $\deg g=0$ for $g \in k[S_n]$.  In addition, $\HH_{\hbar, c}(\h)$ admits a PBW decomposition 
+[x_i,x_j]=0, \quad [y_i,y_j] = 0, \quad [y_i,x_i] = \hbar- c \sum_{m \ne i} s_{im},\quad [y_i,x_j] =cs_{ij}\end{align*}
+for all $1 \le i < j \le n$.  There is a $\ZZ$-grading on $\HH_{\hbar,c}(\h)$ given by setting $\deg x=1$ for $x \in \h^*$, $\deg y = -1$ for $y \in \h$, and $\deg g=0$ for $g \in k[S_n]$.  In addition, $\HH_{\hbar, c}(\h)$ admits a PBW decomposition 
 \[
 \HH_{\hbar,c}(\h) = \Sym(\h) \otimes_k k[S_n] \otimes_k \Sym(\h^*).
 \]
@@ -100,17 +99,17 @@ For any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)$ and $\HH_{\alpha\hbar,\alpha c}(\h)$
 
 \subsection{Polynomial representation of the rational Cherednik algebra}
 
-The rational Cherednik algebra $\HH_{\hbar, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act by the \textit{Dunkl operator}
+The rational Cherednik algebra $\HH_{1, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act by the \textit{Dunkl operator}
 \begin{align*}
-D_y = \hbar \partial_y  - \sum_{m=1}^{n} \sum_{l=1}^{n} c  \langle y, x_m-x_l \rangle \frac{1-s_{ml}}{x_m - x_l},
+D_y =  \partial_y  - \sum_{m=1}^{n} \sum_{l=1}^{n} c  \langle y, x_m-x_l \rangle \frac{1-s_{ml}}{x_m - x_l},
 \end{align*}
 where we note that $\frac{1-s_{ml}}{x_m - x_l}f$ is a polynomial for $f \in A$. Explicitly, we have  
 \[
-D_{y_i - y_j} = \hbar \partial_{y_i-y_j}-c\sum_{m \ne i} \frac{1-s_{mi}}{x_i-x_m}+c\sum_{m \ne j} \frac{1-s_{mi}}{x_j-x_m},
-\]
+D_{y_i - y_j} =  \partial_{y_i-y_j}-c\sum_{m \ne i} \frac{1-s_{mi}}{x_i-x_m}+c\sum_{m \ne j} \frac{1-s_{mj}}{x_j-x_m},
+\] \noindent
 where $\partial_{y_i-y_j}$ is the differential operator satisfying $\partial_{y_i-y_j}(x) = \langle y_i-y_j,x\rangle$ for all $x \in \h^*$.  We will also consider Dunkl operators acting on $A[[z]]$ by the coefficient-wise action.
 
-\subsection{Maximal ideal and irreducible quotient of the polynomial representation}
+\subsection{Maximal proper graded submodule and irreducible quotient of the polynomial representation}
 
 As described in \cite[Section 2.5]{BC1}, there is a contravariant form 
 \[
@@ -120,7 +119,7 @@ defined by setting $\beta_c(1, 1) = 1$ and imposing for all $x \in \h^*, y \in \
 \[
 \beta_c(xf,g)=\beta_c(f,xg) \qquad \text{ and } \qquad \beta_c(f,yg) = \beta_c(yf,g).
 \]
-Then the polynomial representation $\Sym(\h^*)$ has unique maximal graded proper submodule $J = \ker(\beta_c)$.  By the definition of $\beta_c$, $J$ is generated by homogeneous vectors $f \in A$ killed by all Dunkl operators $D_y$.  Such $f$ are known as \textit{singular vectors}.  The quotient $L = A/J$ is an irreducible representation of $\HH_{\hbar,c}(\h)$.  It inherits a $\ZZ_{\geq 0}$-grading from $A$, and for $L_j$ the degree $j$ subspace of $L$, we may define its Hilbert series as
+Then the polynomial representation $\Sym(\h^*)$ has unique maximal graded proper submodule $J = \ker(\beta_c)$.  By the definition of $\beta_c$, $J$ is generated by homogeneous vectors $f \in A$ killed by all Dunkl operators $D_y$.  Such $f$ are known as \textit{singular vectors}.  The quotient $L = A/J$ is an irreducible representation of $\HH_{1,c}(\h)$.  It inherits a $\ZZ_{\geq 0}$-grading from $A$, and for $L_j$ the degree $j$ subspace of $L$, we may define its Hilbert series as
 \[
 h_L(t) = \sum_{j \geq 0} \dim L_j t^j.
 \]
@@ -134,7 +133,7 @@ F_i(z)=\frac{1}{1-x_iz} \sum_{m=0}^{p-1} \binom{c}{m}\left(\prod_{j=1}^{n} (1-x_
 for $\binom{c}{m} = \frac{c (c - 1) \cdots (c - m + 1)}{m!}$.  Denote by $f_i$ the coefficients $f_i = [z^p] F_i(z)$.
 
 \newtheorem*{thm:main}{Theorem \ref{thm:main}} \begin{thm:main}
-For generic $c$, $f_1, \ldots, f_{n-1}$ are linearly independent and generate the maximal ideal $J$ of the polynomial representation for $\HH_{1, c}(\h)$.  The irreducible quotient $L = A/J$ is a complete intersection with Hilbert series 
+For generic $c$, $f_1, \ldots, f_{n-1}$ are linearly independent and generate the maximal proper graded submodule $J$ of the polynomial representation for $\HH_{1, c}(\h)$.  The irreducible quotient $L = A/J$ is a complete intersection with Hilbert series 
 \[
 h_L(t) = \left(\frac{1-t^p}{1-t}\right)^{n-1}.
 \]
@@ -145,19 +144,19 @@ In Theorem \ref{thm:main}, by generic $c$ we mean $c$ avoiding countably many va
 
 \subsection{Connections to previous work}
 
-Our study is motivated by previous work on the representation theory of the type $A$ rational Cherednik algebra in both characteristic $0$ and $p$.  The type $A$ non-modular case $p \gg n$ was studied in \cite{BFG}, and some properties of the maximal ideal of the polynomial representation were given in both modular and non-modular cases in \cite{BC1}.  In the modular case $p \mid n$, for $p = 2$, the polynomial representation associated to the $n$-dimensional permutation representation was studied.
+Our study is motivated by previous work on the representation theory of the type $A$ rational Cherednik algebra in both characteristic $0$ and $p$.  The type $A$ non-modular case $p \gg n$ was studied in \cite{BFG}, and some properties of the maximal proper graded submodule of the polynomial representation were given in both modular and non-modular cases in \cite{BC1}.  In the modular case $p \mid n$, for $p = 2$, the polynomial representation associated to the $n$-dimensional permutation representation was studied.
 \begin{theorem}[{\cite[Theorem 5.1]{L}}] \label{thm:lian}
 The irreducible quotient of the polynomial representation associated to the $n$-dimensional reflection representation is a complete intersection with Hilbert series
 \[
 h(t) = (1 + t)^n (1 + t^2).
 \]
-The corresponding maximal ideal is generated by $n - 1$ elements of degree $2$ and one element of degree $4$. 
+The corresponding maximal proper graded submodule is generated by $n - 1$ elements of degree $2$ and one element of degree $4$. 
 \end{theorem} 
-It was further conjectured by Lian in \cite[Conjecture 5.2]{L} that for all $p$ the corresponding irreducible is a complete intersection with maximal ideal having $n - 1$ generators in degree $p$ and a single generator in degree $p^2$.  Our results are consistent with the restriction of Lian's conjecture to the case when $\h$ is restricted to the $(n - 1)$-dimensional quotient.  It would be interesting to extend our work to prove Lian's conjecture in full.  For general $p \mid n$, a subideal of the maximal ideal was computed in \cite[Proposition 6.1]{DS}.
+It was further conjectured by Lian in \cite[Conjecture 5.2]{L} that for all $p$ the corresponding irreducible is a complete intersection with $J$ having $n - 1$ generators in degree $p$ and a single generator in degree $p^2$.  Our results are consistent with the restriction of Lian's conjecture to the case when $\h$ is restricted to the $(n - 1)$-dimensional quotient.  It would be interesting to extend our work to prove Lian's conjecture in full.  For general $p \mid n$, a subideal of the maximal proper graded submodule was computed in \cite[Proposition 6.1]{DS}.
 
-In characteristic $0$, our results parallel the explicit decomposition of the polynomial representation of the type $A$ rational Cherednik algebra given in \cite{BEG, CE}.  There, the polynomial representation is irreducible unless $c = \frac{r}{n}$ for some integer $r$, and an explicit set of generators of the maximal ideal is known.
+In characteristic $0$, our results parallel the explicit decomposition of the polynomial representation of the type $A$ rational Cherednik algebra given in \cite{BEG, CE}.  There, the polynomial representation is irreducible unless $c = \frac{r}{n}$ for some integer $r$, and an explicit set of generators of the maximal proper graded submodule is known.
 \begin{proposition}[{\cite[Proposition 3.1]{CE}}] \label{prop:ce}
-If $\char(k) = 0$ and $c = \frac{r}{n}$, the maximal ideal $J \subset A$ of the polynomial representation $A$ of $\HH_{\hbar,c}(\h)$ is generated by
+If $\char(k) = 0$ and $c = \frac{r}{n}$, the maximal proper graded submodule $J \subset A$ of the polynomial representation $A$ of $\HH_{\hbar,c}(\h)$ is generated by
 \[
 \Res_\infty\left[\frac{dz}{z-x_j} \prod_{i=1}^{n} (z-x_i)^c\right] \text{ for $j=1,\dots,n-1$}.
 \]
@@ -454,7 +453,7 @@ Now, suppose without loss of generality that $s_{r}=0$. If $r = 1$, we are done.
 \section{Proof of the main result}
 
 \begin{theorem}\label{thm:main}
-For generic $c$, $f_1, \ldots, f_{n-1}$ are linearly independent and generate the maximal ideal $J$ of the polynomial representation for $\HH_{1, c}(\h)$.  The irreducible quotient $L = A/J$ is a complete intersection with Hilbert series 
+For generic $c$, $f_1, \ldots, f_{n-1}$ are linearly independent and generate the maximal proper graded submodule $J$ of the polynomial representation for $\HH_{1, c}(\h)$.  The irreducible quotient $L = A/J$ is a complete intersection with Hilbert series 
 \[
 h_L(t) = \left(\frac{1-t^p}{1-t}\right)^{n-1}.
 \]
