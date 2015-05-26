@@ -365,11 +365,11 @@ F'(z)=V(z) - \sum_j \frac{cm_js_j}{1-s_jz}F(z).
 \]
 \end{corollary}
 \begin{proof}
-Apply Lemma~\ref{lem:dFdz} by letting the $x_i$ be $m_i$ copies of the $s_i$. 
+Take the $x_i$ to be $m_i$ copies of the $s_i$ in Lemma~\ref{lem:dFdz}.
 \end{proof}
 
 \begin{lemma} \label{lem:resbyparts}
-Let $s_1,\dots,s_{r}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_is_i=0$.  For any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\ldots$, $[z^{l+r}]a(z)$.
+Let $s_1,\dots,s_{r}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_is_i=0$.  For generic $c$ and any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\ldots$, $[z^{l+r}]a(z)$.
 \end{lemma}
 \begin{proof} 
 We will use an analogue of ``residues by parts'' in a formal power series setting.   We first show that 
@@ -439,11 +439,11 @@ By Lemma~\ref{lem:vand}, $b_i(z)$ are linearly independent polynomials of degree
 \[
 [z^{p-r+1}]a(z)=\dots=[z^p]a(z)=0.
 \]
-By repeated application of Lemma~\ref{lem:resbyparts} starting with $l=p-r$, we find that 
+By repeated application of Lemma~\ref{lem:resbyparts} starting with $l=p-r$ (but finitely many times and with finitely many choices of $l$, $r$, and $m_i$), we find for generic $c$ that
 \[
 [z^l]a(z)=0 \text{ for $l=p-r,p-r-1,\dots,0$}.
 \]
-This implies that $[z^0]a(z)=0$, a contradiction. We conclude that $s_i=0$ for some $i$.
+This implies that $[z^0]a(z)=0$, a contradiction. We conclude that $s_i=0$ for some $i$.  
 
 Now, suppose without loss of generality that $s_{r}=0$. If $r = 1$, we are done.  Otherwise, we have $\sum_{i=1}^{r-1} m_is_i = \sum_{i=1}^{r} m_is_i = 0$ and because the $s_i$ are distinct we see that $\prod_{i=1}^{r-1} s_i \ne 0$.  Therefore, we may apply Lemma~\ref{lem:resbyparts} and repeat the argument above with $s_1, \ldots, s_{r - 1}$.  We find that at least one of the $s_i$ with $i < r$ is $0$, contradicting distinctness of $s_i$. Therefore, we find $r=1$ and $s_1=0$, concluding the proof.
 \end{proof}
