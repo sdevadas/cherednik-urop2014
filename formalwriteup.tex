@@ -204,7 +204,7 @@ F'(z) = V(z) - \sum_{j=1}^{n} \frac{cx_j}{1-x_jz} F(z).
 \end{lemma}
 
 \begin{proof}
-We see easily that $\frac{\partial g}{\partial z} = g(z) \sum_j \frac{-x_j}{1-x_jz}$. We now consider $\frac{\partial F}{\partial z}$. We compute
+We see easily that $\frac{\partial g}{\partial z} = -g(z) \sum_j \frac{x_j}{1-x_jz}$. We now consider $\frac{\partial F}{\partial z}$. We compute
 \begin{align*}
 \frac{\partial F}{\partial z}
 &=\sum_{m=1}^{p-1}m\binom{c}{m}(g(z)-1)^{m-1}\frac{\partial g}{\partial z}\\
@@ -221,7 +221,7 @@ we see that $F'(z) = V(z) - \sum_{j=1}^{n} \frac{cx_j}{1-x_jz} F(z)$. It remains
 \end{proof}
 
 \begin{lemma}\label{lem:dFdxi} 
-For some formal power series $G(z)$ with $[z^l]V(z)=0$ for $l=0,\dots,p$, we have
+For some formal power series $G(z)$ with $[z^l]G(z)=0$ for $l=0,\dots,p$, we have
 \[
 \partial_{y_2-y_1}(F(z))= G(z) - \left(\frac{zc}{1-x_2z}-\frac{zc}{1-x_1z}\right)F(z).
 \]
@@ -238,7 +238,7 @@ Defining $G(z)=\left(\frac{zc}{1-x_2z}- \frac{zc}{1-x_1z}\right)\binom{c-1}{p-1}
 \[
 \partial_{y_2-y_1}(F(z))= G(z) - \left(\frac{zc}{1-x_2z}-\frac{zc}{1-x_1z}\right)F(z)
 \]
-It remains only to show that $[z^l]G(z)=0$ for $l=0,\dots,p$. By definition of $G(z)$, which follows by noting that $z(g(z)-1)^{p-1} \mid G(z)$, applying Lemma~\ref{lem:z2g}, and noting $p \geq 2$.
+It remains only to show that $[z^l]G(z)=0$ for $l=0,\dots,p$, which follows by noting that $z(g(z)-1)^{p-1} \mid G(z)$, applying Lemma~\ref{lem:z2g}, and noting $p \geq 2$.
 \end{proof}
 
 \subsection{Proving $f_i$ are singular vectors} 
@@ -376,10 +376,10 @@ We will use an analogue of ``residues by parts'' in a formal power series settin
 \[
 a'(z)=z^pb(z)-\sum_j \frac{(m_jc-1)s_j}{1-s_jz}a(z)
 \]
-for some formal power series $b(z)$. By Corollary~\ref{corr:dFdz2} we have for some $V(z)$ where $[z^l]V(z)=0$ for $0 \le l \le p-1$ that $F'(z)=V(z)+\sum_j \frac{-cm_js_j}{1-s_jz}F(z)$. We now compute
+for some formal power series $b(z)$. By Corollary~\ref{corr:dFdz2} we have for some $V(z)$ where $[z^l]V(z)=0$ for $0 \le l \le p-1$ that $F'(z)=V(z)-\sum_j \frac{cm_js_j}{1-s_jz}F(z)$. We now compute
 \begin{align*}
 a'(z)=\frac{d}{dz}\left(\frac{1}{\prod_{i=1}^{r}(1-s_iz)}F(z)\right)&=\frac{1}{\prod_{i=1}^{r}(1-s_iz)}F'(z)+\sum_{j=1}^{r}\frac{s_j}{(1-s_jz)\prod_{i=1}^{r}(1-s_iz)}F(z)\\
-&=\frac{1}{\prod_{i=1}^{r}(1-s_iz)}\left(V(z)+\sum_j \frac{-cm_js_j}{1-s_jz}F(z)\right)+\sum_{j=1}^{r}\frac{s_j}{1-s_jz}a(z)\\
+&=\frac{1}{\prod_{i=1}^{r}(1-s_iz)}\left(V(z)-\sum_j \frac{cm_js_j}{1-s_jz}F(z)\right)+\sum_{j=1}^{r}\frac{s_j}{1-s_jz}a(z)\\
 &=\frac{V(z)}{\prod_{i=1}^{r}(1-s_iz)}-\sum_j \frac{(m_jc-1)s_j}{1-s_jz}a(z).
 \end{align*}
 The fact that $[z^l]V(z)=0$ for $0 \le l \le p-1$ then gives the claim.
