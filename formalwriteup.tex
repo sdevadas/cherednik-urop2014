@@ -101,7 +101,7 @@ For any $\alpha \ne 0$, $\HH_{\hbar,c}(\h)$ and $\HH_{\alpha\hbar,\alpha c}(\h)$
 
 The rational Cherednik algebra $\HH_{1, c}(\h)$ admits a $\ZZ_{\geq 0}$-graded representation on the polynomial ring $A = \Sym(\h^*)$, known as the \textit{polynomial representation}.  The actions of $\Sym(\h^*)$ and $k[S_n]$ on $A$ are by left multiplication and the $S_n$ action on $\h^*$, respectively.  The action of $\Sym(\h)$ is implemented by letting $y \in \h$ act by the \textit{Dunkl operator}
 \begin{align*}
-D_y =  \partial_y  - \sum_{m=1}^{n} \sum_{l=1}^{n} c  \langle y, x_m-x_l \rangle \frac{1-s_{ml}}{x_m - x_l},
+D_y =  \partial_y  - \sum_{m < l} c  \langle y, x_m-x_l \rangle \frac{1-s_{ml}}{x_m - x_l},
 \end{align*}
 where we note that $\frac{1-s_{ml}}{x_m - x_l}f$ is a polynomial for $f \in A$. Explicitly, we have  
 \[
