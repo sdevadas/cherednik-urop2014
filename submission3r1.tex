@@ -335,7 +335,7 @@ If $p > 2$, we have
 \[
 [z^p]F_j(z)=f_j=\sum_{m=0}^{(p-1)/2} (-1)^m\binom{c}{m}=\binom{c-1}{(p-1)/2}
 \]
-and $[z^p]F_i(z)=f_i=0$ for $i < n$ and $i \neq j$. For $c \ne 1,2,\dots,(p-1)/2$ and hence for generic $c$, we have $\binom{c-1}{(p-1)/2} \ne 0$, meaning that 
+and $[z^p]F_i(z)=f_i=0$ for $i < n$ and $i \neq j$. For $c \notin \{1,2,\dots,(p-1)/2\}$ and hence for generic $c$, we have $\binom{c-1}{(p-1)/2} \ne 0$, meaning that 
 \[
 \sum_{i=1}^{n-1} \lambda_if_i = \lambda_j\binom{c-1}{(p-1)/2}=0,
 \]
@@ -378,7 +378,7 @@ Take the variables $x_j$ to consist of $m_i$ copies of each $s_i$ in Lemma~\ref{
 \end{proof}
 
 \begin{lemma} \label{lem:resbyparts}
-Let $s_1,\dots,s_{r}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_is_i=0$.  For generic $c$ and any integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\ldots$, $[z^{l+r}]a(z)$.
+Let $s_1,\dots,s_{r}$ be distinct non-zero elements of $k$ and $m_i$ positive integers so that that $\sum_i m_is_i=0$.  For generic $c$ and any non-negative integer $l \le p-r$, $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\ldots$, $[z^{l+r}]a(z)$.
 \end{lemma}
 \begin{proof} 
 We will use an analogue of ``residues by parts'' in a formal power series setting.   We first show that 
@@ -415,8 +415,16 @@ The lowest degree term of the formal power series $z^ph_l(z)b(z)$ has degree at 
 \[
 [z^{-1}]\,\frac{d}{dz}( h_l(z) a(z))=0,
 \]
-so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z)$, $\ldots$, $[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has coefficient $(-1)^r \prod_i s_i\left((l + r) - \sum_i m_i c\right)$. This coefficient is nonzero for $c \ne \frac{l+r}{\sum_i m_i}$ (hence for generic $c$) and $\prod_i s_i \ne 0$. Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\dots$, $[z^{l+r}]a(z)$ when $l \le p-r$. 
+so for $p-l-r \ge 0$, we see that $[z^{-1}]\left(\frac{d}{dz}( h_l(z) a(z))\right)=0$ is a linear combination of $[z^l]a(z)$, $\ldots$, $[z^{l+r}]a(z)$ in which $[z^l]a(z)$ has coefficient $(-1)^r \prod_i s_i\left((l + r) - \sum_i m_i c\right)$. This coefficient is nonzero since $\prod_i s_i \ne 0$ and $c \ne \frac{l+r}{\sum_i m_i}$ for generic $c$.
+
+\todo[inline]{This does not work if $\sum_i m_i = 0$ and $l + r = 0$, which is where we use it.}
+
+ Therefore $[z^l]a(z)$ is a linear combination of $[z^{l+1}]a(z)$, $\dots$, $[z^{l+r}]a(z)$ when $l \le p-r$. 
 \end{proof}
+
+\begin{remark}
+In Lemma \ref{lem:resbyparts}, $c$ must be generic in the sense that it must avoid finitely many values for each choice of $(l, r, \{m_i\})$.
+\end{remark}
 
 \subsection{Complete intersection property}
 
@@ -457,8 +465,6 @@ By repeated application of Lemma~\ref{lem:resbyparts} starting with $l=p-r$ (but
 This implies that $[z^0]a(z)=0$, a contradiction. We conclude that $s_i=0$ for some $i$.  
 
 Now, suppose without loss of generality that $s_{r}=0$. If $r = 1$, we are done.  Otherwise, we have $\sum_{i=1}^{r-1} m_is_i = \sum_{i=1}^{r} m_is_i = 0$ and because the $s_i$ are distinct we see that $\prod_{i=1}^{r-1} s_i \ne 0$.  Therefore, we may apply Lemma~\ref{lem:resbyparts} and repeat the argument above with $s_1, \ldots, s_{r - 1}$.  We find that at least one of the $s_i$ with $i < r$ is $0$, contradicting distinctness of $s_i$. Therefore, we find $r=1$ and $s_1=0$, concluding the proof.
-
-We apply Lemma~\ref{lem:resbyparts} finitely many times with finitely many choices of $l,r,m_i$  and hence we need only avoid the finite set of values $\{\frac{l+r}{\sum_i m_i}\} \cup \{1,\dots,(p-1)/2\}$ in order that Lemma~\ref{lem:resbyparts} may be applied and for the $f_i$ to be linearly independent according to Proposition~\ref{prop:linind}. For $c$ avoiding this finite set of values, $A/I_c$ is a complete intersection; hence this is true for generic $c$.
 \end{proof}
 
 \section{Proof of the main result}
@@ -480,6 +486,11 @@ h_{A/I_c}(t)=\left(\frac{1-t^p}{1-t}\right)^{n-1}.
 \]
 By Proposition~\ref{prop:ann}, the generators $f_i$ of $I_c$ are singular vectors, so $I_c \subseteq J_c$, implying that $h_{A/I_c}(t) \ge h_{A/J_c}(t)$ coefficient-wise.  We conclude that $h(t) = 1$, hence $h_{A/I_c}(t)=h_{A/J_c}(t)$ and $I_c=J_c$, completing the proof.
 \end{proof}
+
+\begin{remark}
+In the proof of Proposition \ref{prop:ci}, we require that $c$ avoids $\{-1, 1,\dots,(p-1)/2\}$ for Proposition \ref{prop:linind} and that $c$ avoids $\{\frac{l+r}{\sum_i m_i}\}$ for each of the finitely many applications of Lemma~\ref{lem:resbyparts}.  These are the only uses of the assumption that $c$ is generic, so Proposition \ref{prop:ci} and Theorem \ref{thm:main} hold for $c$ avoiding this finite set of values.
+\end{remark}
+
 
 \bibliographystyle{alpha}
 \bibliography{rca-bib}
