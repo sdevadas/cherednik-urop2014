@@ -137,7 +137,7 @@ h_L(t) = \sum_{j \geq 0} \dim L_j t^j.
 
 \subsection{Statement of the main result}
 
-For a formal Laurent series $r(z)$, we denote by $[z^l] r(z)$ the coefficient of $z^l$ in $r(z)$.  Throughout the paper, we will consider formal power series in $z$ considered as expansions of rational functions around $z = 0$. For $i = 1, \ldots, n - 1$, define the formal power series
+For a formal power series $r(z)$, we denote by $[z^l] r(z)$ the coefficient of $z^l$ in $r(z)$.  Throughout the paper, we will consider formal power series in $z$ considered as expansions of rational functions around $z = 0$. For $i = 1, \ldots, n - 1$, define the formal power series
 \[
 F_i(z)=\frac{1}{1-x_iz} \sum_{m=0}^{p-1} \binom{c}{m}\left(\prod_{j=1}^{n} (1-x_jz) - 1\right)^m
 \]
@@ -263,7 +263,7 @@ For $c \neq 0$, we have $\sum_{i = 1}^n f_i = 0$.
 \begin{proof}
 By Lemma \ref{lem:dFdz}, we have that
 \[
-zF'(z) = z V(z) - \sum_{j = 1}^n \frac{cx_jz}{1 - x_j z} F(z) = z V(z) - c \sum_{j = 1}^n \frac{1 - x_j z} F(z),
+zF'(z) = z V(z) - \sum_{j = 1}^n \frac{cx_jz}{1 - x_j z} F(z) = z V(z) - c \sum_{j = 1}^n \frac{1}{1 - x_j z} F(z),
 \]
 where we subtract $ncF(z)$ in the second equality.  Notice that $[z^p]$ coefficient of the left side is $0$ because $[z^{p - 1}] F'(z) = 0$ and that $[z^p] zV(z) = 0$.  Therefore, we conclude that $c \sum_i f_i = 0$, giving the desired.
 \end{proof}
@@ -388,9 +388,9 @@ for $i = 1, \ldots, r$.  Notice that $\wF(s_i; s_1, \ldots, s_r, c)$ is a polyno
 \]
 meaning that if $c = 0$, we have $s_1 = \cdots = s_r = 0$, hence $B/I_0$ is finite dimensional over $k$.  
 
-Now, let $B^d$ and $I_c^d$ denote the degree $d$ pieces of $B$ and the homogeneous ideal $I_c$, respectively.  Choose a monomial basis $\{t_i\}$ for $B^d$ independent of $c$, and let $I_c^d$ be spanned by a finite set of polynomials $\{g_j\}$ with $g_j = \sum_i h_{ji}(c) t_i$.  Notice that $\dim I_c^d$ is given by the size of the maximal non-vanishing minor of the matrix $H = (h_{ji})$.  On the other hand, we just showed that there is some degree $d > 0$ so that $I^d_0 = B^d$, meaning that $\dim I^d_c < \dim B^d$ exactly when $c$ lies is the vanishing ideal of all $\dim B^d$ minors of $H$.  This implies that for all but finitely many $c$ we have $\dim I^d_c = \dim B^d$ and hence $B/I_c$ is finite-dimensional over $k$.
+Now, let $B^d$ and $I_c^d$ denote the degree $d$ pieces of $B$ and the homogeneous ideal $I_c$, respectively.  Choose a monomial basis $\{t_i\}$ for $B^d$ independent of $c$, and let $I_c^d$ be spanned by a finite set of polynomials $\{g_j\}$ with $g_j = \sum_i h_{ji}(c) t_i$.  Notice that $\dim I_c^d$ is given by the size of the maximal non-vanishing minor of the matrix $H = (h_{ji})$.  On the other hand, we just showed that there is some degree $d > 0$ so that $I^d_0 = B^d$, meaning that $\dim I^d_c < \dim B^d$ exactly when $c$ lies in the vanishing ideal of all $\dim B^d$ minors of $H$.  This implies that for all but finitely many $c$ we have $\dim I^d_c = \dim B^d$ and hence $B/I_c$ is finite-dimensional over $k$.
 
-For each of the finitely many choices of $r, m_1, \ldots, m_r > 0$ with $\sum_i m_i = n$, we conclude that for all but finitely many $c$, if $\{\alpha_1, \ldots, \alpha_n\}$ contains $s_i$ with multiplicity $s_i$, then $\alpha_1 = \cdots = \alpha_n = 0$.  Taking the union over excluded possibilities for $c$, we conclude that $f_i(\alpha_1, \ldots, \alpha_n) = 0$ implies $\alpha_1 = \cdots = \alpha_n = 0$ unconditionally for generic $c$, so $A/I_c$ is a complete intersection as desired.
+For each of the finitely many choices of $r, m_1, \ldots, m_r > 0$ with $\sum_i m_i = n$, we conclude that for all but finitely many $c$, if $\{\alpha_1, \ldots, \alpha_n\}$ contains $s_i$ with multiplicity $m_i$, then $\alpha_1 = \cdots = \alpha_n = 0$.  Taking the union over excluded possibilities for $c$, we conclude that $f_i(\alpha_1, \ldots, \alpha_n) = 0$ implies $\alpha_1 = \cdots = \alpha_n = 0$ unconditionally for generic $c$, so $A/I_c$ is a complete intersection as desired.
 \end{proof}
 
 \begin{remark}
