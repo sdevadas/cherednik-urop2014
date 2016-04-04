@@ -349,17 +349,17 @@ Consider the homogeneous ideal $I_c = \langle f_1, \ldots, f_{n - 1} \rangle \su
 For generic $c$, the quotient $A/I_c$ is a complete intersection. 
 \end{proposition}
 \begin{proof}
-By Proposition~\ref{prop:linind}, $I_c$ has a set of $n-1$ linearly independent and therefore minimal generators $f_1, \ldots, f_{n-1}$ in degree $p$.  Therefore $A/I_c$ is a complete intersection if and only $I_c$ cuts out a projective variety of dimension $(n - 2) - (n - 1) = -1$, meaning it is empty.  This occurs if and only if the saturation of $I_c$ is $A$, which occurs if and only if $\dim_k(A/I_c) < \infty$.
+By Proposition~\ref{prop:linind}, $I_c$ has a set of $n-1$ linearly independent and therefore minimal generators $f_1, \ldots, f_{n-1}$ in degree $p$.  Therefore $A/I_c$ is a complete intersection if and only if $I_c$ cuts out a projective variety of dimension $(n - 2) - (n - 1) = -1$, meaning it is empty.  This occurs if and only if the saturation of $I_c$ is $A$, which occurs if and only if $\dim_k(A/I_c) < \infty$.
 
 If $c = 0$, by definition of $f_i$ we see that $f_i = x_i^p$.  Note that 
 \[
 f_n = x_n^p = (-x_1 - \cdots - x_{n-1})^p = - x_1^p - \cdots - x_{n - 1}^p = - f_1 - \cdots - f_{n -1} \in I_0,
 \]
-meaning that $(x_1^p, \ldots, x_n^p) \subset I_0$ and hence $\dim_k(A/I_c) < \infty$.  Now, let $A^d$ and $I_c^d$ denote the degree $d$ pieces of $A$ and $I_c$, respectively.  Choose a monomial basis $\{t_i\}$ for $A^d$ independent of $c$, and let $I_c^d$ be spanned by a finite set of polynomials $\{g_j\}$ with $g_j = \sum_i h_{ji}(c) t_i$.  Notice that $\dim I_c^d$ is given by the size of the maximal non-vanishing minor of the matrix $H = (h_{ji})$.  On the other hand, we just showed that there is some degree $d > 0$ so that $I_0^d = A^d$, meaning that $\dim I_c^d < \dim A^d$ exactly when $c$ lies in the zero set of all size $\dim A^d$ minors of $H$, viewed as polynomials in $c$.  This implies that for all but finitely many $c$ we have $\dim I_c^d = \dim A^d$, hence $\dim_k(A/I_c) < \infty$ and $A/I_c$ is a complete intersection.
+meaning that $(x_1^p, \ldots, x_n^p) \subset I_0$ and hence $\dim_k(A/I_0) < \infty$.  Now, let $A^d$ and $I_c^d$ denote the degree $d$ pieces of $A$ and $I_c$, respectively.  Choose a monomial basis $\{t_i\}$ for $A^d$ independent of $c$, and let $I_c^d$ be spanned by a finite set of polynomials $\{g_j\}$ with $g_j = \sum_i h_{ji}(c) t_i$.  Notice that $\dim I_c^d$ is given by the size of the maximal non-vanishing minor of the matrix $H = (h_{ji})$.  On the other hand, we just showed that there is some degree $d > 0$ so that $I_0^d = A^d$, meaning that $\dim I_c^d < \dim A^d$ exactly when $c$ lies in the zero set of all size $\dim A^d$ minors of $H$, viewed as polynomials in $c$.  This implies that for all but finitely many $c$ we have $\dim I_c^d = \dim A^d$, hence $\dim_k(A/I_c) < \infty$ and $A/I_c$ is a complete intersection.
 \end{proof}
 
 \begin{remark}
-Proposition \ref{prop:ci} is a formal power series analogue of \cite[Theorem 3.2]{CE}.  However, our proof differs from the ``residues by parts'' argument which appears there, as the crucial \cite[Lemma 3.2]{CE} fails in the modular case.  It is interesting to note that our proof does not appear to translate to the characteristic $0$ case, as there is no analogue of operation of specializing $c$ to $0$.
+Proposition \ref{prop:ci} is a formal power series analogue of \cite[Theorem 3.2]{CE}.  However, our proof differs from the ``residues by parts'' argument which appears there, as the crucial \cite[Lemma 3.2]{CE} fails in the modular case.  It is interesting to note that our proof does not appear to translate to the characteristic $0$ case, as there is no analogue for the operation of specializing $c$ to $0$.
 \end{remark}
 
 \section{Proof of the main result}
